@@ -7,6 +7,8 @@ import { loadDetail } from '../data/loader.ts';
 import type { GraphIndex } from '../graph/model.ts';
 import { partnerLinksOf, siblingsOf } from '../graph/model.ts';
 import type { Texts } from '../i18n/texts.ts';
+import type { NameIndex } from './nameLinks.ts';
+import { Prose } from './Prose.tsx';
 import { aspectOf, existsIn, nameOf, otherAspectOf, sortByName } from './display.ts';
 
 /**
@@ -132,6 +134,7 @@ interface SidePanelProps {
   readonly node: GraphNode;
   readonly index: GraphIndex;
   readonly partners: readonly PartnerLink[];
+  readonly nameIndex: NameIndex;
   readonly meta: Meta;
   readonly tradition: Tradition;
   readonly lang: Lang;
@@ -145,6 +148,7 @@ export function SidePanel({
   node,
   index,
   partners,
+  nameIndex,
   meta,
   tradition,
   lang,
@@ -235,6 +239,8 @@ export function SidePanel({
             lang={lang}
             meta={meta}
             texts={texts}
+            nameIndex={nameIndex}
+            onPick={onPick}
           />
         )}
 
@@ -247,6 +253,7 @@ export function SidePanel({
             tradition={tradition}
             lang={lang}
             texts={texts}
+            nameIndex={nameIndex}
             onPick={onPick}
           />
         )}
@@ -259,6 +266,8 @@ export function SidePanel({
             tradition={tradition}
             lang={lang}
             texts={texts}
+            nameIndex={nameIndex}
+            onPick={onPick}
           />
         )}
       </div>
@@ -272,6 +281,8 @@ interface OverviewTabProps {
   readonly lang: Lang;
   readonly meta: Meta;
   readonly texts: Texts;
+  readonly nameIndex: NameIndex;
+  readonly onPick: (figureId: string) => void;
 }
 
 function OverviewTab({
@@ -280,6 +291,8 @@ function OverviewTab({
   lang,
   meta,
   texts,
+  nameIndex,
+  onPick,
 }: OverviewTabProps): React.JSX.Element {
   // Fehlt das Gegenstueck, zeigen wir die vorhandene Sicht - eine leere Seite
   // waere die schlechtere Antwort als ein Hinweis samt Beschreibung.
@@ -290,7 +303,12 @@ function OverviewTab({
 
   return (
     <>
-      <p className="prose">{aspect.description[lang]}</p>
+      <Prose
+        text={aspect.description[lang]}
+        nameIndex={nameIndex}
+        selfId={figure.id}
+        onPick={onPick}
+      />
 
       <Field label={texts.domainsLabel}>
         <Chips items={domains} />
@@ -325,7 +343,12 @@ function OverviewTab({
 
       {aspect.cultNotes !== undefined && (
         <Field label={texts.cultLabel}>
-          <p className="prose">{aspect.cultNotes[lang]}</p>
+          <Prose
+            text={aspect.cultNotes[lang]}
+            nameIndex={nameIndex}
+            selfId={figure.id}
+            onPick={onPick}
+          />
         </Field>
       )}
 
@@ -346,6 +369,7 @@ interface FamilyTabProps {
   readonly tradition: Tradition;
   readonly lang: Lang;
   readonly texts: Texts;
+  readonly nameIndex: NameIndex;
   readonly onPick: (figureId: string) => void;
 }
 
@@ -366,6 +390,7 @@ function FamilyTab({
   tradition,
   lang,
   texts,
+  nameIndex,
   onPick,
 }: FamilyTabProps): React.JSX.Element {
   const { nodeById } = index;
@@ -440,9 +465,13 @@ function FamilyTab({
           {(figure.counterparts ?? [])
             .filter((entry) => entry.note !== undefined)
             .map((entry) => (
-              <p key={entry.figure} className="prose">
-                {entry.note?.[lang]}
-              </p>
+              <Prose
+                key={entry.figure}
+                text={entry.note?.[lang] ?? ''}
+                nameIndex={nameIndex}
+                selfId={figure.id}
+                onPick={onPick}
+              />
             ))}
         </Field>
       )}
@@ -457,6 +486,8 @@ interface SourcesTabProps {
   readonly tradition: Tradition;
   readonly lang: Lang;
   readonly texts: Texts;
+  readonly nameIndex: NameIndex;
+  readonly onPick: (figureId: string) => void;
 }
 
 function SourcesTab({
@@ -466,6 +497,8 @@ function SourcesTab({
   tradition,
   lang,
   texts,
+  nameIndex,
+  onPick,
 }: SourcesTabProps): React.JSX.Element {
   const byRank = [...figure.parentage].sort(
     (a, b) => Number(b.canonical) - Number(a.canonical),
@@ -504,7 +537,13 @@ function SourcesTab({
           </p>
 
           {variant.note !== undefined && (
-            <p className="source-entry__note">{variant.note[lang]}</p>
+            <Prose
+              text={variant.note[lang]}
+              nameIndex={nameIndex}
+              selfId={figure.id}
+              onPick={onPick}
+              className="source-entry__note"
+            />
           )}
         </div>
       ))}

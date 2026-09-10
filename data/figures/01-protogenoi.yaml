@@ -405,6 +405,7 @@ figures:
     greek:
       name: Uranos
       nameOriginal: Οὐρανός
+      altNames: [Uranus]
       domains: [sky, sovereignty]
       description:
         de: >-

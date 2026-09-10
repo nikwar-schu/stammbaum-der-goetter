@@ -111,6 +111,7 @@ figures:
     greek:
       name: Phorkys
       nameOriginal: Φόρκυς
+      altNames: [Phorcys]
       domains: [sea]
       description:
         de: >-
@@ -152,6 +153,7 @@ figures:
     greek:
       name: Keto
       nameOriginal: Κητώ
+      altNames: [Ceto]
       domains: [sea]
       description:
         de: >-

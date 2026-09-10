@@ -17,6 +17,7 @@ import type { VisibilityState } from '../graph/view.ts';
 import { texts as textsFor } from '../i18n/texts.ts';
 import { listenToHistory, useAppStore } from '../state/store.ts';
 import { existsIn } from './display.ts';
+import { buildNameIndex } from './nameLinks.ts';
 import { FilterRail } from './FilterRail.tsx';
 import { GraphCanvas } from './GraphCanvas.tsx';
 import { Header } from './Header.tsx';
@@ -112,9 +113,19 @@ export function App(): React.JSX.Element {
 function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
   const store = useAppStore();
   const texts = textsFor(store.lang);
-  const [railOpen, setRailOpen] = useState(false);
+  // Ausgefahren, wo Platz dafuer ist; auf schmalen Bildschirmen wuerde die
+  // Leiste sonst beim Start den ganzen Stammbaum verdecken.
+  const [railOpen, setRailOpen] = useState(
+    () => typeof window === 'undefined' || window.matchMedia('(min-width: 1181px)').matches,
+  );
 
   const index = useMemo(() => buildIndex(core.graph), [core.graph]);
+
+  /** Namenstabelle fuer die Verweise im Fliesstext der Infofenster. */
+  const nameIndex = useMemo(
+    () => buildNameIndex(core.graph.nodes, core.search),
+    [core.graph.nodes, core.search],
+  );
 
   /** Tiefste vorhandene Generationsebene - mehr als das gibt es nicht zu zeigen. */
   const maxDepth = useMemo(() => {
@@ -204,6 +215,7 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
         tradition={store.tradition}
         view={store.view}
         showVariants={store.showVariants}
+        railOpen={railOpen}
         docs={core.search}
         nodeById={index.nodeById}
         meta={core.meta}
@@ -215,7 +227,15 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
         onToggleRail={() => setRailOpen((open) => !open)}
       />
 
-      <div className={selectedNode === undefined ? 'app__body' : 'app__body app__body--with-panel'}>
+      <div
+        className={[
+          'app__body',
+          railOpen ? 'app__body--with-rail' : '',
+          selectedNode === undefined ? '' : 'app__body--with-panel',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <FilterRail
           texts={texts}
           lang={store.lang}
@@ -251,6 +271,7 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
             node={selectedNode}
             index={index}
             partners={core.graph.partners}
+            nameIndex={nameIndex}
             meta={core.meta}
             tradition={store.tradition}
             lang={store.lang}

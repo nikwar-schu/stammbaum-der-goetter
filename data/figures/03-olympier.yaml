@@ -739,6 +739,7 @@ figures:
     greek:
       name: Hephaistos
       nameOriginal: Ἥφαιστος
+      altNames: [Hephaestus]
       domains: [metalworking, fire, crafts]
       symbols:
         de: [Hammer, Amboss, Zange, Eselskappe]

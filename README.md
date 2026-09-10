@@ -7,7 +7,11 @@ Gaia bis zu den kleinsten Nischengottheiten, mit Quellenangaben zu jeder Abstamm
   Baum bleiben unverändert. Figuren ohne Gegenstück verschwinden; ihre Abstammung
   wird durch gestrichelte Brückenlinien überbrückt, damit der Baum zusammenhängend
   bleibt.
-- **Zweisprachig** deutsch und englisch.
+- **Zweisprachig** deutsch und englisch; die Seite startet auf Englisch, Deutsch ist
+  einen Klick entfernt und bleibt in der Adresse erhalten, wenn jemand sie teilt.
+- **Namen im Fließtext sind anklickbar.** Steht in Aphrodites Beschreibung „Hephaestus",
+  führt ein Klick dorthin. Die Namen werden beim Anzeigen erkannt, nicht in den Texten
+  ausgezeichnet - ein neuer Eintrag verlinkt sich damit von selbst.
 - **Ehen und Liebschaften** sind unterschieden und mit Quelle belegt. Aphrodite ist mit
   Hephaistos verheiratet (⚭) und Ares zugetan (♥) - beides steht nebeneinander im
   Infofenster und wird im Baum als Linie mit dem passenden Zeichen gezeichnet.
@@ -40,8 +44,11 @@ Die Anwendung läuft dann unter der Adresse, die Vite ausgibt.
 | `npm run build` | Vollständiger Bau nach `dist/` |
 | `npm run gen:schema` | JSON-Schema für den Editor aus dem Zod-Schema erzeugen |
 
+| `npm run check:links` | zeigt im Text genannte Gottheiten ohne Verweis |
+
 Beim Start sind alle Sachgruppen eingeschaltet und alle Generationen sichtbar; über die
-Filterleiste lässt sich beides einschränken.
+Filterleiste lässt sich beides einschränken. Die Leiste selbst lässt sich über den
+Schalter „Sachgruppen" ein- und ausfahren.
 
 ## Eine Gottheit hinzufügen
 
@@ -127,6 +134,10 @@ merkt das hier nicht — dafür trägt jede Abstammung ihre antike Textstelle.
 - **`confidence`** hält fest, wie gut eine Figur belegt ist — wichtig bei den
   Nischengottheiten, die oft nur eine einzige Textstelle nennt.
 - **Verbindungsknoten** zwischen Eltern und Kindern werden abgeleitet, nicht gepflegt.
+- **Namen im Fließtext werden zur Laufzeit erkannt** (`src/ui/nameLinks.ts`), nicht in
+  den Daten ausgezeichnet. Mehrdeutige Namen bleiben unverlinkt - lieber kein Verweis als
+  ein falscher. Weicht die englische Schreibung ab („Cronus" neben „Kronos"), gehört sie
+  als weiterer Name in `altNames`; `npm run check:links` zeigt, wo das noch fehlt.
 - **Partnerlinien fließen nicht in das Layout ein.** Partner können im Baum weit
   auseinanderliegen; Linien quer über hunderte Figuren wären unlesbar. Gezeichnet werden
   sie nur für die gerade gewählte Figur.

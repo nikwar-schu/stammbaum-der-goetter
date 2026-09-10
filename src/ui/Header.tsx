@@ -44,6 +44,7 @@ interface HeaderProps {
   readonly tradition: Tradition;
   readonly view: ViewMode;
   readonly showVariants: boolean;
+  readonly railOpen: boolean;
   readonly docs: readonly SearchDoc[];
   readonly nodeById: ReadonlyMap<string, GraphNode>;
   readonly meta: Meta;
@@ -61,6 +62,7 @@ export function Header({
   tradition,
   view,
   showVariants,
+  railOpen,
   docs,
   nodeById,
   meta,
@@ -73,10 +75,6 @@ export function Header({
 }: HeaderProps): React.JSX.Element {
   return (
     <header className="header">
-      <button type="button" className="rail-toggle" onClick={onToggleRail}>
-        {texts.categoriesLabel}
-      </button>
-
       <div className="header__brand">
         <h1 className="header__title">{texts.appTitle}</h1>
         <p className="header__subtitle">{texts.appSubtitle}</p>
@@ -93,6 +91,19 @@ export function Header({
       />
 
       <div className="header__controls">
+        <div className="control">
+          <span className="control__label">{texts.categoriesLabel}</span>
+          <button
+            type="button"
+            className="toggle"
+            aria-pressed={railOpen}
+            onClick={onToggleRail}
+          >
+            <span className="toggle__mark toggle__mark--list" aria-hidden="true" />
+            {texts.categoriesLabel}
+          </button>
+        </div>
+
         <Segmented
           label={texts.traditionLabel}
           value={tradition}
@@ -122,7 +133,7 @@ export function Header({
             title={texts.variantsHint}
             onClick={onToggleVariants}
           >
-            <span className="toggle__mark" aria-hidden="true" />
+            <span className="toggle__mark toggle__mark--dashed" aria-hidden="true" />
             {texts.variantsLabel}
           </button>
         </div>

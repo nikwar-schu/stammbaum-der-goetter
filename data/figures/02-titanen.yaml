@@ -455,6 +455,7 @@ figures:
     greek:
       name: Kronos
       nameOriginal: Κρόνος
+      altNames: [Cronus]
       domains: [harvest, sovereignty, time]
       symbols:
         de: [Sichel]
@@ -1346,6 +1347,7 @@ figures:
     greek:
       name: Menoitios
       nameOriginal: Μενοίτιος
+      altNames: [Menoetius]
       domains: [force, might]
       description:
         de: >-

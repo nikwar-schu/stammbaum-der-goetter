@@ -17,7 +17,8 @@
     "prebuild": "npm run prepare:data && tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run"
+    "test": "vitest run",
+    "check:links": "node scripts/check-links.ts"
   },
   "dependencies": {
     "cytoscape": "^3.34.3",

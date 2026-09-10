@@ -50,17 +50,14 @@ const PARAM = {
 const FIGURE_PREFIX = '#/f/';
 const OUTLINE_PATH = '#/text';
 
-function defaultLang(): Lang {
-  if (typeof navigator === 'undefined') return 'de';
-  return navigator.language.toLowerCase().startsWith('de') ? 'de' : 'en';
-}
-
 export function defaultState(): UrlState {
   return {
     route: 'graph',
     figure: null,
     tradition: 'greek',
-    lang: defaultLang(),
+    // Englisch als Ausgangssprache: die Seite ist oeffentlich, Deutsch ist einen
+    // Klick entfernt und bleibt in der Adresse erhalten, wenn jemand teilt.
+    lang: 'en',
     showVariants: false,
     view: 'focus',
     depth: DEFAULT_DEPTH,

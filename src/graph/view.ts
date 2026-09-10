@@ -243,12 +243,14 @@ export class TreeView {
     // Die Lesbarkeitsgrenze gilt nur, wenn eine Figur gewaehlt ist: dann zeigt
     // der Ausschnitt bewusst nur deren Umgebung. Ohne Auswahl will man das
     // Gesamtbild sehen, auch wenn die Namen dabei klein werden.
-    const zoom =
-      focusId === null
-        ? Math.min(MAX_ZOOM, fitZoom)
-        : Math.min(MAX_ZOOM, Math.max(MIN_AUTO_ZOOM, fitZoom));
+    const clamped = focusId !== null && fitZoom < MIN_AUTO_ZOOM;
+    const zoom = clamped ? MIN_AUTO_ZOOM : Math.min(MAX_ZOOM, fitZoom);
 
-    const anchor = focusId === null ? null : this.#cy.getElementById(focusId);
+    // Auf die gewaehlte Figur wird nur zentriert, wenn ohnehin nicht alles
+    // hineinpasst. Passt es, gehoert der Ausschnitt auf die Mitte der ganzen
+    // Verwandtschaft - sonst verschwinden die Vorfahren ueber dem Bildrand,
+    // waehrend darunter Platz frei bleibt.
+    const anchor = clamped && focusId !== null ? this.#cy.getElementById(focusId) : null;
     const centre =
       anchor !== null && !anchor.empty() && !anchor.hasClass('out-of-view')
         ? anchor.position()

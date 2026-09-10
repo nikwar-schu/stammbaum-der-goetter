@@ -5,6 +5,7 @@ import {
   buildIndex,
   computeBridges,
   descendantsOf,
+  fullSiblingsOf,
   siblingsOf,
 } from './model.ts';
 
@@ -107,6 +108,31 @@ describe('siblingsOf', () => {
 
   it('liefert nichts für eine Figur ohne Eltern', () => {
     expect(siblingsOf(buildIndex(graphOf({ chaos: [] })), 'chaos')).toEqual(new Set());
+  });
+});
+
+describe('fullSiblingsOf', () => {
+  const index = buildIndex(
+    graphOf({
+      // Uranos hat Kinder aus zwei Verbindungen: mit Gaia die Titanen,
+      // aus sich allein Aphrodite. Halbgeschwister zaehlen hier nicht.
+      kronos: ['gaia', 'uranos'],
+      rheia: ['gaia', 'uranos'],
+      aphrodite: ['uranos'],
+    }),
+  );
+
+  it('zählt nur Kinder derselben Elternverbindung', () => {
+    expect(fullSiblingsOf(index, 'kronos')).toEqual(new Set(['rheia']));
+  });
+
+  it('lässt Halbgeschwister aus anderen Verbindungen weg', () => {
+    expect(fullSiblingsOf(index, 'aphrodite')).toEqual(new Set());
+    expect(siblingsOf(index, 'aphrodite')).toEqual(new Set(['kronos', 'rheia']));
+  });
+
+  it('liefert nichts für eine Figur ohne Eltern', () => {
+    expect(fullSiblingsOf(index, 'gaia')).toEqual(new Set());
   });
 });
 

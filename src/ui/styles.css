@@ -99,6 +99,7 @@ a {
 }
 
 .app__body {
+  position: relative;
   display: grid;
   grid-template-columns: var(--rail-width) minmax(0, 1fr);
   min-height: 0;
@@ -874,28 +875,45 @@ a {
   padding: 6px 10px;
 }
 
+.rail-toggle {
+  display: none;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-sunken);
+  font-size: 13px;
+}
+
 /* ---------- Schmale Bildschirme ---------- */
+
+/*
+ * Gestaffelt statt in einem Sprung:
+ *   ueber 1180 px  Filterleiste und Infofenster als eigene Spalten
+ *   900-1180 px    Filterleiste ausklappbar, Infofenster bleibt Spalte
+ *   unter 900 px   beides gestapelt, Zeichenflaeche ueber dem Infofenster
+ * Der Zwischenschritt ist noetig, weil Leiste und Fenster zusammen ueber 500 px
+ * belegen - auf einem 1000 px breiten Fenster bliebe fuer den Stammbaum nichts.
+ */
 
 @media (width <= 1180px) {
   :root {
-    --panel-width: 330px;
-    --rail-width: 200px;
+    --panel-width: 340px;
   }
-}
 
-@media (width <= 900px) {
   .app__body,
   .app__body--with-panel {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .app__body--with-panel {
+    grid-template-columns: minmax(0, 1fr) var(--panel-width);
+  }
+
   .rail {
     position: absolute;
     z-index: 30;
-    top: var(--header-height);
-    bottom: 0;
-    left: 0;
-    width: var(--rail-width);
+    inset: 0 auto 0 0;
+    width: 240px;
     box-shadow: var(--shadow-panel);
     transform: translateX(-100%);
     transition: transform 200ms ease;
@@ -905,9 +923,29 @@ a {
     transform: translateX(0);
   }
 
+  .rail-toggle {
+    display: inline-block;
+  }
+}
+
+@media (width <= 900px) {
+  .app__body--with-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  /*
+   * Das Infofenster bekommt eine eigene Zeile, statt ueber der Zeichenflaeche
+   * zu liegen: sonst kennt Cytoscape die tatsaechlich sichtbare Hoehe nicht und
+   * schiebt die gewaehlte Figur hinter das Fenster.
+   */
   .panel {
+    position: static;
+    max-height: 52dvh;
     border-top: 1px solid var(--line);
     border-left: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   /*
@@ -941,17 +979,6 @@ a {
     padding-bottom: 2px;
   }
 
-  .search {
-    order: 2;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  /* Der Tastaturhinweis hilft nur, wo es eine Tastatur gibt. */
-  .search__hint {
-    display: none;
-  }
-
   .header__controls::-webkit-scrollbar {
     display: none;
   }
@@ -966,35 +993,15 @@ a {
     flex: none;
   }
 
-  /*
-   * Das Infofenster bekommt eine eigene Zeile, statt ueber der Zeichenflaeche
-   * zu liegen: sonst kennt Cytoscape die tatsaechlich sichtbare Hoehe nicht und
-   * schiebt die gewaehlte Figur hinter das Fenster.
-   */
-  .app__body--with-panel {
-    grid-template-rows: minmax(0, 1fr) auto;
+  .search {
+    order: 2;
+    width: 100%;
+    margin-left: 0;
   }
 
-  .panel {
-    position: static;
-    max-height: 52dvh;
-    border-radius: 0;
-    box-shadow: none;
-  }
-}
-
-.rail-toggle {
-  display: none;
-  padding: 6px 11px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface-sunken);
-  font-size: 13px;
-}
-
-@media (width <= 900px) {
-  .rail-toggle {
-    display: inline-block;
+  /* Der Tastaturhinweis hilft nur, wo es eine Tastatur gibt. */
+  .search__hint {
+    display: none;
   }
 }
 

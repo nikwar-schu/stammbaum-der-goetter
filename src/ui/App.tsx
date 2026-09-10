@@ -8,7 +8,7 @@ import {
   buildIndex,
   computeBridges,
   descendantsOf,
-  siblingsOf,
+  fullSiblingsOf,
 } from '../graph/model.ts';
 import type { VisibilityState } from '../graph/view.ts';
 import { texts as textsFor } from '../i18n/texts.ts';
@@ -45,7 +45,7 @@ function focusSet(index: GraphIndex, selected: string | null, depth: number): Se
     selected,
     ...ancestorsOf(index, selected, depth),
     ...descendantsOf(index, selected, depth),
-    ...siblingsOf(index, selected),
+    ...fullSiblingsOf(index, selected),
   ]);
 }
 

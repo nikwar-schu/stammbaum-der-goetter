@@ -91,13 +91,32 @@ function walk(
   return found;
 }
 
-/** Geschwister: alle Kinder derselben Eltern, ohne die Figur selbst. */
+/** Geschwister und Halbgeschwister: alle Kinder eines der Elternteile. */
 export function siblingsOf(index: GraphIndex, figureId: string): Set<string> {
   const siblings = new Set<string>();
   for (const parent of index.parentsOf(figureId)) {
     for (const child of index.childrenOf(parent)) {
       if (child !== figureId) siblings.add(child);
     }
+  }
+  return siblings;
+}
+
+/**
+ * Nur leibliche Geschwister: Kinder derselben Elternverbindung.
+ *
+ * Fuer den Bildausschnitt ist das der richtige Massstab. Ueber alle
+ * Halbgeschwister zu gehen, laesst die Auswahl bei fruchtbaren Eltern
+ * explodieren - Aphrodite bekaeme ueber Uranos die vierzehn Titanenkinder dazu,
+ * die im Layout ueber Tausende Pixel verteilt liegen.
+ */
+export function fullSiblingsOf(index: GraphIndex, figureId: string): Set<string> {
+  const union = index.unionOf(figureId);
+  if (union === undefined) return new Set();
+
+  const siblings = new Set<string>();
+  for (const candidate of index.figureIds) {
+    if (candidate !== figureId && index.unionOf(candidate) === union) siblings.add(candidate);
   }
   return siblings;
 }

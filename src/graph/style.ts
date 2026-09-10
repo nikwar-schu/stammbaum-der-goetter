@@ -17,8 +17,11 @@ export interface Theme {
   readonly edge: string;
   readonly edgeVariant: string;
   readonly edgeBridge: string;
+  readonly marriage: string;
+  readonly affair: string;
   readonly union: string;
   readonly selection: string;
+  readonly surface: string;
   readonly mixTarget: string;
   readonly mixAmount: number;
 }
@@ -29,8 +32,11 @@ export const LIGHT_THEME: Theme = {
   edge: '#9c9086',
   edgeVariant: '#a8739a',
   edgeBridge: '#8a8f9c',
+  marriage: '#7a6a4f',
+  affair: '#b5566b',
   union: '#b3a99f',
   selection: '#1f1b16',
+  surface: '#fffdf9',
   mixTarget: '#ffffff',
   mixAmount: 0.82,
 };
@@ -41,8 +47,11 @@ export const DARK_THEME: Theme = {
   edge: '#6d635a',
   edgeVariant: '#b784ab',
   edgeBridge: '#7d8494',
+  marriage: '#c2ab7e',
+  affair: '#e08a9c',
   union: '#5d554d',
   selection: '#fbf7f1',
+  surface: '#201c17',
   mixTarget: '#1a1714',
   mixAmount: 0.68,
 };
@@ -143,6 +152,60 @@ export function buildStylesheet(theme: Theme): StylesheetStyle[] {
         'target-arrow-shape': 'triangle',
         'target-arrow-color': theme.edgeBridge,
         'arrow-scale': 0.7,
+      },
+    },
+    /*
+     * Verbindungen zwischen Partnern. Sie fliessen nicht in das Layout ein und
+     * werden nur fuer die gewaehlte Figur gezeichnet - Partner koennen im Baum
+     * weit auseinanderliegen, und Linien quer ueber hunderte Figuren waeren
+     * unlesbar. Das Zeichen an der Linie sagt, welcher Art die Verbindung war.
+     */
+    {
+      selector: 'edge[kind="partner"]',
+      style: {
+        width: 2,
+        'line-color': theme.marriage,
+        'curve-style': 'unbundled-bezier',
+        'control-point-distances': [-70],
+        'control-point-weights': [0.5],
+        'target-arrow-shape': 'none',
+        label: 'data(symbol)',
+        // Eigene Schriftfolge: die Serifenschrift der Knoten enthaelt die
+        // Symbolzeichen meist nicht und wuerde Kaestchen zeichnen.
+        'font-family': 'Segoe UI Symbol, Apple Symbols, Noto Sans Symbols2, sans-serif',
+        'font-size': 18,
+        color: theme.marriage,
+        'text-background-color': theme.surface,
+        'text-background-opacity': 1,
+        'text-background-padding': '3px',
+        'text-background-shape': 'roundrectangle',
+        'z-index': 25,
+      },
+    },
+    {
+      selector: 'edge[kind="partner"][relationship="liaison"]',
+      style: {
+        'line-color': theme.affair,
+        color: theme.affair,
+        'line-style': 'dashed',
+        'line-dash-pattern': [8, 5],
+      },
+    },
+    {
+      selector: 'edge[kind="partner"][relationship="abduction"]',
+      style: {
+        'line-color': theme.affair,
+        color: theme.affair,
+        'line-style': 'dashed',
+        'line-dash-pattern': [3, 4],
+      },
+    },
+    {
+      selector: 'edge[kind="partner"][relationship="unknown"]',
+      style: {
+        'line-color': theme.edge,
+        color: theme.nodeTextMuted,
+        'line-style': 'dotted',
       },
     },
     {

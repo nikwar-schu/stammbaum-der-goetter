@@ -11,6 +11,7 @@ export const SCHEMA_DIR = path.join(PROJECT_ROOT, 'schema');
 export const PUBLIC_DATA_DIR = path.join(PROJECT_ROOT, 'public', 'data');
 
 export const SOURCES_FILE = path.join(DATA_DIR, 'sources.yaml');
+export const RELATIONSHIPS_FILE = path.join(DATA_DIR, 'relationships.yaml');
 export const CATEGORIES_FILE = path.join(DATA_DIR, 'categories.yaml');
 export const DOMAINS_FILE = path.join(DATA_DIR, 'domains.yaml');
 

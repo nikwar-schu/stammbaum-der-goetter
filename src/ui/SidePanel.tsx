@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import type { Category, Lang, Tradition } from '../schema/constants.ts';
+import type { Category, Lang, RelationshipType, Tradition } from '../schema/constants.ts';
+import { RELATIONSHIP_SYMBOLS } from '../schema/constants.ts';
 import type { Figure, ParentageVariant, SourceRef } from '../schema/figure.ts';
-import type { GraphNode, Meta } from '../types/runtime.ts';
+import type { GraphNode, Meta, PartnerLink } from '../types/runtime.ts';
 import { loadDetail } from '../data/loader.ts';
 import type { GraphIndex } from '../graph/model.ts';
-import { partnersOf, siblingsOf } from '../graph/model.ts';
+import { partnerLinksOf, siblingsOf } from '../graph/model.ts';
 import type { Texts } from '../i18n/texts.ts';
 import { aspectOf, existsIn, nameOf, otherAspectOf, sortByName } from './display.ts';
 
@@ -130,6 +131,7 @@ interface SidePanelProps {
   readonly figureId: string;
   readonly node: GraphNode;
   readonly index: GraphIndex;
+  readonly partners: readonly PartnerLink[];
   readonly meta: Meta;
   readonly tradition: Tradition;
   readonly lang: Lang;
@@ -142,6 +144,7 @@ export function SidePanel({
   figureId,
   node,
   index,
+  partners,
   meta,
   tradition,
   lang,
@@ -239,6 +242,7 @@ export function SidePanel({
           <FamilyTab
             figure={figure}
             index={index}
+            partners={partners}
             meta={meta}
             tradition={tradition}
             lang={lang}
@@ -337,6 +341,7 @@ function OverviewTab({
 interface FamilyTabProps {
   readonly figure: Figure;
   readonly index: GraphIndex;
+  readonly partners: readonly PartnerLink[];
   readonly meta: Meta;
   readonly tradition: Tradition;
   readonly lang: Lang;
@@ -344,9 +349,19 @@ interface FamilyTabProps {
   readonly onPick: (figureId: string) => void;
 }
 
+/** Ehen zuerst, dann Liebschaften, dann alles Uebrige - so wird die Liste gelesen. */
+const RELATIONSHIP_ORDER: readonly RelationshipType[] = [
+  'marriage',
+  'consort',
+  'liaison',
+  'abduction',
+  'unknown',
+];
+
 function FamilyTab({
   figure,
   index,
+  partners,
   meta,
   tradition,
   lang,
@@ -358,26 +373,35 @@ function FamilyTab({
   const siblings = sortByName(siblingsOf(index, figure.id), nodeById, tradition);
   const children = sortByName(index.childrenOf(figure.id), nodeById, tradition);
 
-  const partners = new Set(partnersOf(index, figure.id));
+  const links = partnerLinksOf(partners, figure.id).sort(
+    (a, b) =>
+      RELATIONSHIP_ORDER.indexOf(a.link.type) - RELATIONSHIP_ORDER.indexOf(b.link.type) ||
+      nameOf(nodeById.get(a.partner), tradition).localeCompare(
+        nameOf(nodeById.get(b.partner), tradition),
+        'de',
+      ),
+  );
+
   const partnerNotes = new Map<string, string>();
-  for (const union of figure.unions ?? []) {
-    for (const other of union.with) {
-      partners.add(other);
-      partnerNotes.set(other, texts.unionType[union.type]);
-    }
+  for (const entry of links) {
+    const kind = `${RELATIONSHIP_SYMBOLS[entry.link.type]} ${texts.relationshipType[entry.link.type]}`;
+    partnerNotes.set(
+      entry.partner,
+      entry.link.children > 0 ? `${kind} · ${texts.childrenTogether(entry.link.children)}` : kind,
+    );
   }
 
   const counterpartNotes = new Map<string, string>();
   for (const counterpart of figure.counterparts ?? []) {
     counterpartNotes.set(counterpart.figure, texts.counterpartRelation[counterpart.relation]);
   }
-  const counterparts = sortByName(counterpartNotes.keys(), nodeById, tradition);
+  const counterparts = sortByName([...counterpartNotes.keys()], nodeById, tradition);
 
   const empty =
     parents.length === 0 &&
     siblings.length === 0 &&
     children.length === 0 &&
-    partners.size === 0 &&
+    links.length === 0 &&
     counterparts.length === 0;
 
   if (empty) return <p className="panel__empty">{texts.noRelations}</p>;
@@ -385,7 +409,11 @@ function FamilyTab({
   const sections: readonly { label: string; ids: string[]; notes?: Map<string, string> }[] = [
     { label: texts.parentsLabel, ids: parents },
     { label: texts.siblingsLabel, ids: siblings },
-    { label: texts.partnersLabel, ids: sortByName(partners, nodeById, tradition), notes: partnerNotes },
+    {
+      label: texts.partnersLabel,
+      ids: links.map((entry) => entry.partner),
+      notes: partnerNotes,
+    },
     { label: texts.childrenLabel, ids: children },
     { label: texts.counterpartsLabel, ids: counterparts, notes: counterpartNotes },
   ];

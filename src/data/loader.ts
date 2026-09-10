@@ -16,14 +16,6 @@ import type {
  * Seitenaufbau auch auf dem Handy kurz.
  */
 
-/** Layout ohne Helden bzw. mit; die Helden-Ebene verdoppelt die Knotenzahl. */
-export const LAYOUT_FILES = {
-  gods: 'layout.gods.json',
-  all: 'layout.all.json',
-} as const;
-
-export type LayoutVariant = keyof typeof LAYOUT_FILES;
-
 export interface CoreData {
   readonly graph: GraphData;
   readonly meta: Meta;
@@ -56,12 +48,12 @@ async function fetchJson<T>(file: string): Promise<T> {
   }
 }
 
-export async function loadCore(variant: LayoutVariant = 'gods'): Promise<CoreData> {
+export async function loadCore(): Promise<CoreData> {
   const [graph, meta, search, layout] = await Promise.all([
     fetchJson<GraphData>('graph.json'),
     fetchJson<Meta>('meta.json'),
     fetchJson<SearchDoc[]>('search.json'),
-    fetchJson<LayoutData>(LAYOUT_FILES[variant]),
+    fetchJson<LayoutData>('layout.json'),
   ]);
 
   return { graph, meta, search, layout };

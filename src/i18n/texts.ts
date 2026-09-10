@@ -3,7 +3,7 @@ import type {
   Confidence,
   CounterpartRelation,
   ParentageMode,
-  UnionType,
+  RelationshipType,
 } from '../schema/constants.ts';
 
 /**
@@ -39,6 +39,7 @@ export interface Texts {
   depthIncrease: string;
   depthDecrease: string;
   generations: (count: number) => string;
+  allGenerations: string;
 
   categoriesLabel: string;
   selectAll: string;
@@ -59,6 +60,10 @@ export interface Texts {
   parentsLabel: string;
   childrenLabel: string;
   partnersLabel: string;
+  marriedToLabel: string;
+  affairsLabel: string;
+  otherUnionsLabel: string;
+  childrenTogether: (count: number) => string;
   counterpartsLabel: string;
   siblingsLabel: string;
   noRelations: string;
@@ -87,7 +92,7 @@ export interface Texts {
   confidence: Record<Confidence, string>;
   parentageMode: Record<ParentageMode, string>;
   counterpartRelation: Record<CounterpartRelation, string>;
-  unionType: Record<UnionType, string>;
+  relationshipType: Record<RelationshipType, string>;
 }
 
 const de: Texts = {
@@ -115,6 +120,7 @@ const de: Texts = {
   depthIncrease: 'Eine Generation mehr',
   depthDecrease: 'Eine Generation weniger',
   generations: (count) => (count === 1 ? '1 Generation' : `${count} Generationen`),
+  allGenerations: 'alle Generationen',
 
   categoriesLabel: 'Sachgruppen',
   selectAll: 'alle',
@@ -134,7 +140,11 @@ const de: Texts = {
 
   parentsLabel: 'Eltern',
   childrenLabel: 'Kinder',
-  partnersLabel: 'Partner',
+  partnersLabel: 'Verbindungen',
+  marriedToLabel: 'Verheiratet mit',
+  affairsLabel: 'Liebschaften',
+  otherUnionsLabel: 'Weitere Verbindungen',
+  childrenTogether: (count) => (count === 1 ? '1 gemeinsames Kind' : `${count} gemeinsame Kinder`),
   counterpartsLabel: 'Verwandte Gestalten',
   siblingsLabel: 'Geschwister',
   noRelations: 'Keine Verbindungen verzeichnet.',
@@ -186,12 +196,12 @@ const de: Texts = {
     conflated: 'vermengt mit',
     disputed: 'umstritten',
   },
-  unionType: {
+  relationshipType: {
     marriage: 'Ehe',
-    liaison: 'Verbindung',
+    consort: 'feste Verbindung',
+    liaison: 'Liebschaft',
     abduction: 'Raub',
-    consort: 'Gefährtenschaft',
-    unknown: 'unbestimmt',
+    unknown: 'Art nicht überliefert',
   },
 };
 
@@ -220,6 +230,7 @@ const en: Texts = {
   depthIncrease: 'One generation more',
   depthDecrease: 'One generation fewer',
   generations: (count) => (count === 1 ? '1 generation' : `${count} generations`),
+  allGenerations: 'all generations',
 
   categoriesLabel: 'Categories',
   selectAll: 'all',
@@ -239,7 +250,11 @@ const en: Texts = {
 
   parentsLabel: 'Parents',
   childrenLabel: 'Children',
-  partnersLabel: 'Partners',
+  partnersLabel: 'Unions',
+  marriedToLabel: 'Married to',
+  affairsLabel: 'Affairs',
+  otherUnionsLabel: 'Further unions',
+  childrenTogether: (count) => (count === 1 ? '1 child together' : `${count} children together`),
   counterpartsLabel: 'Related figures',
   siblingsLabel: 'Siblings',
   noRelations: 'No connections recorded.',
@@ -289,12 +304,12 @@ const en: Texts = {
     conflated: 'conflated with',
     disputed: 'disputed',
   },
-  unionType: {
+  relationshipType: {
     marriage: 'marriage',
-    liaison: 'liaison',
+    consort: 'lasting union',
+    liaison: 'affair',
     abduction: 'abduction',
-    consort: 'consort',
-    unknown: 'unspecified',
+    unknown: 'kind not recorded',
   },
 };
 

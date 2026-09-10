@@ -5,6 +5,7 @@ import {
   categoriesFileSchema,
   domainsFileSchema,
   figuresFileSchema,
+  relationshipsFileSchema,
   sourcesFileSchema,
 } from '../src/schema/figure.ts';
 import { relativeToProject, SCHEMA_DIR } from './lib/paths.ts';
@@ -25,6 +26,11 @@ const OUTPUTS = [
   { file: 'sources.schema.json', schema: sourcesFileSchema, title: 'Stammbaum: Quellenverzeichnis' },
   { file: 'categories.schema.json', schema: categoriesFileSchema, title: 'Stammbaum: Sachgruppen' },
   { file: 'domains.schema.json', schema: domainsFileSchema, title: 'Stammbaum: Zustaendigkeiten' },
+  {
+    file: 'relationships.schema.json',
+    schema: relationshipsFileSchema,
+    title: 'Stammbaum: Verbindungen',
+  },
 ] as const;
 
 async function main(): Promise<void> {

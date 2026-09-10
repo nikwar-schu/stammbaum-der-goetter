@@ -1,6 +1,7 @@
 import cytoscape from 'cytoscape';
 import type { Core, ElementDefinition, NodeSingular } from 'cytoscape';
 import type { Category, Tradition } from '../schema/constants.ts';
+import { RELATIONSHIP_SYMBOLS } from '../schema/constants.ts';
 import type { GraphData, LayoutData, Meta } from '../types/runtime.ts';
 import type { BridgeEdge } from './model.ts';
 import type { Theme } from './style.ts';
@@ -112,6 +113,25 @@ export class TreeView {
       });
     }
 
+    for (const link of this.#graph.partners) {
+      if (!known.has(link.a) || !known.has(link.b)) continue;
+      elements.push({
+        group: 'edges',
+        // Verborgen bis eine Figur gewaehlt ist; ab dann verwaltet allein
+        // setHighlight diese Klasse. Zwei Stellen, die dieselbe Klasse setzen,
+        // ueberschreiben einander je nach Reihenfolge der Aktualisierungen.
+        classes: 'out-of-view',
+        data: {
+          id: link.id,
+          source: link.a,
+          target: link.b,
+          kind: 'partner',
+          relationship: link.type,
+          symbol: RELATIONSHIP_SYMBOLS[link.type],
+        },
+      });
+    }
+
     return elements;
   }
 
@@ -201,24 +221,42 @@ export class TreeView {
   }
 
   /**
-   * Hebt die gewaehlte Figur samt Abstammungslinie hervor; alles andere tritt zurueck.
-   * Ohne Auswahl wird nichts abgedunkelt.
+   * Hebt die gewaehlte Figur und alles unmittelbar mit ihr Verbundene hervor;
+   * der ganze uebrige Baum tritt zurueck. Ohne Auswahl wird nichts abgedunkelt.
+   *
+   * `neighbours` sind Eltern, Kinder und Partner. Die Verbindungsknoten
+   * dazwischen kommen hier dazu, damit die Linien nicht ins Leere fuehren.
    */
-  setHighlight(selectedId: string | null, lineage: ReadonlySet<string>): void {
+  setHighlight(selectedId: string | null, neighbours: ReadonlySet<string>): void {
     this.#cy.batch(() => {
-      this.#cy.elements().removeClass('dimmed muted lineage selected');
+      this.#cy.elements().removeClass('dimmed lineage selected');
+      this.#cy.edges('[kind="partner"]').addClass('out-of-view');
+
       if (selectedId === null) return;
 
-      const inLineage = this.#cy
+      const selected = this.#cy.getElementById(selectedId);
+      let group = this.#cy
         .nodes()
-        .filter((node) => node.id() === selectedId || lineage.has(node.id()));
+        .filter((node) => node.id() === selectedId || neighbours.has(node.id()));
 
-      const connected = inLineage.edgesWith(inLineage);
-      const highlighted = inLineage.union(connected);
+      // Verbindungsknoten, die auf dem Weg zwischen zwei hervorgehobenen
+      // Figuren liegen, gehoeren dazu - sonst reisst die Linie in der Mitte ab.
+      const bridgingUnions = this.#cy
+        .nodes('[kind="union"]')
+        .filter(
+          (union) =>
+            union.incomers('node').some((parent) => group.contains(parent)) &&
+            union.outgoers('node').some((child) => group.contains(child)),
+        );
+      group = group.union(bridgingUnions);
 
+      const partnerEdges = selected.connectedEdges('[kind="partner"]');
+      partnerEdges.removeClass('out-of-view');
+
+      const highlighted = group.union(group.edgesWith(group)).union(partnerEdges);
       this.#cy.elements().difference(highlighted).addClass('dimmed');
       highlighted.addClass('lineage');
-      this.#cy.getElementById(selectedId).addClass('selected');
+      selected.addClass('selected');
     });
   }
 

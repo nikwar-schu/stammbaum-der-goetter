@@ -1,0 +1,303 @@
+# yaml-language-server: $schema=../schema/relationships.schema.json
+#
+# Wer mit wem: Ehen, Liebschaften und lose Verbindungen.
+#
+# Beziehungen stehen bewusst in einer eigenen Datei und nicht bei einer der
+# beiden Figuren - sie sind wechselseitig, und die Zuordnung zu einer Seite waere
+# willkuerlich. Ausserdem laesst sich so auf einen Blick lesen, wer verheiratet
+# war und wer nicht.
+#
+# Die Reihenfolge in `between` spielt keine Rolle; jedes Paar darf nur einmal
+# vorkommen. Verbindungen mit gemeinsamen Kindern, die hier fehlen, meldet das
+# Pruefskript als Hinweis - eingetragen werden sollten sie trotzdem, weil erst
+# hier steht, ob es eine Ehe war.
+#
+# Arten:
+#   marriage  foermliche Ehe
+#   consort   dauerhafte Verbindung ohne ueberlieferte Eheschliessung
+#   liaison   Liebschaft, einmalige oder fluechtige Verbindung
+#   abduction Verbindung, die als Raub beginnt
+#   unknown   Art nicht ueberliefert
+
+relationships:
+  # --- Urgottheiten ---
+
+  - between: [gaia, uranos]
+    type: consort
+    sources:
+      - { source: hesiod-theogonie, loc: '132-138' }
+    note:
+      de: >-
+        Gaia bringt Uranos aus sich allein hervor und verbindet sich dann mit
+        ihm - von einer Eheschliessung spricht Hesiod nicht. Aus der Verbindung
+        gehen die Titanen, die Kyklopen und die Hekatoncheiren hervor.
+      en: >-
+        Gaia brings forth Uranus out of herself alone and then unites with him -
+        Hesiod speaks of no marriage. From the union come the Titans, the
+        Cyclopes and the Hecatoncheires.
+
+  - between: [gaia, pontos]
+    type: consort
+    sources:
+      - { source: hesiod-theogonie, loc: '233-239' }
+    note:
+      de: Aus dieser Verbindung stammt die erste Meeresgeneration.
+      en: From this union comes the first generation of sea gods.
+
+  - between: [gaia, tartaros]
+    type: liaison
+    sources:
+      - { source: hesiod-theogonie, loc: '820-822' }
+    note:
+      de: >-
+        Nach dem Sturz der Titanen zeugt Gaia mit Tartaros das Ungeheuer Typhon,
+        die letzte Herausforderung der olympischen Ordnung.
+      en: >-
+        After the fall of the Titans, Gaia bears the monster Typhon with
+        Tartarus, the last challenge to the Olympian order.
+
+  - between: [erebos, nyx]
+    type: consort
+    sources:
+      - { source: hesiod-theogonie, loc: '124-125' }
+    note:
+      de: Aus der Verbindung von Finsternis und Nacht gehen Aither und Hemera hervor - Licht und Tag.
+      en: From the union of darkness and night come Aether and Hemera - light and day.
+
+  - between: [aither, hemera]
+    type: consort
+    sources:
+      - { source: hygin-fabulae, loc: 'praef.' }
+
+  - between: [chronos-protogonos, ananke]
+    type: consort
+    sources:
+      - { source: orphische-fragmente }
+    note:
+      de: Zeit und Notwendigkeit umschlingen in der orphischen Lehre gemeinsam das Weltall.
+      en: In Orphic doctrine, Time and Necessity together coil around the cosmos.
+
+  # --- Titanenpaare ---
+
+  - between: [okeanos, tethys]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '337-370' }
+      - { source: homer-ilias, loc: '14.201-204' }
+    note:
+      de: >-
+        Bei Homer gilt das Paar als Ursprung aller Goetter. Spaeter lebten sie
+        nach Ilias 14.205-207 getrennt und sprachen nicht mehr miteinander - der
+        erste Ehezwist der Ueberlieferung.
+      en: >-
+        In Homer the pair count as the origin of all the gods. Later, according
+        to Iliad 14.205-207, they lived apart and no longer spoke - the first
+        marital quarrel in the tradition.
+
+  - between: [hyperion, theia]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '371-374' }
+
+  - between: [koios, phoibe]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '404-410' }
+
+  - between: [krios, eurybia]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '375-377' }
+    note:
+      de: Diese Ehe verbindet das Meergeschlecht des Pontos mit den Titanen.
+      en: This marriage links the sea lineage of Pontus with the Titans.
+
+  - between: [iapetos, klymene]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '507-511' }
+
+  - between: [kronos, rheia]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '453-458' }
+    note:
+      de: >-
+        Sechs Kinder, fuenf davon von Kronos verschlungen. Rheia rettet nur den
+        juengsten, Zeus, indem sie dem Vater einen gewickelten Stein reicht.
+      en: >-
+        Six children, five of them swallowed by Cronus. Rhea saves only the
+        youngest, Zeus, by handing the father a swaddled stone.
+
+  - between: [pallas-titan, styx]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '383-385' }
+    note:
+      de: Ihre Kinder Nike, Kratos, Bia und Zelos stellt Styx als Erste auf die Seite des Zeus.
+      en: Styx is the first to place their children Nike, Kratos, Bia and Zelus on the side of Zeus.
+
+  - between: [perses-titan, asteria]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '409-411' }
+    note:
+      de: Aus dieser Ehe stammt Hekate, die einzige Titanentochter, der Zeus ihre Ehren belaesst.
+      en: From this marriage comes Hecate, the one Titan daughter whose honours Zeus leaves untouched.
+
+  - between: [astraios, eos]
+    type: consort
+    sources:
+      - { source: hesiod-theogonie, loc: '378-382' }
+    note:
+      de: >-
+        Sternenhimmel und Morgenroete zeugen die Winde und die Wandelsterne -
+        eine folgerichtige Verbindung, denn die Sterne verblassen, wenn die
+        Morgenroete kommt.
+      en: >-
+        Starry sky and dawn beget the winds and the wandering stars - a fitting
+        union, for the stars fade when dawn arrives.
+
+  - between: [phorkys, keto]
+    type: consort
+    sources:
+      - { source: hesiod-theogonie, loc: '270-283' }
+    note:
+      de: Das Geschwisterpaar bringt die Ungeheuer des Meeres hervor, unter ihnen die Gorgonen.
+      en: The sibling pair brings forth the monsters of the sea, among them the Gorgons.
+
+  # --- Zeus und seine Verbindungen ---
+
+  - between: [zeus, metis]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '886-890' }
+    note:
+      de: >-
+        Die erste Gemahlin. Als geweissagt wird, ihr Sohn werde den Vater
+        stuerzen, verschlingt Zeus sie samt dem ungeborenen Kind - Athena kommt
+        danach aus seinem Kopf zur Welt.
+      en: >-
+        The first consort. When it is foretold that her son will overthrow the
+        father, Zeus swallows her together with the unborn child - Athena is then
+        born from his head.
+
+  - between: [zeus, themis]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '901-906' }
+    note:
+      de: >-
+        Die zweite Gemahlin, Mutter der Horen und der Moiren. Dass die Ordnung
+        selbst an der Seite des Herrschers sitzt, ist bei Hesiod kein Zufall.
+      en: >-
+        The second consort, mother of the Horae and the Moirai. That order itself
+        sits at the ruler's side is no accident in Hesiod.
+
+  - between: [zeus, mnemosyne]
+    type: liaison
+    sources:
+      - { source: hesiod-theogonie, loc: '915-917' }
+    note:
+      de: Neun Naechte lag Zeus ihr bei; daraus gingen die neun Musen hervor.
+      en: Nine nights Zeus lay with her; from that came the nine Muses.
+
+  - between: [zeus, leto]
+    type: liaison
+    sources:
+      - { source: hesiod-theogonie, loc: '918-920' }
+    note:
+      de: >-
+        Heras Zorn verfolgt Leto so lange, dass sie nirgends niederkommen kann,
+        bis die schwimmende Insel Delos sie aufnimmt.
+      en: >-
+        Hera's wrath pursues Leto so relentlessly that she can give birth
+        nowhere, until the floating island of Delos receives her.
+
+  - between: [zeus, demeter]
+    type: liaison
+    sources:
+      - { source: hesiod-theogonie, loc: '912-914' }
+    note:
+      de: >-
+        Aus dieser Verbindung stammt Persephone. Zeus sagt die gemeinsame Tochter
+        spaeter seinem Bruder Hades zu, ohne Demeter zu fragen.
+      en: >-
+        From this union comes Persephone. Zeus later promises their daughter to
+        his brother Hades without asking Demeter.
+
+  - between: [zeus, dione]
+    type: liaison
+    sources:
+      - { source: homer-ilias, loc: '5.370-417' }
+    note:
+      de: >-
+        Nur in der homerischen Ueberlieferung, die Aphrodite zur Tochter dieses
+        Paares macht. Hesiod kennt diese Verbindung nicht.
+      en: >-
+        Only in the Homeric tradition, which makes Aphrodite the daughter of this
+        pair. Hesiod does not know this union.
+
+  - between: [zeus, hera]
+    type: marriage
+    sources:
+      - { source: hesiod-theogonie, loc: '921-923' }
+      - { source: homer-ilias, loc: '14.292-353' }
+    note:
+      de: >-
+        Die letzte und dauerhafte Ehe des Zeus, Vorbild jeder rechtmaessigen
+        Verbindung - und zugleich die zerruettetste des Mythos. Heras Zorn
+        richtet sich fast nie gegen den untreuen Gatten, sondern gegen dessen
+        Geliebte und deren Kinder.
+      en: >-
+        The last and lasting marriage of Zeus, the model of every lawful union -
+        and at the same time the most broken in myth. Hera's wrath almost never
+        turns on the unfaithful husband but on his lovers and their children.
+
+  # --- Aphrodite: Ehe und Liebschaft nebeneinander ---
+
+  - between: [aphrodite, hephaistos]
+    type: marriage
+    sources:
+      - { source: homer-odyssee, loc: '8.266-270' }
+    note:
+      de: >-
+        Die kunstfertigste und die schoenste Gottheit sind miteinander
+        verheiratet - eine Ehe, die Homer als von Anfang an unglueckliche
+        Verbindung schildert.
+      en: >-
+        The most skilful and the most beautiful of the gods are married to one
+        another - a match Homer portrays as unhappy from the start.
+
+  - between: [aphrodite, ares]
+    type: liaison
+    sources:
+      - { source: homer-odyssee, loc: '8.266-366' }
+    note:
+      de: >-
+        Die bekannteste Liebschaft des Mythos. Helios, der alles sieht, verraet
+        sie an Hephaistos; der schmiedet ein unsichtbares Netz und faengt die
+        beiden darin vor den versammelten Goettern.
+      en: >-
+        The best-known affair in myth. Helios, who sees everything, betrays them
+        to Hephaestus; he forges an invisible net and catches the two in it
+        before the assembled gods.
+
+  # --- Unterwelt ---
+
+  - between: [hades, persephone]
+    type: marriage
+    sources:
+      - { source: homerische-hymnen, loc: '2.1-90' }
+      - { source: ovid-fasti, loc: '4.417-620' }
+    note:
+      de: >-
+        Eine Ehe, die als Raub beginnt: Hades reisst Persephone in die Tiefe,
+        mit Wissen des Zeus. Weil sie unten sechs Granatapfelkerne isst, bleibt
+        sie an das Totenreich gebunden und kehrt nur einen Teil des Jahres zur
+        Mutter zurueck. Die Verbindung bleibt kinderlos.
+      en: >-
+        A marriage that begins as an abduction: Hades drags Persephone into the
+        depths with the knowledge of Zeus. Because she eats six pomegranate seeds
+        below, she remains bound to the realm of the dead and returns to her
+        mother only part of the year. The union remains childless.

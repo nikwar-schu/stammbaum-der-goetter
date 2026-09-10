@@ -9,7 +9,10 @@ import {
   computeBridges,
   descendantsOf,
   fullSiblingsOf,
+  neighbourhoodOf,
+  partnerLinksOf,
 } from '../graph/model.ts';
+import type { PartnerLink } from '../types/runtime.ts';
 import type { VisibilityState } from '../graph/view.ts';
 import { texts as textsFor } from '../i18n/texts.ts';
 import { listenToHistory, useAppStore } from '../state/store.ts';
@@ -20,18 +23,24 @@ import { Header } from './Header.tsx';
 import { OutlineView } from './OutlineView.tsx';
 import { SidePanel } from './SidePanel.tsx';
 
-/** Ohne Begrenzung: die Hervorhebung zeigt immer die vollstaendige Abstammungslinie. */
-const FULL_DEPTH = Number.POSITIVE_INFINITY;
-
 /**
  * Was die Fokusansicht zeigt.
  *
  * Ohne Auswahl sind es die obersten Generationen - der Stammbaum soll am Anfang
  * beginnen, bei Chaos und Gaia, und sich mit der Tiefe nach unten oeffnen. Mit
- * Auswahl ist es die Umgebung der gewaehlten Figur: Vorfahren, Nachkommen und
- * Geschwister.
+ * Auswahl ist es die Umgebung der gewaehlten Figur: Vorfahren, Nachkommen,
+ * leibliche Geschwister und die Partner.
+ *
+ * Die Partner muessen ausdruecklich dazu: sie stehen im Stammbaum nicht ueber
+ * oder unter der Figur, sondern daneben. Ohne sie waere Aphrodites Ehemann
+ * ausgeblendet, obwohl das Infofenster ihn nennt.
  */
-function focusSet(index: GraphIndex, selected: string | null, depth: number): Set<string> {
+function focusSet(
+  index: GraphIndex,
+  partners: readonly PartnerLink[],
+  selected: string | null,
+  depth: number,
+): Set<string> {
   if (selected === null) {
     const top = new Set<string>();
     for (const id of index.figureIds) {
@@ -46,6 +55,7 @@ function focusSet(index: GraphIndex, selected: string | null, depth: number): Se
     ...ancestorsOf(index, selected, depth),
     ...descendantsOf(index, selected, depth),
     ...fullSiblingsOf(index, selected),
+    ...partnerLinksOf(partners, selected).map((entry) => entry.partner),
   ]);
 }
 
@@ -106,6 +116,15 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
 
   const index = useMemo(() => buildIndex(core.graph), [core.graph]);
 
+  /** Tiefste vorhandene Generationsebene - mehr als das gibt es nicht zu zeigen. */
+  const maxDepth = useMemo(() => {
+    let deepest = 1;
+    for (const node of core.graph.nodes) {
+      if (node.kind === 'figure') deepest = Math.max(deepest, node.tier);
+    }
+    return deepest;
+  }, [core.graph]);
+
   const counts = useMemo(() => {
     const perCategory = new Map<Category, number>();
     for (const node of core.graph.nodes) {
@@ -143,27 +162,25 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
     }
 
     if (store.view === 'focus') {
-      const keep = focusSet(index, store.figure, store.depth);
+      const keep = focusSet(index, core.graph.partners, store.figure, Math.min(store.depth, maxDepth));
       for (const id of index.figureIds) {
         if (!keep.has(id)) hidden.add(id);
       }
     }
 
     return hidden;
-  }, [core.graph, index, store.hiddenCategories, store.view, store.figure, store.depth]);
+  }, [core.graph, index, maxDepth, store.hiddenCategories, store.view, store.figure, store.depth]);
 
   const visibility = useMemo<VisibilityState>(
     () => ({ present, filtered, bridges }),
     [present, filtered, bridges],
   );
 
-  const lineage = useMemo(() => {
+  /** Eltern, Kinder und Partner der Auswahl - alles Uebrige tritt zurueck. */
+  const neighbourhood = useMemo(() => {
     if (store.figure === null) return new Set<string>();
-    return new Set([
-      ...ancestorsOf(index, store.figure, FULL_DEPTH),
-      ...descendantsOf(index, store.figure, FULL_DEPTH),
-    ]);
-  }, [index, store.figure]);
+    return neighbourhoodOf(index, core.graph.partners, store.figure);
+  }, [index, core.graph.partners, store.figure]);
 
   if (store.route === 'outline') {
     return (
@@ -206,7 +223,8 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
           counts={counts}
           hiddenCategories={store.hiddenCategories}
           view={store.view}
-          depth={store.depth}
+          depth={Math.min(store.depth, maxDepth)}
+          maxDepth={maxDepth}
           open={railOpen}
           onToggleCategory={store.toggleCategory}
           onSetHidden={store.setHiddenCategories}
@@ -221,7 +239,7 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
           selectedId={store.figure}
           visibility={visibility}
           view={store.view}
-          lineage={lineage}
+          neighbourhood={neighbourhood}
           hiddenCount={hiddenCount}
           texts={texts}
           onSelect={store.select}
@@ -232,6 +250,7 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
             figureId={store.figure}
             node={selectedNode}
             index={index}
+            partners={core.graph.partners}
             meta={core.meta}
             tradition={store.tradition}
             lang={store.lang}

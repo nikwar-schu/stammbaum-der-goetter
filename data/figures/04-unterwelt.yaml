@@ -86,18 +86,6 @@ figures:
         confidence: attested
         sources:
           - { source: hesiod-theogonie, loc: '912-914' }
-    unions:
-      - with: [hades]
-        type: abduction
-        sources:
-          - { source: homerische-hymnen, loc: '2.1-90' }
-        note:
-          de: >-
-            Die Verbindung bleibt kinderlos und beginnt als Raub - mit Wissen des Zeus,
-            der die Tochter dem Bruder zugesagt hatte, ohne Demeter zu fragen.
-          en: >-
-            The union remains childless and begins as an abduction - with the knowledge of
-            Zeus, who had promised the daughter to his brother without asking Demeter.
     greek:
       name: Persephone
       nameOriginal: Περσεφόνη

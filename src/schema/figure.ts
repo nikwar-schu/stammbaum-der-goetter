@@ -8,7 +8,7 @@ import {
   HEX_COLOR_PATTERN,
   MAX_PARENTS,
   PARENTAGE_MODES,
-  UNION_TYPES,
+  RELATIONSHIP_TYPES,
   VARIANT_ID_PATTERN,
   WIKIDATA_ID_PATTERN,
 } from './constants.ts';
@@ -115,16 +115,24 @@ export const counterpartSchema = z
   .strict();
 
 /**
- * Nur fuer bemerkenswerte Verbindungen ohne gemeinsame Kinder.
- * Alle uebrigen Paarbeziehungen werden aus der Abstammung der Kinder abgeleitet
- * und koennen deshalb gar nicht erst auseinanderlaufen.
+ * Eine Verbindung zwischen zwei Figuren - Ehe, Liebschaft oder loses Verhaeltnis.
+ *
+ * Beziehungen sind wechselseitig und stehen deshalb in einer eigenen Datei,
+ * nicht bei einer der beiden Figuren. Welche Reihenfolge `between` hat, spielt
+ * keine Rolle; jedes Paar darf nur einmal vorkommen.
  */
-export const unionSchema = z
+export const relationshipSchema = z
   .object({
-    with: z.array(figureIdSchema).min(1),
-    type: z.enum(UNION_TYPES),
+    between: z.tuple([figureIdSchema, figureIdSchema]),
+    type: z.enum(RELATIONSHIP_TYPES),
     sources: z.array(sourceRefSchema).min(1),
     note: localizedTextSchema.optional(),
+  })
+  .strict();
+
+export const relationshipsFileSchema = z
+  .object({
+    relationships: z.array(relationshipSchema).min(1),
   })
   .strict();
 
@@ -165,7 +173,6 @@ export const figureSchema = z
     roman: aspectSchema.optional(),
     counterparts: z.array(counterpartSchema).optional(),
     parentage: z.array(parentageVariantSchema),
-    unions: z.array(unionSchema).optional(),
     myths: z.array(mythSchema).optional(),
     confidence: z.enum(CONFIDENCE_LEVELS),
     refs: refsSchema.optional(),
@@ -195,13 +202,12 @@ export const sourcesFileSchema = z
   })
   .strict();
 
-/** categories.yaml - Anzeigenamen, Farben und Voreinstellung der Filterleiste. */
+/** categories.yaml - Anzeigenamen und Farben der Sachgruppen. */
 export const categoryMetaSchema = z
   .object({
     label: localizedTextSchema,
     color: z.string().regex(HEX_COLOR_PATTERN, 'Farbe als #rrggbb in Kleinbuchstaben'),
     order: z.number().int().min(0),
-    defaultVisible: z.boolean(),
   })
   .strict();
 
@@ -225,7 +231,8 @@ export type Epithet = z.infer<typeof epithetSchema>;
 export type Aspect = z.infer<typeof aspectSchema>;
 export type ParentageVariant = z.infer<typeof parentageVariantSchema>;
 export type Counterpart = z.infer<typeof counterpartSchema>;
-export type Union = z.infer<typeof unionSchema>;
+export type Relationship = z.infer<typeof relationshipSchema>;
+export type RelationshipsFile = z.infer<typeof relationshipsFileSchema>;
 export type Myth = z.infer<typeof mythSchema>;
 export type Figure = z.infer<typeof figureSchema>;
 export type FiguresFile = z.infer<typeof figuresFileSchema>;

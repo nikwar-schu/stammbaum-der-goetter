@@ -1,4 +1,4 @@
-import type { Category, Confidence } from '../schema/constants.ts';
+import type { Category, Confidence, RelationshipType } from '../schema/constants.ts';
 import type {
   CategoryMeta,
   Figure,
@@ -44,9 +44,27 @@ export interface GraphEdge {
   readonly sourceKey?: string;
 }
 
+/**
+ * Eine Verbindung zwischen zwei Figuren - Ehe, Liebschaft oder loses Verhaeltnis.
+ *
+ * Fliesst bewusst nicht in das Layout ein: Partner koennen im Baum weit
+ * auseinanderliegen, und eine Linie quer ueber den Stammbaum waere zwischen
+ * hunderten Figuren unlesbar. Gezeichnet wird sie nur fuer die gewaehlte Figur.
+ */
+export interface PartnerLink {
+  readonly id: string;
+  readonly a: string;
+  readonly b: string;
+  readonly type: RelationshipType;
+  /** Gemeinsame Kinder in der Leitversion. */
+  readonly children: number;
+  readonly sourceKey?: string;
+}
+
 export interface GraphData {
   readonly nodes: readonly GraphNode[];
   readonly edges: readonly GraphEdge[];
+  readonly partners: readonly PartnerLink[];
 }
 
 /** Ein Eintrag des Suchindex; deckt beide Sprachen und beide Sichten ab. */

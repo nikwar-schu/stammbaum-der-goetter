@@ -56,8 +56,28 @@ export const COUNTERPART_RELATIONS = [
 ] as const;
 export type CounterpartRelation = (typeof COUNTERPART_RELATIONS)[number];
 
-export const UNION_TYPES = ['marriage', 'liaison', 'abduction', 'consort', 'unknown'] as const;
-export type UnionType = (typeof UNION_TYPES)[number];
+/** Art einer Verbindung zwischen zwei Figuren. */
+export const RELATIONSHIP_TYPES = [
+  'marriage',
+  'consort',
+  'liaison',
+  'abduction',
+  'unknown',
+] as const;
+export type RelationshipType = (typeof RELATIONSHIP_TYPES)[number];
+
+/**
+ * Zeichen fuer die Art der Verbindung, im Stammbaum an der Linie zwischen den
+ * Partnern. Bewusst wenige und weit verbreitete Zeichen - je exotischer das
+ * Zeichen, desto haeufiger fehlt es in der Schrift des Betrachters.
+ */
+export const RELATIONSHIP_SYMBOLS: Record<RelationshipType, string> = {
+  marriage: '⚭',
+  consort: '⚭',
+  liaison: '♥',
+  abduction: '⚔',
+  unknown: '·',
+};
 
 export const FIGURE_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 export const VARIANT_ID_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;

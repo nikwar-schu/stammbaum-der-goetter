@@ -1,15 +1,16 @@
-import path from 'node:path';
 import type {
   CategoriesFile,
   DomainsFile,
   Figure,
   ParentageVariant,
+  Relationship,
   SourcesFile,
 } from '../../src/schema/figure.ts';
 import {
   categoriesFileSchema,
   domainsFileSchema,
   figuresFileSchema,
+  relationshipsFileSchema,
   sourcesFileSchema,
 } from '../../src/schema/figure.ts';
 import type { AdjacencyMap } from '../../src/graph/dag.ts';
@@ -17,6 +18,7 @@ import {
   CATEGORIES_FILE,
   DOMAINS_FILE,
   FIGURES_DIR,
+  RELATIONSHIPS_FILE,
   relativeToProject,
   SOURCES_FILE,
 } from './paths.ts';
@@ -45,13 +47,15 @@ export interface Dataset {
   readonly sources: SourcesFile['sources'];
   readonly categories: CategoriesFile['categories'];
   readonly domains: DomainsFile['domains'];
+  readonly relationships: readonly Relationship[];
 }
 
 export async function loadDataset(): Promise<Dataset> {
-  const [sourcesFile, categoriesFile, domainsFile] = await Promise.all([
+  const [sourcesFile, categoriesFile, domainsFile, relationshipsFile] = await Promise.all([
     parseYamlFile(SOURCES_FILE, sourcesFileSchema),
     parseYamlFile(CATEGORIES_FILE, categoriesFileSchema),
     parseYamlFile(DOMAINS_FILE, domainsFileSchema),
+    parseYamlFile(RELATIONSHIPS_FILE, relationshipsFileSchema),
   ]);
 
   const figureFiles = await listYamlFiles(FIGURES_DIR);
@@ -86,6 +90,7 @@ export async function loadDataset(): Promise<Dataset> {
     sources: sourcesFile.sources,
     categories: categoriesFile.categories,
     domains: domainsFile.domains,
+    relationships: relationshipsFile.relationships,
   };
 }
 
@@ -151,7 +156,7 @@ export function fullAdjacency(dataset: Dataset): AdjacencyMap {
   return adjacency;
 }
 
-/** Dateiname ohne Endung, z. B. '01-protogenoi' - fuer die Aufteilung der Ausgabedateien. */
-export function fileKey(entry: FigureEntry): string {
-  return path.basename(entry.file, '.yaml');
+/** Kennung eines Paares, unabhaengig von der Reihenfolge der beiden Figuren. */
+export function pairKey(a: string, b: string): string {
+  return [a, b].sort((x, y) => x.localeCompare(y, 'en')).join('+');
 }

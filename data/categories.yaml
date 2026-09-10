@@ -1,83 +1,71 @@
 # yaml-language-server: $schema=../schema/categories.schema.json
 #
-# Sachgruppen: Anzeigenamen, Farbe im Stammbaum und Voreinstellung der Filterleiste.
-# Helden und Ungeheuer sind zunaechst ausgeblendet - sie kommen erst in M4 hinzu.
+# Sachgruppen: Anzeigenamen und Farbe im Stammbaum.
+# Beim Start sind alle Gruppen eingeschaltet; abwaehlen laesst sich jede in der
+# Filterleiste.
 
 categories:
   protogenos:
     label: { de: Urgottheiten, en: Primordials }
     color: '#5b5ea6'
     order: 1
-    defaultVisible: true
 
   titan:
     label: { de: Titanen, en: Titans }
     color: '#8c6239'
     order: 2
-    defaultVisible: true
 
   olympian:
     label: { de: Olympier, en: Olympians }
     color: '#c9962c'
     order: 3
-    defaultVisible: true
 
   chthonic:
     label: { de: Unterwelt, en: Underworld }
     color: '#6b4a6f'
     order: 4
-    defaultVisible: true
 
   sea:
     label: { de: Meergottheiten, en: Sea Gods }
     color: '#2f7d95'
     order: 5
-    defaultVisible: true
 
   sky:
     label: { de: Himmel und Gestirne, en: Sky and Stars }
     color: '#4a8fc7'
     order: 6
-    defaultVisible: true
 
   nymph:
     label: { de: Nymphen, en: Nymphs }
     color: '#4f9d6b'
     order: 7
-    defaultVisible: true
 
   daimon:
     label: { de: Daimonen, en: Daemons }
     color: '#8e5572'
     order: 8
-    defaultVisible: true
 
   personification:
     label: { de: Personifikationen, en: Personifications }
     color: '#c2686b'
     order: 9
-    defaultVisible: true
 
   rustic:
     label: { de: Ländliche Gottheiten, en: Rustic Gods }
     color: '#7d9a3f'
     order: 10
-    defaultVisible: true
 
   roman-native:
     label: { de: Römische Eigengottheiten, en: Roman Native Gods }
     color: '#b5651d'
     order: 11
-    defaultVisible: true
 
   hero:
     label: { de: Helden, en: Heroes }
     color: '#a03e3e'
     order: 12
-    defaultVisible: false
 
   monster:
     label: { de: Ungeheuer, en: Monsters }
     color: '#5c5c5c'
     order: 13
-    defaultVisible: false

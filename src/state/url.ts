@@ -16,8 +16,16 @@ export type ViewMode = 'focus' | 'overview';
 export const VIEW_MODES = ['focus', 'overview'] as const;
 
 export const MIN_DEPTH = 1;
-export const MAX_DEPTH = 6;
-export const DEFAULT_DEPTH = 2;
+
+/**
+ * Obergrenze fuer die Generationentiefe in der Adresszeile.
+ *
+ * Bewusst hoeher als der Stammbaum je reicht: die Voreinstellung ist "alle
+ * Generationen", und die Oberflaeche begrenzt zusaetzlich auf die tatsaechlich
+ * vorhandene Tiefe. So bleibt der Wert gueltig, wenn der Bestand waechst.
+ */
+export const MAX_DEPTH = 12;
+export const DEFAULT_DEPTH = MAX_DEPTH;
 
 export interface UrlState {
   readonly route: 'graph' | 'outline';
@@ -56,7 +64,8 @@ export function defaultState(): UrlState {
     showVariants: false,
     view: 'focus',
     depth: DEFAULT_DEPTH,
-    hiddenCategories: CATEGORIES.filter((category) => category === 'hero' || category === 'monster'),
+    // Beim Start ist jede Sachgruppe eingeschaltet; abwaehlen laesst sich jede.
+    hiddenCategories: [],
   };
 }
 

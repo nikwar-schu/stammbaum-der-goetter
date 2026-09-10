@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import type { GraphData, GraphEdge, GraphNode } from '../types/runtime.ts';
+import type { PartnerLink } from '../types/runtime.ts';
 import {
   ancestorsOf,
   buildIndex,
   computeBridges,
   descendantsOf,
   fullSiblingsOf,
+  neighbourhoodOf,
+  partnerLinksOf,
   siblingsOf,
 } from './model.ts';
 
@@ -42,7 +45,7 @@ function graphOf(descent: Record<string, string[]>): GraphData {
     }
   }
 
-  return { nodes, edges };
+  return { nodes, edges, partners: [] };
 }
 
 describe('buildIndex', () => {
@@ -179,5 +182,62 @@ describe('computeBridges', () => {
   it('lässt eine Figur ohne sichtbaren Vorfahren unverbunden', () => {
     const index = buildIndex(graphOf({ kind: ['verborgen'] }));
     expect(computeBridges(index, new Set(['kind']))).toEqual([]);
+  });
+});
+
+describe('partnerLinksOf', () => {
+  const links: PartnerLink[] = [
+    { id: 'r:aphrodite+hephaistos', a: 'aphrodite', b: 'hephaistos', type: 'marriage', children: 0 },
+    { id: 'r:aphrodite+ares', a: 'aphrodite', b: 'ares', type: 'liaison', children: 0 },
+    { id: 'r:hera+zeus', a: 'hera', b: 'zeus', type: 'marriage', children: 3 },
+  ];
+
+  it('findet Verbindungen unabhängig davon, auf welcher Seite die Figur steht', () => {
+    expect(partnerLinksOf(links, 'aphrodite').map((e) => e.partner).sort()).toEqual([
+      'ares',
+      'hephaistos',
+    ]);
+    expect(partnerLinksOf(links, 'zeus').map((e) => e.partner)).toEqual(['hera']);
+  });
+
+  it('unterscheidet Ehe und Liebschaft', () => {
+    const byPartner = new Map(partnerLinksOf(links, 'aphrodite').map((e) => [e.partner, e.link.type]));
+    expect(byPartner.get('hephaistos')).toBe('marriage');
+    expect(byPartner.get('ares')).toBe('liaison');
+  });
+
+  it('liefert nichts für eine Figur ohne Verbindungen', () => {
+    expect(partnerLinksOf(links, 'hestia')).toEqual([]);
+  });
+});
+
+describe('neighbourhoodOf', () => {
+  const index = buildIndex(
+    graphOf({
+      kronos: ['gaia', 'uranos'],
+      zeus: ['kronos', 'rheia'],
+      hera: ['kronos', 'rheia'],
+      ares: ['zeus', 'hera'],
+    }),
+  );
+  const links: PartnerLink[] = [
+    { id: 'r:hera+zeus', a: 'hera', b: 'zeus', type: 'marriage', children: 1 },
+  ];
+
+  it('umfasst Eltern, Kinder und Partner', () => {
+    expect(neighbourhoodOf(index, links, 'zeus')).toEqual(
+      new Set(['zeus', 'kronos', 'rheia', 'ares', 'hera']),
+    );
+  });
+
+  it('lässt Großeltern und Geschwister weg - sie sind nicht unmittelbar verbunden', () => {
+    const near = neighbourhoodOf(index, [], 'zeus');
+    expect(near.has('gaia')).toBe(false);
+    expect(near.has('uranos')).toBe(false);
+    expect(near.has('hera')).toBe(false);
+  });
+
+  it('nimmt die Figur selbst mit auf, damit sie nicht abgedunkelt wird', () => {
+    expect(neighbourhoodOf(index, [], 'ares').has('ares')).toBe(true);
   });
 });

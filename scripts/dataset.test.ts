@@ -116,6 +116,37 @@ describe('abgeleiteter Graph', () => {
     expect(new Set(homeric.map((edge) => edge.source))).toEqual(new Set(['zeus', 'dione']));
   });
 
+  it('verweist mit jeder Verbindung auf vorhandene Figuren', () => {
+    const figures = new Set(
+      graph.nodes.filter((node) => node.kind === 'figure').map((node) => node.id),
+    );
+    const dangling = graph.partners.filter(
+      (partner) => !figures.has(partner.a) || !figures.has(partner.b),
+    );
+
+    expect(dangling).toEqual([]);
+    expect(graph.partners.length).toBeGreaterThan(0);
+  });
+
+  it('kennt Aphrodites Ehe und ihre Liebschaft nebeneinander', () => {
+    const byPartner = new Map(
+      graph.partners
+        .filter((partner) => partner.a === 'aphrodite' || partner.b === 'aphrodite')
+        .map((partner) => [partner.a === 'aphrodite' ? partner.b : partner.a, partner.type]),
+    );
+
+    expect(byPartner.get('hephaistos')).toBe('marriage');
+    expect(byPartner.get('ares')).toBe('liaison');
+  });
+
+  it('lässt keine Verbindung mit gemeinsamen Kindern ohne Art', () => {
+    const offen = graph.partners
+      .filter((partner) => partner.type === 'unknown' && partner.children > 0)
+      .map((partner) => `${partner.a}+${partner.b}`);
+
+    expect(offen).toEqual([]);
+  });
+
   it('verweist mit jeder Kante auf vorhandene Knoten', () => {
     const ids = new Set(graph.nodes.map((node) => node.id));
     const dangling = graph.edges.filter((edge) => !ids.has(edge.source) || !ids.has(edge.target));
@@ -125,13 +156,12 @@ describe('abgeleiteter Graph', () => {
 });
 
 describe('Layoutdateien', () => {
-  const layoutFile = path.join(PUBLIC_DATA_DIR, 'layout.gods.json');
+  const layoutFile = path.join(PUBLIC_DATA_DIR, 'layout.json');
   const available = existsSync(layoutFile);
 
   it.runIf(available)('kennt jeden Knoten des Graphen', async () => {
     const layout = JSON.parse(await readFile(layoutFile, 'utf8')) as LayoutData;
     const missing = graph.nodes
-      .filter((node) => node.category !== 'hero')
       .filter((node) => layout.positions[node.id] === undefined)
       .map((node) => node.id);
 

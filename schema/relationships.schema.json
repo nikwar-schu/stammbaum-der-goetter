@@ -1,0 +1,91 @@
+{
+  "title": "Stammbaum: Verbindungen",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "relationships": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "between": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "marriage",
+              "consort",
+              "liaison",
+              "abduction",
+              "unknown"
+            ]
+          },
+          "sources": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "loc": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "source"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "note": {
+            "type": "object",
+            "properties": {
+              "de": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "de",
+              "en"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "between",
+          "type",
+          "sources"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "relationships"
+  ],
+  "additionalProperties": false
+}

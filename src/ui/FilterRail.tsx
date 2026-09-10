@@ -2,7 +2,7 @@ import type { Category, Lang } from '../schema/constants.ts';
 import { CATEGORIES } from '../schema/constants.ts';
 import type { Meta } from '../types/runtime.ts';
 import type { Texts } from '../i18n/texts.ts';
-import { MAX_DEPTH, MIN_DEPTH, type ViewMode } from '../state/url.ts';
+import { MIN_DEPTH, type ViewMode } from '../state/url.ts';
 
 interface FilterRailProps {
   readonly texts: Texts;
@@ -12,6 +12,8 @@ interface FilterRailProps {
   readonly hiddenCategories: readonly Category[];
   readonly view: ViewMode;
   readonly depth: number;
+  /** Tiefste vorhandene Generationsebene; darueber gibt es nichts mehr zu zeigen. */
+  readonly maxDepth: number;
   readonly open: boolean;
   readonly onToggleCategory: (category: Category) => void;
   readonly onSetHidden: (categories: readonly Category[]) => void;
@@ -27,6 +29,7 @@ export function FilterRail({
   hiddenCategories,
   view,
   depth,
+  maxDepth,
   open,
   onToggleCategory,
   onSetHidden,
@@ -55,12 +58,14 @@ export function FilterRail({
             >
               &minus;
             </button>
-            <span className="depth__value">{texts.generations(depth)}</span>
+            <span className="depth__value">
+              {depth >= maxDepth ? texts.allGenerations : texts.generations(depth)}
+            </span>
             <button
               type="button"
               className="depth__button"
               aria-label={texts.depthIncrease}
-              disabled={depth >= MAX_DEPTH}
+              disabled={depth >= maxDepth}
               onClick={() => onDepth(depth + 1)}
             >
               +

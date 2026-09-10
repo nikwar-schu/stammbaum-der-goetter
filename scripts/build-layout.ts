@@ -67,45 +67,7 @@ const LAYOUT_OPTIONS: Record<string, string> = {
   'elk.separateConnectedComponents': 'false',
 };
 
-interface LayoutVariant {
-  readonly file: string;
-  /** Sachgruppen, die in diesem Layout nicht enthalten sind. */
-  readonly excludeCategories: readonly string[];
-  readonly label: string;
-}
-
-const VARIANTS: readonly LayoutVariant[] = [
-  { file: 'layout.gods.json', excludeCategories: ['hero'], label: 'ohne Helden' },
-  { file: 'layout.all.json', excludeCategories: [], label: 'mit Helden' },
-];
-
-/**
- * Entfernt die ausgeschlossenen Figuren und alle Knoten und Kanten, die dadurch
- * ins Leere zeigen wuerden - insbesondere Verbindungsknoten, deren Kinder
- * saemtlich weggefallen sind.
- */
-function restrict(graph: GraphData, excludeCategories: readonly string[]): GraphData {
-  if (excludeCategories.length === 0) return graph;
-
-  const excluded = new Set(excludeCategories);
-  const keptFigures = new Set(
-    graph.nodes
-      .filter((node) => node.kind === 'figure' && !excluded.has(node.category ?? ''))
-      .map((node) => node.id),
-  );
-
-  const unionHasChild = new Set(
-    graph.edges
-      .filter((edge) => edge.kind === 'canonical' && keptFigures.has(edge.target))
-      .map((edge) => edge.source),
-  );
-
-  const kept = new Set([...keptFigures, ...unionHasChild]);
-  return {
-    nodes: graph.nodes.filter((node) => kept.has(node.id)),
-    edges: graph.edges.filter((edge) => kept.has(edge.source) && kept.has(edge.target)),
-  };
-}
+const LAYOUT_FILE = 'layout.json';
 
 function toElkGraph(graph: GraphData): ElkNode {
   const known = new Set(graph.nodes.map((node) => node.id));
@@ -174,27 +136,23 @@ async function main(): Promise<void> {
   const graph = buildGraph(dataset);
   const elk = new ELK();
 
-  for (const variant of VARIANTS) {
-    const restricted = restrict(graph, variant.excludeCategories);
-    const started = Date.now();
-    const result = await elk.layout(toElkGraph(restricted));
+  const started = Date.now();
+  const result = await elk.layout(toElkGraph(graph));
 
-    const layout: LayoutData = {
-      positions: toPositions(result),
-      width: Math.round(result.width ?? 0),
-      height: Math.round(result.height ?? 0),
-    };
+  const layout: LayoutData = {
+    positions: toPositions(result),
+    width: Math.round(result.width ?? 0),
+    height: Math.round(result.height ?? 0),
+  };
 
-    const target = path.join(PUBLIC_DATA_DIR, variant.file);
-    await writeFile(target, `${JSON.stringify(layout)}\n`, 'utf8');
+  const target = path.join(PUBLIC_DATA_DIR, LAYOUT_FILE);
+  await writeFile(target, `${JSON.stringify(layout)}\n`, 'utf8');
 
-    const count = Object.keys(layout.positions).length;
-    process.stdout.write(
-      `geschrieben  ${relativeToProject(target)}  ` +
-        `(${variant.label}, ${count} Knoten, ${layout.width}x${layout.height} px, ` +
-        `${Date.now() - started} ms)\n`,
-    );
-  }
+  process.stdout.write(
+    `geschrieben  ${relativeToProject(target)}  ` +
+      `(${Object.keys(layout.positions).length} Knoten, ${layout.width}x${layout.height} px, ` +
+      `${Date.now() - started} ms)\n`,
+  );
 }
 
 try {

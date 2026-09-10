@@ -1,7 +1,8 @@
+import type { RelationshipType } from '../../src/schema/constants.ts';
 import { UNION_NODE_PREFIX } from '../../src/schema/constants.ts';
-import type { GraphData, GraphEdge, GraphNode } from '../../src/types/runtime.ts';
+import type { GraphData, GraphEdge, GraphNode, PartnerLink } from '../../src/types/runtime.ts';
 import type { Dataset } from './dataset.ts';
-import { canonicalParentage, variantParentages } from './dataset.ts';
+import { canonicalParentage, pairKey, variantParentages } from './dataset.ts';
 
 /**
  * Leitet aus dem Autorenmodell den Graphen ab, den Layout und Anzeige verwenden.
@@ -90,7 +91,61 @@ export function buildGraph(dataset: Dataset): GraphData {
     }
   }
 
-  return { nodes, edges };
+  return { nodes, edges, partners: buildPartners(dataset, unions) };
+}
+
+/**
+ * Fuehrt Verbindungen zusammen: was in relationships.yaml steht, und was sich
+ * aus gemeinsamen Kindern ergibt.
+ *
+ * Ohne Eintrag bleibt die Art unbestimmt - dass zwei Figuren Kinder haben,
+ * verraet noch nicht, ob sie verheiratet waren. Das Pruefskript weist auf
+ * solche Luecken hin.
+ */
+function buildPartners(dataset: Dataset, unions: ReadonlyMap<string, UnionDraft>): PartnerLink[] {
+  const byPair = new Map<string, { a: string; b: string; type: RelationshipType; children: number; sourceKey?: string }>();
+
+  for (const draft of unions.values()) {
+    if (draft.parents.length < 2) continue;
+    for (let i = 0; i < draft.parents.length; i += 1) {
+      for (let j = i + 1; j < draft.parents.length; j += 1) {
+        const a = draft.parents[i]!;
+        const b = draft.parents[j]!;
+        const key = pairKey(a, b);
+        const existing = byPair.get(key);
+        if (existing === undefined) {
+          byPair.set(key, { a, b, type: 'unknown', children: draft.children.length });
+        } else {
+          existing.children += draft.children.length;
+        }
+      }
+    }
+  }
+
+  for (const relationship of dataset.relationships) {
+    const [a, b] = relationship.between;
+    const key = pairKey(a, b);
+    const existing = byPair.get(key);
+    const sourceKey = relationship.sources[0]?.source;
+
+    if (existing === undefined) {
+      byPair.set(key, {
+        a,
+        b,
+        type: relationship.type,
+        children: 0,
+        ...(sourceKey === undefined ? {} : { sourceKey }),
+      });
+      continue;
+    }
+
+    existing.type = relationship.type;
+    if (sourceKey !== undefined) existing.sourceKey = sourceKey;
+  }
+
+  return [...byPair.entries()]
+    .sort((x, y) => x[0].localeCompare(y[0], 'en'))
+    .map(([key, value]) => ({ id: `r:${key}`, ...value }));
 }
 
 /** Nur die Kanten der Leitversion - genau das, was das Layout schichten muss. */

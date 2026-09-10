@@ -7,8 +7,10 @@ import {
   canonicalParentage,
   fullAdjacency,
   loadDataset,
+  pairKey,
   variantParentages,
 } from './lib/dataset.ts';
+import { buildGraph } from './lib/derive.ts';
 import { Report } from './lib/report.ts';
 import { DataFileError } from './lib/yaml.ts';
 
@@ -97,17 +99,6 @@ function checkReferences(dataset: Dataset, report: Report): void {
       }
     }
 
-    for (const union of figure.unions ?? []) {
-      for (const partner of union.with) {
-        if (!resolve(partner)) {
-          report.error('verweis-ins-leere', `Partner "${partner}" existiert nicht`, at);
-        }
-        if (partner === id) {
-          report.error('partner-auf-sich-selbst', 'Figur ist als eigener Partner eingetragen', at);
-        }
-      }
-    }
-
     for (const aspect of [figure.greek, figure.roman]) {
       for (const reference of aspect?.sources ?? []) {
         if (!(reference.source in dataset.sources)) {
@@ -119,6 +110,60 @@ function checkReferences(dataset: Dataset, report: Report): void {
         }
       }
     }
+  }
+}
+
+/**
+ * Prueft die Verbindungen: Verweise, doppelte Paare, Selbstbezug - und meldet
+ * Paare mit gemeinsamen Kindern, deren Art noch nicht eingetragen ist.
+ */
+function checkRelationships(dataset: Dataset, report: Report): void {
+  const seen = new Map<string, number>();
+  const at = 'data/relationships.yaml';
+
+  for (const relationship of dataset.relationships) {
+    const [a, b] = relationship.between;
+
+    for (const id of [a, b]) {
+      if (!dataset.byId.has(id)) {
+        report.error('verweis-ins-leere', `Verbindung nennt die unbekannte Figur "${id}"`, at);
+      }
+    }
+
+    if (a === b) {
+      report.error('verbindung-mit-sich-selbst', `"${a}" ist mit sich selbst verbunden`, at);
+    }
+
+    for (const reference of relationship.sources) {
+      if (!(reference.source in dataset.sources)) {
+        report.error(
+          'unbekannte-quelle',
+          `Quellenschluessel "${reference.source}" steht nicht in sources.yaml`,
+          at,
+        );
+      }
+    }
+
+    const key = pairKey(a, b);
+    const count = (seen.get(key) ?? 0) + 1;
+    seen.set(key, count);
+    if (count > 1) {
+      report.error('doppelte-verbindung', `Das Paar "${key}" ist mehrfach eingetragen`, at);
+    }
+  }
+
+  // Gemeinsame Kinder verraten noch nicht, ob es eine Ehe war.
+  const graph = buildGraph(dataset);
+  const offen = graph.partners
+    .filter((partner) => partner.type === 'unknown' && partner.children > 0)
+    .map((partner) => pairKey(partner.a, partner.b));
+
+  for (const key of offen) {
+    report.warn(
+      'verbindung-ohne-art',
+      `"${key}" hat gemeinsame Kinder, aber es ist nicht eingetragen, welcher Art die Verbindung war`,
+      at,
+    );
   }
 }
 
@@ -258,12 +303,17 @@ function checkOrphans(dataset: Dataset, report: Report): void {
     if (children.length > 0) hasChildren.add(parent);
   }
 
+  const partnered = new Set<string>();
+  for (const partner of buildGraph(dataset).partners) {
+    partnered.add(partner.a);
+    partnered.add(partner.b);
+  }
+
   for (const [id, figure] of dataset.byId) {
     const hasParents = figure.parentage.some((variant) => variant.parents.length > 0);
-    const hasUnions = (figure.unions ?? []).length > 0;
     const hasCounterparts = (figure.counterparts ?? []).length > 0;
 
-    if (!hasParents && !hasChildren.has(id) && !hasUnions && !hasCounterparts) {
+    if (!hasParents && !hasChildren.has(id) && !partnered.has(id) && !hasCounterparts) {
       report.warn(
         'ohne-verbindung',
         'Figur haengt an keiner Stelle im Stammbaum und erscheint isoliert',
@@ -275,6 +325,10 @@ function checkOrphans(dataset: Dataset, report: Report): void {
 
 function checkUnusedSources(dataset: Dataset, report: Report): void {
   const used = new Set<string>();
+  for (const relationship of dataset.relationships) {
+    for (const reference of relationship.sources) used.add(reference.source);
+  }
+
   for (const figure of dataset.byId.values()) {
     for (const variant of figure.parentage) {
       for (const reference of variant.sources) used.add(reference.source);
@@ -284,9 +338,6 @@ function checkUnusedSources(dataset: Dataset, report: Report): void {
     }
     for (const counterpart of figure.counterparts ?? []) {
       for (const reference of counterpart.sources ?? []) used.add(reference.source);
-    }
-    for (const union of figure.unions ?? []) {
-      for (const reference of union.sources) used.add(reference.source);
     }
     for (const myth of figure.myths ?? []) {
       for (const reference of myth.sources) used.add(reference.source);
@@ -382,6 +433,7 @@ async function main(): Promise<number> {
   checkDuplicateIds(dataset, report);
   checkAliases(dataset, report);
   checkReferences(dataset, report);
+  checkRelationships(dataset, report);
   checkParentagePlausibility(dataset, report);
   checkTiers(dataset, report);
   checkCycles(dataset, report);

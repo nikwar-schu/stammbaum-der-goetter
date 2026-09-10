@@ -28,7 +28,7 @@ interface GraphCanvasProps {
   readonly selectedId: string | null;
   readonly visibility: VisibilityState;
   readonly view: ViewMode;
-  readonly lineage: ReadonlySet<string>;
+  readonly neighbourhood: ReadonlySet<string>;
   readonly hiddenCount: number;
   readonly texts: Texts;
   readonly onSelect: (figureId: string | null) => void;
@@ -41,7 +41,7 @@ export function GraphCanvas({
   selectedId,
   visibility,
   view,
-  lineage,
+  neighbourhood,
   hiddenCount,
   texts,
   onSelect,
@@ -126,8 +126,8 @@ export function GraphCanvas({
   }, [ready, showVariants]);
 
   useEffect(() => {
-    if (ready) viewRef.current?.setHighlight(selectedId, lineage);
-  }, [ready, selectedId, lineage]);
+    if (ready) viewRef.current?.setHighlight(selectedId, neighbourhood);
+  }, [ready, selectedId, neighbourhood]);
 
   useEffect(() => {
     const container = containerRef.current;

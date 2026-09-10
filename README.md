@@ -8,12 +8,18 @@ Gaia bis zu den kleinsten Nischengottheiten, mit Quellenangaben zu jeder Abstamm
   wird durch gestrichelte Brückenlinien überbrückt, damit der Baum zusammenhängend
   bleibt.
 - **Zweisprachig** deutsch und englisch.
+- **Ehen und Liebschaften** sind unterschieden und mit Quelle belegt. Aphrodite ist mit
+  Hephaistos verheiratet (⚭) und Ares zugetan (♥) - beides steht nebeneinander im
+  Infofenster und wird im Baum als Linie mit dem passenden Zeichen gezeichnet.
+- **Klick auf eine Gottheit** blendet alles zurück außer ihr selbst und dem, was
+  unmittelbar mit ihr verbunden ist: Eltern, Kinder und Partner.
 - **Widersprüchliche Überlieferungen** sind sichtbar gemacht: Hesiods Fassung gilt als
   Leitversion, abweichende Angaben lassen sich als gestrichelte Linien zuschalten —
   bei Aphrodite etwa die homerische Abstammung von Zeus und Dione.
 - **Unscharfe Suche** über Namen, Beinamen, Zuständigkeiten und Attribute in beiden
   Sprachen und beiden Sichten. „Blitz" und „thunderbolt" führen beide zu Zeus.
-- **Fokusansicht** statt Gesamtbild: der Baum beginnt oben und öffnet sich schrittweise.
+- **Generationentiefe regelbar**: Der Baum startet vollständig; wer nur die ersten
+  Generationen sehen will, schränkt die Tiefe in der Filterleiste ein.
 
 ## Loslegen
 
@@ -33,6 +39,9 @@ Die Anwendung läuft dann unter der Adresse, die Vite ausgibt.
 | `npm test` | Tests für Graphlogik und Datenintegrität |
 | `npm run build` | Vollständiger Bau nach `dist/` |
 | `npm run gen:schema` | JSON-Schema für den Editor aus dem Zod-Schema erzeugen |
+
+Beim Start sind alle Sachgruppen eingeschaltet und alle Generationen sichtbar; über die
+Filterleiste lässt sich beides einschränken.
 
 ## Eine Gottheit hinzufügen
 
@@ -71,6 +80,27 @@ Ein Eintrag im Kleinstformat:
         en: In Rome the protectress of the victorious general, with her own altar in the Curia.
 ```
 
+## Eine Verbindung eintragen
+
+Wer mit wem, steht in `data/relationships.yaml` - bewusst in einer eigenen Datei, denn
+eine Beziehung ist wechselseitig und gehört nicht an eine der beiden Figuren:
+
+```yaml
+  - between: [aphrodite, ares]
+    type: liaison
+    sources:
+      - { source: homer-odyssee, loc: '8.266-366' }
+    note:
+      de: Helios verrät die beiden an Hephaistos, der ein unsichtbares Netz schmiedet.
+      en: Helios betrays the two to Hephaestus, who forges an invisible net.
+```
+
+Mögliche Arten: `marriage` (Ehe), `consort` (feste Verbindung ohne überlieferte
+Eheschließung), `liaison` (Liebschaft), `abduction` (Verbindung, die als Raub beginnt)
+und `unknown`. Paare mit gemeinsamen Kindern, für die noch kein Eintrag besteht, meldet
+das Prüfskript als Hinweis - aus der Abstammung allein geht nicht hervor, ob geheiratet
+wurde.
+
 Danach `npm run validate` ausführen. Das Skript prüft unter anderem:
 
 - Verweise ins Leere (Eltern, Partner, Gegenstücke, Quellenschlüssel)
@@ -78,6 +108,7 @@ Danach `npm run validate` ausführen. Das Skript prüft unter anderem:
 - Generationslogik: ein Kind muss unter beiden Eltern stehen
 - fehlende Übersetzungen und unbekannte Zuständigkeiten
 - doppelt vergebene Kennungen
+- Verbindungen: unbekannte Figuren, doppelte Paare, Selbstbezug
 
 Es findet **Strukturfehler, keine inhaltlichen**. Wer eine Gottheit falsch einordnet,
 merkt das hier nicht — dafür trägt jede Abstammung ihre antike Textstelle.
@@ -96,11 +127,15 @@ merkt das hier nicht — dafür trägt jede Abstammung ihre antike Textstelle.
 - **`confidence`** hält fest, wie gut eine Figur belegt ist — wichtig bei den
   Nischengottheiten, die oft nur eine einzige Textstelle nennt.
 - **Verbindungsknoten** zwischen Eltern und Kindern werden abgeleitet, nicht gepflegt.
+- **Partnerlinien fließen nicht in das Layout ein.** Partner können im Baum weit
+  auseinanderliegen; Linien quer über hunderte Figuren wären unlesbar. Gezeichnet werden
+  sie nur für die gerade gewählte Figur.
 
 ## Aufbau
 
 ```
 data/            die Inhalte in YAML - das eigentliche Produkt
+                 figures/ die Gottheiten, relationships.yaml wer mit wem
 schema/          aus dem Zod-Schema erzeugt, für die Editor-Unterstützung
 scripts/         Prüfung, Aufbereitung, Layoutberechnung
 src/schema/      Zod-Schema und Typen; eine Quelle der Wahrheit

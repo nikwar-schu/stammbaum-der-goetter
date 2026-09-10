@@ -1,4 +1,4 @@
-import type { GraphData, GraphNode } from '../types/runtime.ts';
+import type { GraphData, GraphNode, PartnerLink } from '../types/runtime.ts';
 
 /**
  * Sicht auf den Graphen aus Sicht der Figuren.
@@ -121,21 +121,44 @@ export function fullSiblingsOf(index: GraphIndex, figureId: string): Set<string>
   return siblings;
 }
 
-/**
- * Partner einer Figur: alle Mitelternteile ihrer Kinder.
- *
- * Abgeleitet statt gepflegt - wer gemeinsame Kinder hat, ist damit verbunden.
- * Kinderlose, aber bemerkenswerte Verbindungen stehen daneben im Feld `unions`
- * der Figur und werden von der Oberflaeche ergaenzt.
- */
-export function partnersOf(index: GraphIndex, figureId: string): Set<string> {
-  const partners = new Set<string>();
-  for (const child of index.childrenOf(figureId)) {
-    for (const parent of index.parentsOf(child)) {
-      if (parent !== figureId) partners.add(parent);
-    }
+/** Alle Verbindungen, an denen eine Figur beteiligt ist, aus deren Blickwinkel. */
+export interface PartnerOf {
+  readonly partner: string;
+  readonly link: PartnerLink;
+}
+
+export function partnerLinksOf(
+  partners: readonly PartnerLink[],
+  figureId: string,
+): PartnerOf[] {
+  const found: PartnerOf[] = [];
+  for (const link of partners) {
+    if (link.a === figureId) found.push({ partner: link.b, link });
+    else if (link.b === figureId) found.push({ partner: link.a, link });
   }
-  return partners;
+  return found;
+}
+
+/**
+ * Die unmittelbar verbundenen Figuren: Eltern, Kinder und Partner.
+ *
+ * Bewusst nicht die ganze Ahnenreihe. Wer eine Gottheit anklickt, will sehen,
+ * mit wem sie unmittelbar zu tun hatte - Hera, weil sie seine Frau ist, nicht
+ * jeder Urahn sieben Generationen weiter oben. Geschwister zaehlen nicht dazu:
+ * sie haengen ueber den Elternteil zusammen, nicht unmittelbar.
+ */
+export function neighbourhoodOf(
+  index: GraphIndex,
+  partners: readonly PartnerLink[],
+  figureId: string,
+): Set<string> {
+  const near = new Set<string>([figureId]);
+
+  for (const parent of index.parentsOf(figureId)) near.add(parent);
+  for (const child of index.childrenOf(figureId)) near.add(child);
+  for (const entry of partnerLinksOf(partners, figureId)) near.add(entry.partner);
+
+  return near;
 }
 
 /** Eine Linie, die eine oder mehrere ausgeblendete Zwischengenerationen ueberspringt. */

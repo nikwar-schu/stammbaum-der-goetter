@@ -92,6 +92,7 @@ interface RelationListProps {
   readonly nodeById: ReadonlyMap<string, GraphNode>;
   readonly meta: Meta;
   readonly tradition: Tradition;
+  readonly lang: Lang;
   readonly notes?: ReadonlyMap<string, string>;
   readonly onPick: (figureId: string) => void;
 }
@@ -101,6 +102,7 @@ function RelationList({
   nodeById,
   meta,
   tradition,
+  lang,
   notes,
   onPick,
 }: RelationListProps): React.JSX.Element {
@@ -119,7 +121,7 @@ function RelationList({
               onClick={() => onPick(id)}
             >
               <span className="relation__dot" aria-hidden="true" />
-              <span className="relation__name">{nameOf(node, tradition)}</span>
+              <span className="relation__name">{nameOf(node, tradition, lang)}</span>
               {notes?.get(id) !== undefined && <span className="relation__note">{notes.get(id)}</span>}
             </button>
           </li>
@@ -175,16 +177,16 @@ export function SidePanel({
   ];
 
   return (
-    <aside className="panel" aria-label={nameOf(node, tradition)}>
+    <aside className="panel" aria-label={nameOf(node, tradition, lang)}>
       <div className="panel__head">
         <div className="panel__names">
-          <h2 className="panel__name">{nameOf(node, tradition)}</h2>
+          <h2 className="panel__name">{nameOf(node, tradition, lang)}</h2>
           {aspect?.nameOriginal !== undefined && (
             <p className="panel__name-original">{aspect.nameOriginal}</p>
           )}
           {other?.name !== undefined && (
             <p className="panel__other-name">
-              {tradition === 'greek' ? texts.traditionRoman : texts.traditionGreek}: {other.name}
+              {tradition === 'greek' ? texts.traditionRoman : texts.traditionGreek}: {other.name[lang]}
             </p>
           )}
 
@@ -394,16 +396,16 @@ function FamilyTab({
   onPick,
 }: FamilyTabProps): React.JSX.Element {
   const { nodeById } = index;
-  const parents = sortByName(index.parentsOf(figure.id), nodeById, tradition);
-  const siblings = sortByName(siblingsOf(index, figure.id), nodeById, tradition);
-  const children = sortByName(index.childrenOf(figure.id), nodeById, tradition);
+  const parents = sortByName(index.parentsOf(figure.id), nodeById, tradition, lang);
+  const siblings = sortByName(siblingsOf(index, figure.id), nodeById, tradition, lang);
+  const children = sortByName(index.childrenOf(figure.id), nodeById, tradition, lang);
 
   const links = partnerLinksOf(partners, figure.id).sort(
     (a, b) =>
       RELATIONSHIP_ORDER.indexOf(a.link.type) - RELATIONSHIP_ORDER.indexOf(b.link.type) ||
-      nameOf(nodeById.get(a.partner), tradition).localeCompare(
-        nameOf(nodeById.get(b.partner), tradition),
-        'de',
+      nameOf(nodeById.get(a.partner), tradition, lang).localeCompare(
+        nameOf(nodeById.get(b.partner), tradition, lang),
+        lang,
       ),
   );
 
@@ -420,7 +422,7 @@ function FamilyTab({
   for (const counterpart of figure.counterparts ?? []) {
     counterpartNotes.set(counterpart.figure, texts.counterpartRelation[counterpart.relation]);
   }
-  const counterparts = sortByName([...counterpartNotes.keys()], nodeById, tradition);
+  const counterparts = sortByName([...counterpartNotes.keys()], nodeById, tradition, lang);
 
   const empty =
     parents.length === 0 &&
@@ -454,6 +456,7 @@ function FamilyTab({
               nodeById={nodeById}
               meta={meta}
               tradition={tradition}
+              lang={lang}
               {...(section.notes === undefined ? {} : { notes: section.notes })}
               onPick={onPick}
             />
@@ -507,7 +510,7 @@ function SourcesTab({
   const parentNames = (variant: ParentageVariant): string =>
     variant.parents.length === 0
       ? '—'
-      : variant.parents.map((id) => nameOf(nodeById.get(id), tradition)).join(' · ');
+      : variant.parents.map((id) => nameOf(nodeById.get(id), tradition, lang)).join(' · ');
 
   const links = Object.entries(figure.refs ?? {}).filter(([, url]) => typeof url === 'string');
 

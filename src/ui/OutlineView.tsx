@@ -42,8 +42,9 @@ export function OutlineView({
         index.figureIds.filter((id) => index.parentsOf(id).length === 0),
         index.nodeById,
         tradition,
+        lang,
       ),
-    [index, tradition],
+    [index, tradition, lang],
   );
 
   const expanded = new Set<string>();
@@ -59,11 +60,11 @@ export function OutlineView({
     const children =
       alreadyShown || depth >= MAX_DEPTH
         ? []
-        : sortByName(index.childrenOf(id), index.nodeById, tradition);
+        : sortByName(index.childrenOf(id), index.nodeById, tradition, lang);
 
     return (
       <li key={`${id}-${depth}`}>
-        <span className="outline__name">{nameOf(node, tradition)}</span>{' '}
+        <span className="outline__name">{nameOf(node, tradition, lang)}</span>{' '}
         <span className="outline__meta">
           {label}
           {alreadyShown && ` · ${texts.outlineRepeated}`}

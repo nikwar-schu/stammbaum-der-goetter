@@ -1,7 +1,8 @@
 import cytoscape from 'cytoscape';
 import type { Core, ElementDefinition, NodeSingular } from 'cytoscape';
-import type { Category, Tradition } from '../schema/constants.ts';
+import type { Category, Lang, Tradition } from '../schema/constants.ts';
 import { RELATIONSHIP_SYMBOLS } from '../schema/constants.ts';
+import { nameOf } from './naming.ts';
 import type { GraphData, LayoutData, Meta } from '../types/runtime.ts';
 import type { BridgeEdge } from './model.ts';
 import type { Theme } from './style.ts';
@@ -41,6 +42,8 @@ export interface TreeViewOptions {
   readonly layout: LayoutData;
   readonly meta: Meta;
   readonly theme: Theme;
+  readonly tradition: Tradition;
+  readonly lang: Lang;
   readonly onSelect: (figureId: string | null) => void;
 }
 
@@ -63,7 +66,7 @@ export class TreeView {
 
     this.#cy = cytoscape({
       container: options.container,
-      elements: this.#buildElements(options.layout, options.theme),
+      elements: this.#buildElements(options.layout, options.theme, options.tradition, options.lang),
       style: buildStylesheet(options.theme),
       layout: { name: 'preset' },
       minZoom: MIN_ZOOM,
@@ -82,7 +85,12 @@ export class TreeView {
     });
   }
 
-  #buildElements(layout: LayoutData, theme: Theme): ElementDefinition[] {
+  #buildElements(
+    layout: LayoutData,
+    theme: Theme,
+    tradition: Tradition,
+    lang: Lang,
+  ): ElementDefinition[] {
     const elements: ElementDefinition[] = [];
 
     for (const node of this.#graph.nodes) {
@@ -96,7 +104,7 @@ export class TreeView {
           id: node.id,
           kind: node.kind,
           category: node.category ?? '',
-          label: node.greek ?? node.roman ?? node.id,
+          label: nameOf(node, tradition, lang),
           fill: mix(colour, theme.mixTarget, theme.mixAmount),
           stroke: colour,
         },
@@ -150,8 +158,11 @@ export class TreeView {
     this.#cy.style(buildStylesheet(theme));
   }
 
-  /** Wechselt die angezeigten Namen. Die Kaesten behalten ihre Groesse und Lage. */
-  setTradition(tradition: Tradition): void {
+  /**
+   * Wechselt die Beschriftung nach Sicht und Sprache. Die Kaesten behalten
+   * dabei Groesse und Lage - genau darum sind sie fest bemessen.
+   */
+  setLabels(tradition: Tradition, lang: Lang): void {
     const byId = new Map(this.#graph.nodes.map((node) => [node.id, node]));
 
     this.#cy.batch(() => {
@@ -160,8 +171,7 @@ export class TreeView {
         if (node === undefined) continue;
 
         const preferred = tradition === 'greek' ? node.greek : node.roman;
-        const fallback = tradition === 'greek' ? node.roman : node.greek;
-        element.data('label', preferred ?? fallback ?? element.id());
+        element.data('label', nameOf(node, tradition, lang));
         element.toggleClass('no-counterpart', preferred === undefined);
       }
     });

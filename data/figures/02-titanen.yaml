@@ -23,7 +23,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Okeanos
+      name: { de: Okeanos, en: Oceanus }
       nameOriginal: Ὠκεανός
       domains: [ocean-stream, fresh-water, rivers]
       symbols:
@@ -43,7 +43,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '337-370' }
     roman:
-      name: Oceanus
+      name: { de: Oceanus, en: Oceanus }
       domains: [ocean-stream, sea]
       description:
         de: >-
@@ -71,7 +71,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Tethys
+      name: { de: Tethys, en: Tethys }
       nameOriginal: Τηθύς
       domains: [fresh-water, springs, rivers]
       description:
@@ -86,7 +86,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '14.201-204' }
     roman:
-      name: Tethys
+      name: { de: Tethys, en: Tethys }
       domains: [fresh-water, sea]
       description:
         de: >-
@@ -112,7 +112,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Hyperion
+      name: { de: Hyperion, en: Hyperion }
       nameOriginal: Ὑπερίων
       domains: [light, sun]
       description:
@@ -125,7 +125,7 @@ figures:
           remains pale; his significance lies in the children he fathers with Theia: sun,
           moon and dawn. Homer occasionally calls Helios simply Hyperion.
     roman:
-      name: Hyperion
+      name: { de: Hyperion, en: Hyperion }
       domains: [light, sun]
       description:
         de: >-
@@ -151,7 +151,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Theia
+      name: { de: Theia, en: Theia }
       nameOriginal: Θεία
       altNames: [Euryphaessa]
       domains: [light, stars]
@@ -166,7 +166,7 @@ figures:
       sources:
         - { source: pindar-oden, loc: 'Isthm. 5.1-3' }
     roman:
-      name: Thia
+      name: { de: Thia, en: Thia }
       domains: [light, stars]
       description:
         de: >-
@@ -192,7 +192,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Koios
+      name: { de: Koios, en: Coeus }
       nameOriginal: Κοῖος
       domains: [prophecy, sky]
       description:
@@ -207,7 +207,7 @@ figures:
           he fathers Leto and Asteria - through them the line leads to Apollo, Artemis and
           Hecate.
     roman:
-      name: Coeus
+      name: { de: Coeus, en: Coeus }
       domains: [prophecy, sky]
       description:
         de: >-
@@ -233,7 +233,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Phoibe
+      name: { de: Phoibe, en: Phoebe }
       nameOriginal: Φοίβη
       domains: [prophecy, moon]
       description:
@@ -248,7 +248,7 @@ figures:
       sources:
         - { source: aischylos-eumeniden, loc: '1-8' }
     roman:
-      name: Phoebe
+      name: { de: Phoebe, en: Phoebe }
       domains: [moon, prophecy]
       description:
         de: >-
@@ -274,7 +274,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Krios
+      name: { de: Krios, en: Crius }
       nameOriginal: Κρῖος
       domains: [stars, sovereignty]
       description:
@@ -289,7 +289,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '375-377' }
     roman:
-      name: Crius
+      name: { de: Crius, en: Crius }
       domains: [stars]
       description:
         de: >-
@@ -313,7 +313,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Iapetos
+      name: { de: Iapetos, en: Iapetus }
       nameOriginal: Ἰαπετός
       domains: [crafts, might]
       description:
@@ -331,7 +331,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '507-511' }
     roman:
-      name: Iapetus
+      name: { de: Iapetus, en: Iapetus }
       domains: [crafts]
       description:
         de: >-
@@ -357,7 +357,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Themis
+      name: { de: Themis, en: Themis }
       nameOriginal: Θέμις
       domains: [order, law, justice, prophecy]
       symbols:
@@ -376,7 +376,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '901-906' }
     roman:
-      name: Themis
+      name: { de: Themis, en: Themis }
       domains: [order, justice, law]
       description:
         de: >-
@@ -406,7 +406,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Mnemosyne
+      name: { de: Mnemosyne, en: Mnemosyne }
       nameOriginal: Μνημοσύνη
       domains: [memory, poetry]
       description:
@@ -422,7 +422,7 @@ figures:
         - { source: hesiod-theogonie, loc: '53-62' }
         - { source: hesiod-theogonie, loc: '915-917' }
     roman:
-      name: Moneta
+      name: { de: Moneta, en: Moneta }
       domains: [memory, poetry]
       description:
         de: >-
@@ -453,9 +453,8 @@ figures:
           de: Der jüngste der Titanen und der einzige, der sich gegen Uranos zu erheben wagt.
           en: The youngest of the Titans and the only one who dares to rise against Uranus.
     greek:
-      name: Kronos
+      name: { de: Kronos, en: Cronus }
       nameOriginal: Κρόνος
-      altNames: [Cronus]
       domains: [harvest, sovereignty, time]
       symbols:
         de: [Sichel]
@@ -474,8 +473,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '453-506' }
     roman:
-      name: Saturnus
-      altNames: [Saturn]
+      name: { de: Saturnus, en: Saturn }
       domains: [agriculture, harvest, wealth]
       symbols:
         de: [Sichel, Winzermesser]
@@ -521,9 +519,8 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '133-138' }
     greek:
-      name: Rheia
+      name: { de: Rheia, en: Rhea }
       nameOriginal: Ῥεία
-      altNames: [Rhea]
       domains: [fertility, family, sovereignty]
       description:
         de: >-
@@ -538,7 +535,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '453-491' }
     roman:
-      name: Ops
+      name: { de: Ops, en: Ops }
       altNames: [Opis]
       domains: [fertility, harvest, wealth]
       description:
@@ -572,7 +569,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '139-146' }
     greek:
-      name: Kyklopen
+      name: { de: Kyklopen, en: Cyclopes }
       nameOriginal: Κύκλωπες
       altNames: [Brontes, Steropes, Arges]
       domains: [metalworking, thunder, lightning]
@@ -590,7 +587,7 @@ figures:
       sources:
         - { source: apollodor-bibliotheke, loc: '1.2.1' }
     roman:
-      name: Cyclopes
+      name: { de: Cyclopes, en: Cyclopes }
       domains: [metalworking, fire]
       description:
         de: >-
@@ -618,7 +615,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '147-153' }
     greek:
-      name: Hekatoncheiren
+      name: { de: Hekatoncheiren, en: Hecatoncheires }
       nameOriginal: Ἑκατόγχειρες
       altNames: [Kottos, Briareos, Gyges]
       domains: [might, force]
@@ -635,7 +632,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '617-720' }
     roman:
-      name: Centimani
+      name: { de: Centimani, en: Centimani }
       domains: [might, force]
       description:
         de: >-
@@ -663,7 +660,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '371-374' }
     greek:
-      name: Helios
+      name: { de: Helios, en: Helios }
       nameOriginal: Ἥλιος
       domains: [sun, light]
       symbols:
@@ -686,7 +683,7 @@ figures:
         de: Auf Rhodos war er Hauptgott; der Koloss stellte ihn dar.
         en: On Rhodes he was the chief god; the Colossus represented him.
     roman:
-      name: Sol
+      name: { de: Sol, en: Sol }
       domains: [sun, light]
       description:
         de: >-
@@ -715,7 +712,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '371-374' }
     greek:
-      name: Selene
+      name: { de: Selene, en: Selene }
       nameOriginal: Σελήνη
       domains: [moon, night]
       symbols:
@@ -733,7 +730,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '32' }
     roman:
-      name: Luna
+      name: { de: Luna, en: Luna }
       domains: [moon, night]
       description:
         de: >-
@@ -759,7 +756,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '371-374' }
     greek:
-      name: Eos
+      name: { de: Eos, en: Eos }
       nameOriginal: Ἠώς
       domains: [dawn]
       symbols:
@@ -779,7 +776,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '5.218-238' }
     roman:
-      name: Aurora
+      name: { de: Aurora, en: Aurora }
       domains: [dawn]
       description:
         de: >-
@@ -809,7 +806,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '404-410' }
     greek:
-      name: Leto
+      name: { de: Leto, en: Leto }
       nameOriginal: Λητώ
       domains: [childbirth, family]
       description:
@@ -824,7 +821,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '3.25-126' }
     roman:
-      name: Latona
+      name: { de: Latona, en: Latona }
       domains: [childbirth, family]
       description:
         de: >-
@@ -853,7 +850,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '404-410' }
     greek:
-      name: Asteria
+      name: { de: Asteria, en: Asteria }
       nameOriginal: Ἀστερία
       domains: [stars, prophecy, dreams]
       description:
@@ -870,7 +867,7 @@ figures:
       sources:
         - { source: apollodor-bibliotheke, loc: '1.4.1' }
     roman:
-      name: Asteria
+      name: { de: Asteria, en: Asteria }
       domains: [stars, prophecy]
       description:
         de: >-
@@ -896,7 +893,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '375-377' }
     greek:
-      name: Astraios
+      name: { de: Astraios, en: Astraeus }
       nameOriginal: Ἀστραῖος
       domains: [stars, winds]
       description:
@@ -911,7 +908,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '378-382' }
     roman:
-      name: Astraeus
+      name: { de: Astraeus, en: Astraeus }
       domains: [stars, winds]
       description:
         de: >-
@@ -937,7 +934,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '375-377' }
     greek:
-      name: Pallas
+      name: { de: Pallas, en: Pallas }
       nameOriginal: Πάλλας
       domains: [war, battle-strategy]
       description:
@@ -952,7 +949,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '383-385' }
     roman:
-      name: Pallas
+      name: { de: Pallas, en: Pallas }
       domains: [war]
       description:
         de: >-
@@ -977,7 +974,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '375-377' }
     greek:
-      name: Perses
+      name: { de: Perses, en: Perses }
       nameOriginal: Πέρσης
       domains: [magic, might]
       description:
@@ -992,7 +989,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '409-411' }
     roman:
-      name: Perses
+      name: { de: Perses, en: Perses }
       domains: [magic]
       description:
         de: >-
@@ -1018,7 +1015,7 @@ figures:
           - { source: hesiod-theogonie, loc: '349-361' }
           - { source: hesiod-theogonie, loc: '886-890' }
     greek:
-      name: Metis
+      name: { de: Metis, en: Metis }
       nameOriginal: Μῆτις
       domains: [wisdom, cunning]
       description:
@@ -1051,7 +1048,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '349-351' }
     greek:
-      name: Klymene
+      name: { de: Klymene, en: Clymene }
       nameOriginal: Κλυμένη
       domains: [fresh-water]
       description:
@@ -1066,7 +1063,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '507-511' }
     roman:
-      name: Clymene
+      name: { de: Clymene, en: Clymene }
       domains: [fresh-water]
       description:
         de: >-
@@ -1093,7 +1090,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '361' }
     greek:
-      name: Styx
+      name: { de: Styx, en: Styx }
       nameOriginal: Στύξ
       domains: [underworld, oaths, rivers]
       description:
@@ -1111,7 +1108,7 @@ figures:
         - { source: hesiod-theogonie, loc: '383-403' }
         - { source: hesiod-theogonie, loc: '775-806' }
     roman:
-      name: Styx
+      name: { de: Styx, en: Styx }
       domains: [underworld, oaths, rivers]
       description:
         de: >-
@@ -1140,7 +1137,7 @@ figures:
           de: Hesiod führt sie unter den Okeaniden; Apollodor zählt sie zu den Titaninnen.
           en: Hesiod lists her among the Oceanids; Apollodorus counts her among the Titanesses.
     greek:
-      name: Dione
+      name: { de: Dione, en: Dione }
       nameOriginal: Διώνη
       domains: [fresh-water, love]
       description:
@@ -1157,7 +1154,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '5.370-417' }
     roman:
-      name: Dione
+      name: { de: Dione, en: Dione }
       domains: [love]
       description:
         de: >-
@@ -1195,7 +1192,7 @@ figures:
           de: Apollodor nennt die Okeanide Asia als Mutter statt Klymene.
           en: Apollodorus names the Oceanid Asia as mother instead of Clymene.
     greek:
-      name: Atlas
+      name: { de: Atlas, en: Atlas }
       nameOriginal: Ἄτλας
       domains: [might, stars, seafaring]
       symbols:
@@ -1215,7 +1212,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '517-520' }
     roman:
-      name: Atlas
+      name: { de: Atlas, en: Atlas }
       domains: [might, stars]
       description:
         de: >-
@@ -1252,7 +1249,7 @@ figures:
         sources:
           - { source: apollodor-bibliotheke, loc: '1.2.3' }
     greek:
-      name: Prometheus
+      name: { de: Prometheus, en: Prometheus }
       nameOriginal: Προμηθεύς
       domains: [cunning, fire, crafts]
       symbols:
@@ -1273,7 +1270,7 @@ figures:
         - { source: hesiod-theogonie, loc: '521-616' }
         - { source: hesiod-erga, loc: '42-105' }
     roman:
-      name: Prometheus
+      name: { de: Prometheus, en: Prometheus }
       domains: [cunning, fire, crafts]
       description:
         de: >-
@@ -1303,7 +1300,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '507-511' }
     greek:
-      name: Epimetheus
+      name: { de: Epimetheus, en: Epimetheus }
       nameOriginal: Ἐπιμηθεύς
       domains: [crafts]
       description:
@@ -1319,7 +1316,7 @@ figures:
       sources:
         - { source: hesiod-erga, loc: '83-105' }
     roman:
-      name: Epimetheus
+      name: { de: Epimetheus, en: Epimetheus }
       domains: [crafts]
       description:
         de: >-
@@ -1345,9 +1342,8 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '507-511' }
     greek:
-      name: Menoitios
+      name: { de: Menoitios, en: Menoetius }
       nameOriginal: Μενοίτιος
-      altNames: [Menoetius]
       domains: [force, might]
       description:
         de: >-
@@ -1376,7 +1372,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '359' }
     greek:
-      name: Asia
+      name: { de: Asia, en: Asia }
       nameOriginal: Ἀσία
       domains: [fresh-water]
       description:

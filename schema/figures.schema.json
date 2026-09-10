@@ -47,8 +47,22 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string",
-                "minLength": 1
+                "type": "object",
+                "properties": {
+                  "de": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "de",
+                  "en"
+                ],
+                "additionalProperties": false
               },
               "nameOriginal": {
                 "type": "string",
@@ -228,8 +242,22 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string",
-                "minLength": 1
+                "type": "object",
+                "properties": {
+                  "de": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "de",
+                  "en"
+                ],
+                "additionalProperties": false
               },
               "nameOriginal": {
                 "type": "string",

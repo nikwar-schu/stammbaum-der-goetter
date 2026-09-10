@@ -20,7 +20,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '453-458' }
     greek:
-      name: Hades
+      name: { de: Hades, en: Hades }
       nameOriginal: Ἅιδης
       altNames: [Aidoneus, Plouton]
       domains: [underworld, death, wealth]
@@ -51,7 +51,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '15.185-193' }
     roman:
-      name: Pluto
+      name: { de: Pluto, en: Pluto }
       altNames: [Dis Pater, Orcus]
       domains: [underworld, death, wealth]
       symbols:
@@ -87,7 +87,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '912-914' }
     greek:
-      name: Persephone
+      name: { de: Persephone, en: Persephone }
       nameOriginal: Περσεφόνη
       altNames: [Kore]
       domains: [underworld, vegetation, death]
@@ -112,7 +112,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '2' }
     roman:
-      name: Proserpina
+      name: { de: Proserpina, en: Proserpina }
       domains: [underworld, vegetation]
       symbols:
         de: [Granatapfel, Fackel]

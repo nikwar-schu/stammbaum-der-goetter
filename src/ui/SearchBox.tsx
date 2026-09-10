@@ -143,7 +143,9 @@ export function SearchBox({
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => choose(doc.id)}
               >
-                <span className="search__result-name">{nameOf(nodeById.get(doc.id), tradition)}</span>
+                <span className="search__result-name">
+                  {nameOf(nodeById.get(doc.id), tradition, lang)}
+                </span>
                 <span className="search__result-meta">
                   {meta.categories[doc.category]?.label[lang] ?? doc.category}
                 </span>

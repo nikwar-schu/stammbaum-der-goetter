@@ -7,7 +7,8 @@ Gaia bis zu den kleinsten Nischengottheiten, mit Quellenangaben zu jeder Abstamm
   Baum bleiben unverändert. Figuren ohne Gegenstück verschwinden; ihre Abstammung
   wird durch gestrichelte Brückenlinien überbrückt, damit der Baum zusammenhängend
   bleibt.
-- **Zweisprachig** deutsch und englisch; die Seite startet auf Englisch, Deutsch ist
+- **Zweisprachig** deutsch und englisch - bis hin zu den Namen selbst: Kronos heißt auf
+  Englisch Cronus, Iuppiter heißt Jupiter. Die Seite startet auf Englisch, Deutsch ist
   einen Klick entfernt und bleibt in der Adresse erhalten, wenn jemand sie teilt.
 - **Namen im Fließtext sind anklickbar.** Steht in Aphrodites Beschreibung „Hephaestus",
   führt ein Klick dorthin. Die Namen werden beim Anzeigen erkannt, nicht in den Texten
@@ -46,9 +47,9 @@ Die Anwendung läuft dann unter der Adresse, die Vite ausgibt.
 
 | `npm run check:links` | zeigt im Text genannte Gottheiten ohne Verweis |
 
-Beim Start sind alle Sachgruppen eingeschaltet und alle Generationen sichtbar; über die
-Filterleiste lässt sich beides einschränken. Die Leiste selbst lässt sich über den
-Schalter „Sachgruppen" ein- und ausfahren.
+Beim Start ist die Filterleiste ausgefahren, alle Sachgruppen sind eingeschaltet und alle
+Generationen sichtbar; über die Leiste lässt sich beides einschränken, über den Schalter
+„Sachgruppen" die Leiste selbst einfahren.
 
 ## Eine Gottheit hinzufügen
 
@@ -73,14 +74,14 @@ Ein Eintrag im Kleinstformat:
         sources:
           - { source: hesiod-theogonie, loc: '383-385' }
     greek:
-      name: Nike
+      name: { de: Nike, en: Nike }
       nameOriginal: Νίκη
       domains: [victory]
       description:
         de: Die Siegesgöttin, die Zeus im Titanenkrieg zur Seite stand.
         en: The goddess of victory, who stood by Zeus in the war of the Titans.
     roman:
-      name: Victoria
+      name: { de: Victoria, en: Victoria }
       domains: [victory]
       description:
         de: In Rom Schutzgöttin des siegreichen Feldherrn, mit eigenem Altar in der Kurie.
@@ -131,6 +132,10 @@ merkt das hier nicht — dafür trägt jede Abstammung ihre antike Textstelle.
 - **`tier`** ist die Generationsebene und muss der Leitversion folgen. Dass Atlas und
   Prometheus eine Reihe tiefer sitzen als Zeus, ist kein Fehler: ihre Mutter Klymene
   ist eine Okeanide und damit selbst schon Titanenkind.
+- **Der Name ist zweisprachig**, nicht nur die Beschreibung. Die Schreibung unterscheidet
+  sich zu oft, als dass eine Form für beide taugte - Kronos und Cronus, Phorkys und
+  Phorcys, Iuppiter und Jupiter. Die Kastengröße im Baum ist fest, damit der Wechsel
+  trotzdem nichts verschiebt.
 - **`confidence`** hält fest, wie gut eine Figur belegt ist — wichtig bei den
   Nischengottheiten, die oft nur eine einzige Textstelle nennt.
 - **Verbindungsknoten** zwischen Eltern und Kindern werden abgeleitet, nicht gepflegt.

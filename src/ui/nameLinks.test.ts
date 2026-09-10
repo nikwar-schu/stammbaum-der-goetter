@@ -2,13 +2,14 @@ import { describe, expect, it } from 'vitest';
 import type { GraphNode, SearchDoc } from '../types/runtime.ts';
 import { buildNameIndex, linkNames } from './nameLinks.ts';
 
-function node(id: string, greek?: string, roman?: string): GraphNode {
+/** Kurzschreibweise: gleiche Schreibung in beiden Sprachen, sofern nichts anderes steht. */
+function node(id: string, greek?: string, roman?: string, greekEn?: string): GraphNode {
   return {
     id,
     kind: 'figure',
     tier: 0,
-    ...(greek === undefined ? {} : { greek }),
-    ...(roman === undefined ? {} : { roman }),
+    ...(greek === undefined ? {} : { greek: { de: greek, en: greekEn ?? greek } }),
+    ...(roman === undefined ? {} : { roman: { de: roman, en: roman } }),
   };
 }
 

@@ -64,8 +64,11 @@ export function buildNameIndex(
 
   for (const node of nodes) {
     if (node.kind !== 'figure') continue;
-    if (node.greek !== undefined) claim(node.greek, node.id);
-    if (node.roman !== undefined) claim(node.roman, node.id);
+    for (const name of [node.greek, node.roman]) {
+      if (name === undefined) continue;
+      claim(name.de, node.id);
+      claim(name.en, node.id);
+    }
   }
 
   for (const doc of docs) {

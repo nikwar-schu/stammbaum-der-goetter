@@ -35,7 +35,8 @@ function collectNames(dataset: Dataset, id: string): string[] {
 
   for (const aspect of [figure.greek, figure.roman]) {
     if (aspect === undefined) continue;
-    names.add(aspect.name);
+    names.add(aspect.name.de);
+    names.add(aspect.name.en);
     if (aspect.nameOriginal !== undefined) names.add(aspect.nameOriginal);
     for (const alternative of aspect.altNames ?? []) names.add(alternative);
   }

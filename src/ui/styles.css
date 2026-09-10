@@ -192,6 +192,9 @@ a {
 }
 
 .segmented__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding: 4px 11px;
   border: 0;
   border-radius: 4px;
@@ -213,24 +216,6 @@ a {
   font-weight: 600;
 }
 
-.toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 5px 11px;
-  background: var(--surface-sunken);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  color: var(--ink-muted);
-  font-size: 13px;
-}
-
-.toggle[aria-pressed='true'] {
-  background: var(--accent-soft);
-  border-color: var(--line-strong);
-  color: var(--ink);
-}
-
 .toggle__mark {
   width: 22px;
   height: 3px;
@@ -239,11 +224,11 @@ a {
   opacity: 0.45;
 }
 
-.toggle[aria-pressed='true'] .toggle__mark {
+.segmented__option[aria-pressed='true'] .toggle__mark {
   opacity: 1;
 }
 
-.toggle[aria-pressed='true'] .toggle__mark--dashed {
+.segmented__option[aria-pressed='true'] .toggle__mark--dashed {
   background: repeating-linear-gradient(
     to right,
     currentcolor 0 5px,
@@ -922,24 +907,31 @@ a {
 
 /*
  * Gestaffelt statt in einem Sprung:
- *   ueber 1180 px  Filterleiste und Infofenster als eigene Spalten
- *   900-1180 px    Filterleiste ausklappbar, Infofenster bleibt Spalte
- *   unter 900 px   beides gestapelt, Zeichenflaeche ueber dem Infofenster
- * Der Zwischenschritt ist noetig, weil Leiste und Fenster zusammen ueber 500 px
- * belegen - auf einem 1000 px breiten Fenster bliebe fuer den Stammbaum nichts.
+ *   ueber 1180 px  Filterleiste und Infofenster in voller Breite
+ *   900-1180 px    beide schmaler, aber weiterhin eigene Spalten
+ *   unter 900 px   die Leiste legt sich ueber die Flaeche und ist eingefahren,
+ *                  das Infofenster stapelt unter die Zeichenflaeche
+ *
+ * Bis 900 px bleibt die Leiste bewusst eine Spalte: als Ueberlagerung wuerde sie
+ * beim Start den ganzen Stammbaum verdecken, und ausgefahren soll sie sein.
  */
 
 @media (width <= 1180px) {
   :root {
-    --panel-width: 340px;
+    --panel-width: 330px;
+    --rail-width: 200px;
   }
+}
 
+@media (width <= 900px) {
+  /* Hier reicht die Breite nicht mehr fuer drei Spalten: die Leiste legt sich
+     ueber die Zeichenflaeche und ist beim Start eingefahren. */
   .app__body--with-rail {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .app__body--with-rail.app__body--with-panel {
-    grid-template-columns: minmax(0, 1fr) var(--panel-width);
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .rail {
@@ -949,9 +941,7 @@ a {
     width: 240px;
     box-shadow: var(--shadow-panel);
   }
-}
 
-@media (width <= 900px) {
   .app__body--with-panel {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) auto;
@@ -1011,8 +1001,7 @@ a {
   }
 
   .header__controls .control,
-  .header__controls .segmented,
-  .header__controls .toggle {
+  .header__controls .segmented {
     flex: none;
   }
 

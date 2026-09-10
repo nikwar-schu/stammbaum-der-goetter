@@ -93,15 +93,17 @@ export function Header({
       <div className="header__controls">
         <div className="control">
           <span className="control__label">{texts.categoriesLabel}</span>
-          <button
-            type="button"
-            className="toggle"
-            aria-pressed={railOpen}
-            onClick={onToggleRail}
-          >
-            <span className="toggle__mark toggle__mark--list" aria-hidden="true" />
-            {texts.categoriesLabel}
-          </button>
+          <div className="segmented">
+            <button
+              type="button"
+              className="segmented__option"
+              aria-pressed={railOpen}
+              onClick={onToggleRail}
+            >
+              <span className="toggle__mark toggle__mark--list" aria-hidden="true" />
+              {texts.categoriesLabel}
+            </button>
+          </div>
         </div>
 
         <Segmented
@@ -126,16 +128,18 @@ export function Header({
 
         <div className="control">
           <span className="control__label">{texts.variantsLabel}</span>
-          <button
-            type="button"
-            className="toggle"
-            aria-pressed={showVariants}
-            title={texts.variantsHint}
-            onClick={onToggleVariants}
-          >
-            <span className="toggle__mark toggle__mark--dashed" aria-hidden="true" />
-            {texts.variantsLabel}
-          </button>
+          <div className="segmented">
+            <button
+              type="button"
+              className="segmented__option"
+              aria-pressed={showVariants}
+              title={texts.variantsHint}
+              onClick={onToggleVariants}
+            >
+              <span className="toggle__mark toggle__mark--dashed" aria-hidden="true" />
+              {texts.variantsLabel}
+            </button>
+          </div>
         </div>
 
         <Segmented

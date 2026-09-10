@@ -1,6 +1,9 @@
 import type { Lang, Tradition } from '../schema/constants.ts';
 import type { Aspect, Figure, LocalizedText } from '../schema/figure.ts';
 import type { GraphNode } from '../types/runtime.ts';
+import { nameOf } from '../graph/naming.ts';
+
+export { existsIn, nameOf } from '../graph/naming.ts';
 
 /** Kleine Helfer, die in mehreren Bausteinen der Oberflaeche gebraucht werden. */
 
@@ -16,28 +19,16 @@ export function otherAspectOf(figure: Figure, tradition: Tradition): Aspect | un
   return tradition === 'greek' ? figure.roman : figure.greek;
 }
 
-/**
- * Der anzuzeigende Name. Fehlt das Gegenstueck, wird der vorhandene Name
- * verwendet - besser eine fremdsprachige Beschriftung als ein leerer Kasten.
- */
-export function nameOf(node: GraphNode | undefined, tradition: Tradition): string {
-  if (node === undefined) return '';
-  const preferred = tradition === 'greek' ? node.greek : node.roman;
-  const fallback = tradition === 'greek' ? node.roman : node.greek;
-  return preferred ?? fallback ?? node.id;
-}
-
-/** Ob es die Figur in der gewaehlten Sicht ueberhaupt gibt. */
-export function existsIn(node: GraphNode, tradition: Tradition): boolean {
-  return (tradition === 'greek' ? node.greek : node.roman) !== undefined;
-}
-
 export function sortByName(
   ids: Iterable<string>,
   nodeById: ReadonlyMap<string, GraphNode>,
   tradition: Tradition,
+  lang: Lang,
 ): string[] {
   return [...ids].sort((a, b) =>
-    nameOf(nodeById.get(a), tradition).localeCompare(nameOf(nodeById.get(b), tradition), 'de'),
+    nameOf(nodeById.get(a), tradition, lang).localeCompare(
+      nameOf(nodeById.get(b), tradition, lang),
+      lang,
+    ),
   );
 }

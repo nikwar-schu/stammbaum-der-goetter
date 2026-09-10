@@ -29,7 +29,7 @@ figures:
           de: Erstgeborene und damit als Erste verschlungen, als Letzte wieder ausgespien.
           en: Firstborn and thus swallowed first, disgorged last.
     greek:
-      name: Hestia
+      name: { de: Hestia, en: Hestia }
       nameOriginal: Ἑστία
       domains: [hearth, home, family, fire]
       symbols:
@@ -49,7 +49,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '29' }
     roman:
-      name: Vesta
+      name: { de: Vesta, en: Vesta }
       domains: [hearth, home, fire]
       symbols:
         de: [ewiges Feuer, Palladium]
@@ -89,7 +89,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '453-458' }
     greek:
-      name: Demeter
+      name: { de: Demeter, en: Demeter }
       nameOriginal: Δημήτηρ
       domains: [agriculture, grain, harvest, fertility]
       symbols:
@@ -113,7 +113,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '2' }
     roman:
-      name: Ceres
+      name: { de: Ceres, en: Ceres }
       domains: [agriculture, grain, harvest, law]
       symbols:
         de: [Ährenkranz, Fackel]
@@ -147,7 +147,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '453-458' }
     greek:
-      name: Hera
+      name: { de: Hera, en: Hera }
       nameOriginal: Ἥρα
       domains: [marriage, family, sovereignty, childbirth]
       symbols:
@@ -171,8 +171,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '921-929' }
     roman:
-      name: Iuno
-      altNames: [Juno]
+      name: { de: Iuno, en: Juno }
       domains: [marriage, childbirth, sovereignty]
       symbols:
         de: [Pfau, Diadem, Schleier]
@@ -221,7 +220,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '453-458' }
     greek:
-      name: Poseidon
+      name: { de: Poseidon, en: Poseidon }
       nameOriginal: Ποσειδῶν
       domains: [sea, earthquakes, horses, seafaring]
       symbols:
@@ -241,7 +240,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '15.185-199' }
     roman:
-      name: Neptunus
+      name: { de: Neptunus, en: Neptune }
       altNames: [Neptun]
       domains: [sea, fresh-water, horses]
       symbols:
@@ -280,7 +279,7 @@ figures:
           de: Als jüngster Sohn wird er von Rheia auf Kreta verborgen; Kronos verschlingt an seiner Stelle einen Stein.
           en: As youngest son he is hidden by Rhea on Crete; Cronus swallows a stone in his place.
     greek:
-      name: Zeus
+      name: { de: Zeus, en: Zeus }
       nameOriginal: Ζεύς
       domains: [sky, thunder, lightning, kingship, justice, oaths]
       symbols:
@@ -312,8 +311,8 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '492-506' }
     roman:
-      name: Iuppiter
-      altNames: [Jupiter, Iovis]
+      name: { de: Iuppiter, en: Jupiter }
+      altNames: [Iovis]
       domains: [sky, thunder, lightning, kingship, law]
       symbols:
         de: [Blitzbündel, Adler, Zepter]
@@ -381,7 +380,7 @@ figures:
             In Homer, Aphrodite is daughter of Zeus and Dione; wounded, she flees to her
             mother on Olympus. This version makes her a generation younger.
     greek:
-      name: Aphrodite
+      name: { de: Aphrodite, en: Aphrodite }
       nameOriginal: Ἀφροδίτη
       domains: [love, beauty, desire, seafaring]
       symbols:
@@ -408,7 +407,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '5' }
     roman:
-      name: Venus
+      name: { de: Venus, en: Venus }
       domains: [love, beauty, desire, fertility]
       symbols:
         de: [Muschel, Taube, Myrte, Apfel]
@@ -460,7 +459,7 @@ figures:
             Zeus swallows the pregnant Metis; Athena later comes forth in full armour from
             his head, split open by Hephaestus with an axe.
     greek:
-      name: Athena
+      name: { de: Athena, en: Athena }
       nameOriginal: Ἀθηνᾶ
       altNames: [Pallas Athene]
       domains: [wisdom, crafts, weaving, battle-strategy, war]
@@ -489,7 +488,7 @@ figures:
       sources:
         - { source: apollodor-bibliotheke, loc: '3.14.1' }
     roman:
-      name: Minerva
+      name: { de: Minerva, en: Minerva }
       domains: [wisdom, crafts, weaving, war]
       symbols:
         de: [Eule, Helm, Lanze]
@@ -525,7 +524,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '918-920' }
     greek:
-      name: Apollon
+      name: { de: Apollon, en: Apollo }
       nameOriginal: Ἀπόλλων
       domains: [prophecy, music, poetry, healing, plague, archery, light]
       symbols:
@@ -552,7 +551,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '3' }
     roman:
-      name: Apollo
+      name: { de: Apollo, en: Apollo }
       domains: [prophecy, healing, music, light]
       symbols:
         de: [Leier, Bogen, Lorbeer]
@@ -588,7 +587,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '918-920' }
     greek:
-      name: Artemis
+      name: { de: Artemis, en: Artemis }
       nameOriginal: Ἄρτεμις
       domains: [hunting, wilderness, archery, moon, childbirth]
       symbols:
@@ -613,7 +612,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '27' }
     roman:
-      name: Diana
+      name: { de: Diana, en: Diana }
       domains: [hunting, wilderness, moon, childbirth]
       symbols:
         de: [Bogen, Hirschkuh, Mondsichel]
@@ -653,7 +652,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '921-923' }
     greek:
-      name: Ares
+      name: { de: Ares, en: Ares }
       nameOriginal: Ἄρης
       domains: [war, slaughter, terror]
       symbols:
@@ -672,7 +671,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '5.888-898' }
     roman:
-      name: Mars
+      name: { de: Mars, en: Mars }
       domains: [war, agriculture, fertility]
       symbols:
         de: [Speer, Schild, Wolf, Specht]
@@ -737,9 +736,8 @@ figures:
           de: Bei Homer ist er Sohn beider; Zeus schleudert ihn vom Olymp, wovon er hinkt.
           en: In Homer he is son of both; Zeus hurls him from Olympus, which leaves him lame.
     greek:
-      name: Hephaistos
+      name: { de: Hephaistos, en: Hephaestus }
       nameOriginal: Ἥφαιστος
-      altNames: [Hephaestus]
       domains: [metalworking, fire, crafts]
       symbols:
         de: [Hammer, Amboss, Zange, Eselskappe]
@@ -758,7 +756,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '18.368-617' }
     roman:
-      name: Vulcanus
+      name: { de: Vulcanus, en: Vulcan }
       altNames: [Vulkan]
       domains: [fire, metalworking]
       symbols:
@@ -795,7 +793,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '921-923' }
     greek:
-      name: Hebe
+      name: { de: Hebe, en: Hebe }
       nameOriginal: Ἥβη
       domains: [youth]
       symbols:
@@ -815,8 +813,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '950-955' }
     roman:
-      name: Iuventas
-      altNames: [Juventas]
+      name: { de: Iuventas, en: Juventas }
       domains: [youth]
       description:
         de: >-
@@ -844,7 +841,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '921-923' }
     greek:
-      name: Eileithyia
+      name: { de: Eileithyia, en: Eileithyia }
       nameOriginal: Εἰλείθυια
       domains: [childbirth]
       symbols:
@@ -864,7 +861,7 @@ figures:
       sources:
         - { source: homerische-hymnen, loc: '3.97-119' }
     roman:
-      name: Lucina
+      name: { de: Lucina, en: Lucina }
       domains: [childbirth]
       description:
         de: >-

@@ -22,8 +22,9 @@ const graph = buildGraph(dataset);
 const docs: SearchDoc[] = [...dataset.byId.values()].map((figure) => ({
   id: figure.id,
   category: figure.category,
-  names: [figure.greek, figure.roman]
-    .flatMap((aspect) => (aspect === undefined ? [] : [aspect.name, ...(aspect.altNames ?? [])])),
+  names: [figure.greek, figure.roman].flatMap((aspect) =>
+    aspect === undefined ? [] : [aspect.name.de, aspect.name.en, ...(aspect.altNames ?? [])],
+  ),
   epithets: [],
   terms: [],
 }));

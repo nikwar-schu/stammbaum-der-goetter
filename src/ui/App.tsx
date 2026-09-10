@@ -113,10 +113,10 @@ export function App(): React.JSX.Element {
 function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
   const store = useAppStore();
   const texts = textsFor(store.lang);
-  // Ausgefahren, wo Platz dafuer ist; auf schmalen Bildschirmen wuerde die
-  // Leiste sonst beim Start den ganzen Stammbaum verdecken.
+  // Beim Start ausgefahren. Nur unter 900 Pixeln nicht: dort legt sie sich ueber
+  // die Zeichenflaeche und wuerde den ganzen Stammbaum verdecken.
   const [railOpen, setRailOpen] = useState(
-    () => typeof window === 'undefined' || window.matchMedia('(min-width: 1181px)').matches,
+    () => typeof window === 'undefined' || window.matchMedia('(min-width: 901px)').matches,
   );
 
   const index = useMemo(() => buildIndex(core.graph), [core.graph]);
@@ -255,6 +255,7 @@ function Loaded({ core }: { readonly core: CoreData }): React.JSX.Element {
         <GraphCanvas
           core={core}
           tradition={store.tradition}
+          lang={store.lang}
           showVariants={store.showVariants}
           selectedId={store.figure}
           visibility={visibility}

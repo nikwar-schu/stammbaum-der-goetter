@@ -75,7 +75,10 @@ export const epithetSchema = z
  */
 export const aspectSchema = z
   .object({
-    name: nonEmpty,
+    // Zweisprachig, weil sich die Schreibung unterscheidet: Kronos und Cronus,
+    // Iuppiter und Jupiter. Eine einzige Form waere in einer der beiden Sprachen
+    // immer die fremde.
+    name: localizedTextSchema,
     nameOriginal: nonEmpty.optional(),
     altNames: z.array(nonEmpty).optional(),
     epithets: z.array(epithetSchema).optional(),

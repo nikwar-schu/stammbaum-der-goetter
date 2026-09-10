@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import type { Tradition } from '../schema/constants.ts';
+import type { Lang, Tradition } from '../schema/constants.ts';
 import type { CoreData } from '../data/loader.ts';
 import type { VisibilityState } from '../graph/view.ts';
 import { TreeView } from '../graph/view.ts';
@@ -24,6 +24,7 @@ function prefersDark(): boolean {
 interface GraphCanvasProps {
   readonly core: CoreData;
   readonly tradition: Tradition;
+  readonly lang: Lang;
   readonly showVariants: boolean;
   readonly selectedId: string | null;
   readonly visibility: VisibilityState;
@@ -37,6 +38,7 @@ interface GraphCanvasProps {
 export function GraphCanvas({
   core,
   tradition,
+  lang,
   showVariants,
   selectedId,
   visibility,
@@ -58,6 +60,11 @@ export function GraphCanvas({
   const selectRef = useRef(onSelect);
   selectRef.current = onSelect;
 
+  // Beschriftung beim Aufbau: als Ref, damit ein Sprachwechsel nicht die
+  // gesamte Zeichenflaeche neu aufbaut - dafuer gibt es setLabels.
+  const labelRef = useRef({ tradition, lang });
+  labelRef.current = { tradition, lang };
+
   // Die Auswahl wird beim Einpassen gebraucht, soll dessen Effekt aber nicht
   // ausloesen: die Sichtbarkeit aendert sich bei einer Auswahl ohnehin mit.
   const selectedRef = useRef(selectedId);
@@ -73,6 +80,8 @@ export function GraphCanvas({
       layout: core.layout,
       meta: core.meta,
       theme: prefersDark() ? DARK_THEME : LIGHT_THEME,
+      tradition: labelRef.current.tradition,
+      lang: labelRef.current.lang,
       onSelect: (id) => selectRef.current(id),
     });
 
@@ -99,8 +108,8 @@ export function GraphCanvas({
   }, [ready, dark]);
 
   useEffect(() => {
-    if (ready) viewRef.current?.setTradition(tradition);
-  }, [ready, tradition]);
+    if (ready) viewRef.current?.setLabels(tradition, lang);
+  }, [ready, tradition, lang]);
 
   useEffect(() => {
     if (!ready) return;

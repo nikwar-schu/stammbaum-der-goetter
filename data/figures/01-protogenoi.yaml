@@ -24,7 +24,7 @@ figures:
           de: Bei Hesiod entsteht Chaos als Erstes von allem, ohne dass ein Erzeuger genannt wird.
           en: In Hesiod, Chaos comes into being first of all, with no begetter named.
     greek:
-      name: Chaos
+      name: { de: Chaos, en: Chaos }
       nameOriginal: Χάος
       domains: [void, abyss]
       description:
@@ -37,7 +37,7 @@ figures:
           does not mean disorder but a yawning void - the word belongs to Greek
           "chainein", to gape. From it came Erebus and Nyx.
     roman:
-      name: Chaos
+      name: { de: Chaos, en: Chaos }
       domains: [void, abyss]
       description:
         de: >-
@@ -86,7 +86,7 @@ figures:
           de: In der römischen Deutung scheidet sich die Erde aus der Urmasse Chaos aus.
           en: In the Roman reading, the earth separates out of the primordial mass Chaos.
     greek:
-      name: Gaia
+      name: { de: Gaia, en: Gaia }
       nameOriginal: Γαῖα
       altNames: [Ge]
       domains: [earth, fertility, prophecy]
@@ -108,7 +108,7 @@ figures:
         de: In Delphi galt das Orakel ursprünglich als ihres, bevor es an Apollon überging.
         en: At Delphi the oracle was originally held to be hers, before it passed to Apollo.
     roman:
-      name: Terra
+      name: { de: Terra, en: Terra }
       altNames: [Tellus, Terra Mater]
       domains: [earth, fertility, agriculture]
       description:
@@ -147,7 +147,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '119' }
     greek:
-      name: Tartaros
+      name: { de: Tartaros, en: Tartarus }
       nameOriginal: Τάρταρος
       domains: [underworld, abyss]
       description:
@@ -161,7 +161,7 @@ figures:
           earth as the sky is above it. There Zeus banishes the defeated Titans. With
           Gaia, Tartarus fathers the last monster to challenge divine rule - Typhon.
     roman:
-      name: Tartarus
+      name: { de: Tartarus, en: Tartarus }
       domains: [underworld, abyss]
       description:
         de: >-
@@ -191,7 +191,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '120-122' }
     greek:
-      name: Eros
+      name: { de: Eros, en: Eros }
       nameOriginal: Ἔρως
       altNames: [Protogonos]
       domains: [love, desire, procreation]
@@ -230,7 +230,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '123' }
     greek:
-      name: Erebos
+      name: { de: Erebos, en: Erebus }
       nameOriginal: Ἔρεβος
       domains: [darkness, underworld]
       description:
@@ -242,7 +242,7 @@ figures:
           The darkness of the depths, counterpart to the light of Aether. With his sister
           Nyx he fathers, of all things, Aether and Hemera - out of darkness comes light.
     roman:
-      name: Erebus
+      name: { de: Erebus, en: Erebus }
       domains: [darkness, underworld]
       description:
         de: >-
@@ -271,7 +271,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '123' }
     greek:
-      name: Nyx
+      name: { de: Nyx, en: Nyx }
       nameOriginal: Νύξ
       domains: [night, darkness]
       symbols:
@@ -290,7 +290,7 @@ figures:
       sources:
         - { source: homer-ilias, loc: '14.256-261' }
     roman:
-      name: Nox
+      name: { de: Nox, en: Nox }
       domains: [night, darkness]
       description:
         de: >-
@@ -318,7 +318,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '124-125' }
     greek:
-      name: Aither
+      name: { de: Aither, en: Aether }
       nameOriginal: Αἰθήρ
       domains: [upper-air, light]
       description:
@@ -331,7 +331,7 @@ figures:
           ground level. Aether is the bright counterpart to Erebus, and to some the
           substance the stars are made of.
     roman:
-      name: Aether
+      name: { de: Aether, en: Aether }
       domains: [upper-air, light]
       description:
         de: >-
@@ -359,7 +359,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '124-125' }
     greek:
-      name: Hemera
+      name: { de: Hemera, en: Hemera }
       nameOriginal: Ἡμέρα
       domains: [day, light]
       description:
@@ -374,7 +374,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '748-757' }
     roman:
-      name: Dies
+      name: { de: Dies, en: Dies }
       domains: [day, light]
       description:
         de: >-
@@ -403,9 +403,8 @@ figures:
           de: Gaia bringt ihn aus sich allein hervor, damit er sie ganz umschließe.
           en: Gaia brings him forth out of herself alone, so that he might cover her entirely.
     greek:
-      name: Uranos
+      name: { de: Uranos, en: Uranus }
       nameOriginal: Οὐρανός
-      altNames: [Uranus]
       domains: [sky, sovereignty]
       description:
         de: >-
@@ -421,7 +420,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '154-206' }
     roman:
-      name: Caelus
+      name: { de: Caelus, en: Caelus }
       domains: [sky, sovereignty]
       description:
         de: >-
@@ -451,7 +450,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '129-130' }
     greek:
-      name: Ourea
+      name: { de: Ourea, en: Ourea }
       nameOriginal: Οὔρεα
       domains: [mountains]
       description:
@@ -479,7 +478,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '131-132' }
     greek:
-      name: Pontos
+      name: { de: Pontos, en: Pontus }
       nameOriginal: Πόντος
       domains: [sea]
       description:
@@ -494,7 +493,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '233-239' }
     roman:
-      name: Pontus
+      name: { de: Pontus, en: Pontus }
       domains: [sea]
       description:
         de: >-
@@ -523,7 +522,7 @@ figures:
           de: Nur in späten Genealogien belegt; Hesiod kennt sie nicht.
           en: Attested only in late genealogies; Hesiod does not know her.
     greek:
-      name: Thalassa
+      name: { de: Thalassa, en: Thalassa }
       nameOriginal: Θάλασσα
       domains: [sea]
       description:
@@ -551,7 +550,7 @@ figures:
         sources:
           - { source: orphische-fragmente }
     greek:
-      name: Chronos
+      name: { de: Chronos, en: Chronos }
       nameOriginal: Χρόνος
       domains: [time]
       description:
@@ -588,7 +587,7 @@ figures:
         sources:
           - { source: orphische-fragmente }
     greek:
-      name: Ananke
+      name: { de: Ananke, en: Ananke }
       nameOriginal: Ἀνάγκη
       domains: [necessity, fate]
       symbols:
@@ -604,7 +603,7 @@ figures:
           In Plato she holds the spindle around which the celestial circles turn, and
           the Fates are her daughters.
     roman:
-      name: Necessitas
+      name: { de: Necessitas, en: Necessitas }
       domains: [necessity, fate]
       description:
         de: >-
@@ -634,7 +633,7 @@ figures:
           de: Phanes entsteht nicht durch Zeugung, sondern schlüpft aus dem Weltei, das Chronos und Ananke geformt haben.
           en: Phanes arises not by begetting but hatches from the world egg formed by Chronos and Ananke.
     greek:
-      name: Phanes
+      name: { de: Phanes, en: Phanes }
       nameOriginal: Φάνης
       altNames: [Protogonos, Erikepaios]
       domains: [light, procreation, beginnings]

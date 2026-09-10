@@ -25,9 +25,9 @@ export interface GraphNode {
   /** Nur bei Figuren gesetzt. */
   readonly category?: Category;
   readonly confidence?: Confidence;
-  /** Anzeigename in der jeweiligen Sicht; fehlt, wenn es kein Gegenstueck gibt. */
-  readonly greek?: string;
-  readonly roman?: string;
+/** Anzeigename in der jeweiligen Sicht; fehlt, wenn es kein Gegenstueck gibt. */
+  readonly greek?: LocalizedText;
+  readonly roman?: LocalizedText;
   /** Nur bei Verbindungsknoten: die beteiligten Figuren. */
   readonly parents?: readonly string[];
 }

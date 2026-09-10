@@ -20,7 +20,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '233-236' }
     greek:
-      name: Nereus
+      name: { de: Nereus, en: Nereus }
       nameOriginal: Νηρεύς
       altNames: [Halios Geron]
       domains: [sea, prophecy]
@@ -42,7 +42,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '233-264' }
     roman:
-      name: Nereus
+      name: { de: Nereus, en: Nereus }
       domains: [sea, prophecy]
       description:
         de: >-
@@ -68,7 +68,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '233-237' }
     greek:
-      name: Thaumas
+      name: { de: Thaumas, en: Thaumas }
       nameOriginal: Θαύμας
       domains: [sea, rainbow]
       description:
@@ -83,7 +83,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '265-269' }
     roman:
-      name: Thaumas
+      name: { de: Thaumas, en: Thaumas }
       domains: [sea]
       description:
         de: >-
@@ -109,9 +109,8 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '233-238' }
     greek:
-      name: Phorkys
+      name: { de: Phorkys, en: Phorcys }
       nameOriginal: Φόρκυς
-      altNames: [Phorcys]
       domains: [sea]
       description:
         de: >-
@@ -125,7 +124,7 @@ figures:
       sources:
         - { source: hesiod-theogonie, loc: '270-336' }
     roman:
-      name: Phorcus
+      name: { de: Phorcus, en: Phorcus }
       domains: [sea]
       description:
         de: >-
@@ -151,9 +150,8 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '233-239' }
     greek:
-      name: Keto
+      name: { de: Keto, en: Ceto }
       nameOriginal: Κητώ
-      altNames: [Ceto]
       domains: [sea]
       description:
         de: >-
@@ -183,7 +181,7 @@ figures:
         sources:
           - { source: hesiod-theogonie, loc: '239' }
     greek:
-      name: Eurybia
+      name: { de: Eurybia, en: Eurybia }
       nameOriginal: Εὐρυβία
       domains: [sea, might, stars]
       description:

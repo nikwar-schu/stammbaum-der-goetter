@@ -326,8 +326,24 @@ export class TreeView {
     }
   }
 
+  /**
+   * Uebernimmt eine neue Groesse der Zeichenflaeche und haelt dabei den
+   * Bildmittelpunkt fest.
+   *
+   * Cytoscape behaelt beim Groessenwechsel die Verschiebung bei, nicht die
+   * Mitte - oeffnet sich das Infofenster, wandert der Ausschnitt deshalb um die
+   * halbe Fensterbreite zur Seite und die gewaehlte Figur aus dem Bild.
+   */
   resize(): void {
+    const before = { width: this.#cy.width(), height: this.#cy.height() };
     this.#cy.resize();
+    const after = { width: this.#cy.width(), height: this.#cy.height() };
+
+    const pan = this.#cy.pan();
+    this.#cy.pan({
+      x: pan.x + (after.width - before.width) / 2,
+      y: pan.y + (after.height - before.height) / 2,
+    });
   }
 
   destroy(): void {

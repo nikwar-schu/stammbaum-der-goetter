@@ -1,0 +1,89 @@
+{
+  "title": "Stammbaum: Sachgruppen",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "enum": [
+          "protogenos",
+          "titan",
+          "olympian",
+          "chthonic",
+          "sea",
+          "sky",
+          "nymph",
+          "daimon",
+          "personification",
+          "rustic",
+          "roman-native",
+          "hero",
+          "monster"
+        ]
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "object",
+            "properties": {
+              "de": {
+                "type": "string",
+                "minLength": 1
+              },
+              "en": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "de",
+              "en"
+            ],
+            "additionalProperties": false
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-f]{6}$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "defaultVisible": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "label",
+          "color",
+          "order",
+          "defaultVisible"
+        ],
+        "additionalProperties": false
+      },
+      "required": [
+        "protogenos",
+        "titan",
+        "olympian",
+        "chthonic",
+        "sea",
+        "sky",
+        "nymph",
+        "daimon",
+        "personification",
+        "rustic",
+        "roman-native",
+        "hero",
+        "monster"
+      ]
+    }
+  },
+  "required": [
+    "categories"
+  ],
+  "additionalProperties": false
+}

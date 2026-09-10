@@ -1,0 +1,885 @@
+# yaml-language-server: $schema=../../schema/figures.schema.json
+#
+# Die Olympier.
+#
+# Hades und Persephone stehen trotz ihrer Abstammung in der Datei zur Unterwelt,
+# weil sich die Dateien nach Sachgruppen richten, nicht nach Generationen.
+#
+# Aphrodite ist der Musterfall widersprüchlicher Überlieferung: bei Hesiod
+# entsteht sie aus dem Meeresschaum um das abgetrennte Glied des Uranos, bei
+# Homer ist sie Tochter von Zeus und Dione. Hesiod ist hier die Leitversion,
+# Homers Fassung steht als zuschaltbare Variante daneben.
+
+figures:
+  # --- Die Kinder von Kronos und Rheia ---
+
+  - id: hestia
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-458' }
+        note:
+          de: Erstgeborene und damit als Erste verschlungen, als Letzte wieder ausgespien.
+          en: Firstborn and thus swallowed first, disgorged last.
+    greek:
+      name: Hestia
+      nameOriginal: Ἑστία
+      domains: [hearth, home, family, fire]
+      symbols:
+        de: [Herdfeuer, Schleier]
+        en: [hearth fire, veil]
+      description:
+        de: >-
+          Göttin des Herdfeuers, der ruhigste Charakter des Olymps. Sie verzichtet auf
+          Ehe und Anteil an den Händeln der anderen; dafür erhält sie den ersten und
+          letzten Anteil jedes Opfers. Mythen über sie gibt es kaum - was zu einer Göttin
+          passt, deren Wesen das Bleiben ist.
+        en: >-
+          Goddess of the hearth fire, the calmest character on Olympus. She renounces
+          marriage and any share in the others' quarrels; in return she receives the first
+          and last portion of every sacrifice. There are hardly any myths about her -
+          fitting for a goddess whose nature is to stay.
+      sources:
+        - { source: homerische-hymnen, loc: '29' }
+    roman:
+      name: Vesta
+      domains: [hearth, home, fire]
+      symbols:
+        de: [ewiges Feuer, Palladium]
+        en: [eternal flame, Palladium]
+      description:
+        de: >-
+          In Rom ist Vesta ungleich bedeutender als ihre griechische Entsprechung: In
+          ihrem Rundtempel am Forum hüteten die Vestalinnen das Staatsfeuer, das niemals
+          erlöschen durfte. Erlosch es doch, galt das als Zeichen drohenden Unheils für
+          das ganze Reich. Die Priesterinnen dienten dreißig Jahre und waren zu
+          Keuschheit verpflichtet.
+        en: >-
+          In Rome, Vesta is far more important than her Greek counterpart: in her round
+          temple on the Forum the Vestals guarded the state fire, which was never allowed
+          to go out. If it did, this counted as a sign of impending disaster for the whole
+          empire. The priestesses served thirty years and were bound to chastity.
+      festivals: [Vestalia]
+      cultNotes:
+        de: Der Kult um das Staatsfeuer verband Vesta enger mit der Herrschaft, als es bei Hestia je der Fall war.
+        en: The cult of the state fire tied Vesta more closely to rule than was ever the case with Hestia.
+      sources:
+        - { source: ovid-fasti, loc: '6.249-460' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hestia
+      wikipediaEn: https://en.wikipedia.org/wiki/Hestia
+
+  - id: demeter
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-458' }
+    greek:
+      name: Demeter
+      nameOriginal: Δημήτηρ
+      domains: [agriculture, grain, harvest, fertility]
+      symbols:
+        de: [Ährenbündel, Fackel, Mohn]
+        en: [sheaf of grain, torch, poppy]
+      description:
+        de: >-
+          Göttin des Getreides und der Fruchtbarkeit des Ackers. Als Hades ihre Tochter
+          Persephone raubt, sucht sie neun Tage lang mit Fackeln und lässt aus Trauer
+          nichts mehr wachsen - bis eine Einigung zustande kommt: Persephone verbringt
+          einen Teil des Jahres unten, den anderen oben. Das ist der Mythos der
+          Jahreszeiten.
+        en: >-
+          Goddess of grain and of the fertility of the field. When Hades carries off her
+          daughter Persephone, she searches nine days with torches and in grief lets nothing
+          grow - until an arrangement is reached: Persephone spends part of the year below,
+          the rest above. This is the myth of the seasons.
+      cultNotes:
+        de: In Eleusis wurden ihr zu Ehren die berühmtesten Mysterien Griechenlands gefeiert.
+        en: At Eleusis the most famous mysteries of Greece were celebrated in her honour.
+      sources:
+        - { source: homerische-hymnen, loc: '2' }
+    roman:
+      name: Ceres
+      domains: [agriculture, grain, harvest, law]
+      symbols:
+        de: [Ährenkranz, Fackel]
+        en: [wreath of grain, torch]
+      description:
+        de: >-
+          Ceres ist eine eigenständige altitalische Getreidegöttin, die früh mit Demeter
+          verschmolz. Ihr Tempel auf dem Aventin war Mittelpunkt der Plebejer; dort lagen
+          auch die Beschlüsse des Volkes verwahrt. Von ihrem Namen kommt "Zerealie".
+        en: >-
+          Ceres is an independent old Italic grain goddess who merged early with Demeter.
+          Her temple on the Aventine was the centre of the plebeians; the decrees of the
+          people were also kept there. Her name gives us "cereal".
+      festivals: [Cerialia]
+      sources:
+        - { source: ovid-fasti, loc: '4.393-620' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Demeter
+      wikipediaEn: https://en.wikipedia.org/wiki/Demeter
+
+  - id: hera
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-458' }
+    greek:
+      name: Hera
+      nameOriginal: Ἥρα
+      domains: [marriage, family, sovereignty, childbirth]
+      symbols:
+        de: [Diadem, Pfau, Granatapfel, Kuckuck]
+        en: [diadem, peacock, pomegranate, cuckoo]
+      description:
+        de: >-
+          Schwester und Gemahlin des Zeus, Göttin der rechtmäßigen Ehe und Königin des
+          Olymps. Ihr Zorn richtet sich fast nie gegen den untreuen Gatten, sondern gegen
+          dessen Geliebte und deren Kinder - Io, Semele, Leto und vor allem Herakles
+          bekommen ihn zu spüren. Aus Groll über Zeus bringt sie Hephaistos aus sich
+          allein hervor.
+        en: >-
+          Sister and consort of Zeus, goddess of lawful marriage and queen of Olympus. Her
+          wrath almost never turns on the unfaithful husband but on his lovers and their
+          children - Io, Semele, Leto and above all Heracles feel it. Out of resentment
+          against Zeus she brings forth Hephaestus out of herself alone.
+      cultNotes:
+        de: Ihr Heiligtum bei Argos, das Heraion, gehörte zu den ältesten Griechenlands.
+        en: Her sanctuary near Argos, the Heraion, was among the oldest in Greece.
+      sources:
+        - { source: hesiod-theogonie, loc: '921-929' }
+    roman:
+      name: Iuno
+      altNames: [Juno]
+      domains: [marriage, childbirth, sovereignty]
+      symbols:
+        de: [Pfau, Diadem, Schleier]
+        en: [peacock, diadem, veil]
+      description:
+        de: >-
+          Iuno gehört mit Iuppiter und Minerva zur kapitolinischen Trias, dem Kern des
+          römischen Staatskults. Anders als Hera ist sie zugleich Schutzgöttin jeder
+          einzelnen Frau: wie jeder Mann einen Genius hat, hat jede Frau ihre Iuno. Als
+          Iuno Moneta wachte sie über die Münzprägung, als Iuno Lucina über die Geburt.
+        en: >-
+          Juno belongs with Jupiter and Minerva to the Capitoline Triad, the core of Roman
+          state cult. Unlike Hera she is at the same time protectress of every individual
+          woman: as every man has a Genius, every woman has her Juno. As Juno Moneta she
+          watched over the mint, as Juno Lucina over childbirth.
+      epithets:
+        - name: Lucina
+          meaning: { de: die ans Licht Bringende, en: she who brings to light }
+        - name: Moneta
+          meaning: { de: die Mahnende, en: the one who warns }
+        - name: Regina
+          meaning: { de: die Königin, en: the queen }
+      festivals: [Matronalia]
+      sources:
+        - { source: ovid-fasti, loc: '6.1-100' }
+    counterparts:
+      - figure: eileithyia
+        relation: absorbed
+        note:
+          de: In Rom ging die Zuständigkeit der Eileithyia als Beiname Lucina in Iuno auf.
+          en: In Rome, Eileithyia's sphere was absorbed into Juno under the epithet Lucina.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hera
+      wikipediaEn: https://en.wikipedia.org/wiki/Hera
+
+  - id: poseidon
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-458' }
+    greek:
+      name: Poseidon
+      nameOriginal: Ποσειδῶν
+      domains: [sea, earthquakes, horses, seafaring]
+      symbols:
+        de: [Dreizack, Pferd, Delfin]
+        en: [trident, horse, dolphin]
+      description:
+        de: >-
+          Herr des Meeres, der Erdbeben und der Pferde. Bei der Aufteilung der Welt fällt
+          ihm mit dem Los das Wasser zu, während Zeus den Himmel und Hades die Unterwelt
+          erhält. Sein Beiname "Erderschütterer" zeigt, dass die Griechen Beben als Schlag
+          seines Dreizacks deuteten. Den Streit um Athen verliert er gegen Athena.
+        en: >-
+          Lord of the sea, of earthquakes and of horses. In the division of the world the
+          waters fall to him by lot, while Zeus receives the sky and Hades the underworld.
+          His epithet "earth-shaker" shows that the Greeks read tremors as a blow of his
+          trident. He loses the contest for Athens to Athena.
+      sources:
+        - { source: homer-ilias, loc: '15.185-199' }
+    roman:
+      name: Neptunus
+      altNames: [Neptun]
+      domains: [sea, fresh-water, horses]
+      symbols:
+        de: [Dreizack, Pferd]
+        en: [trident, horse]
+      description:
+        de: >-
+          Neptunus war ursprünglich ein Gott des Süßwassers und der Quellen; erst durch
+          die Gleichsetzung mit Poseidon wurde er zum Meeresgott. Sein Fest, die
+          Neptunalia im Hochsommer, fiel in die Zeit der größten Trockenheit - ein Rest
+          seiner alten Zuständigkeit.
+        en: >-
+          Neptune was originally a god of fresh water and springs; only through the
+          equation with Poseidon did he become a sea god. His festival, the Neptunalia in
+          high summer, fell in the driest season - a remnant of his old sphere.
+      festivals: [Neptunalia]
+      sources:
+        - { source: varro-de-lingua-latina, loc: '5.72' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Poseidon
+      wikipediaEn: https://en.wikipedia.org/wiki/Poseidon
+
+  - id: zeus
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-491' }
+        note:
+          de: Als jüngster Sohn wird er von Rheia auf Kreta verborgen; Kronos verschlingt an seiner Stelle einen Stein.
+          en: As youngest son he is hidden by Rhea on Crete; Cronus swallows a stone in his place.
+    greek:
+      name: Zeus
+      nameOriginal: Ζεύς
+      domains: [sky, thunder, lightning, kingship, justice, oaths]
+      symbols:
+        de: [Blitzbündel, Adler, Zepter, Aigis]
+        en: [thunderbolt, eagle, sceptre, aegis]
+      description:
+        de: >-
+          Höchster der Götter, Herr des Himmels und des Wetters. Er stürzt Kronos, teilt
+          die Welt mit seinen Brüdern und wacht über Eid, Gastrecht und die Ordnung unter
+          den Menschen. Zugleich ist er der unruhigste Liebhaber des Mythos: der größte
+          Teil des Stammbaums läuft über ihn. Sein Name gehört zur selben Wurzel wie
+          lateinisch "dies" und "Iuppiter" - der leuchtende Himmel.
+        en: >-
+          Highest of the gods, lord of the sky and the weather. He overthrows Cronus,
+          divides the world with his brothers and watches over oaths, hospitality and order
+          among men. He is at the same time the most restless lover in myth: the greater
+          part of the family tree runs through him. His name belongs to the same root as
+          Latin "dies" and "Iuppiter" - the shining sky.
+      epithets:
+        - name: Xenios
+          meaning: { de: Schützer des Gastrechts, en: protector of guest-friendship }
+        - name: Horkios
+          meaning: { de: Hüter des Eides, en: keeper of the oath }
+        - name: Ktesios
+          meaning: { de: Hüter des Hausvorrats, en: keeper of household stores }
+      cultNotes:
+        de: In Olympia stand sein Bild von Phidias, eines der sieben Weltwunder; in Dodona sprach er durch das Rauschen einer Eiche.
+        en: At Olympia stood his statue by Phidias, one of the seven wonders; at Dodona he spoke through the rustling of an oak.
+      sources:
+        - { source: hesiod-theogonie, loc: '492-506' }
+    roman:
+      name: Iuppiter
+      altNames: [Jupiter, Iovis]
+      domains: [sky, thunder, lightning, kingship, law]
+      symbols:
+        de: [Blitzbündel, Adler, Zepter]
+        en: [thunderbolt, eagle, sceptre]
+      description:
+        de: >-
+          Iuppiter Optimus Maximus war der Staatsgott Roms schlechthin; sein Tempel auf
+          dem Kapitol war das Ziel jedes Triumphzuges. Stärker als Zeus ist er Gott des
+          öffentlichen Rechts: Staatsverträge wurden in seinem Namen geschlossen, und der
+          Blitz galt als sein amtliches Zeichen, das eigene Priester zu deuten hatten.
+        en: >-
+          Jupiter Optimus Maximus was the state god of Rome par excellence; his temple on
+          the Capitol was the destination of every triumphal procession. More than Zeus he
+          is a god of public law: treaties were concluded in his name, and lightning counted
+          as his official sign, to be interpreted by dedicated priests.
+      epithets:
+        - name: Optimus Maximus
+          meaning: { de: der Beste und Größte, en: best and greatest }
+        - name: Feretrius
+          meaning: { de: Empfänger der Siegesbeute, en: receiver of the spoils of victory }
+        - name: Fulgur
+          meaning: { de: der Blitzende, en: the lightning-bearer }
+      cultNotes:
+        de: Mit Iuno und Minerva bildete er die kapitolinische Trias.
+        en: With Juno and Minerva he formed the Capitoline Triad.
+      sources:
+        - { source: ovid-fasti, loc: '1.201-226' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Zeus
+      wikipediaEn: https://en.wikipedia.org/wiki/Zeus
+
+  # --- Aphrodite: der Musterfall widersprüchlicher Überlieferung ---
+
+  - id: aphrodite
+    category: olympian
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [uranos]
+        mode: from-body-part
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '188-206' }
+        note:
+          de: >-
+            Aus dem Meeresschaum um das abgetrennte Glied des Uranos entstanden; daher
+            deutete man ihren Namen als "die Schaumgeborene". Sie ist damit älter als Zeus.
+          en: >-
+            Born from the sea foam around the severed member of Uranus; hence her name was
+            read as "the foam-born". She is thus older than Zeus.
+      - id: homer
+        parents: [zeus, dione]
+        mode: sexual
+        canonical: false
+        confidence: attested
+        sources:
+          - { source: homer-ilias, loc: '5.370-417' }
+        note:
+          de: >-
+            Bei Homer ist Aphrodite Tochter von Zeus und Dione; verwundet flieht sie zu
+            ihrer Mutter auf den Olymp. Diese Fassung macht sie eine Generation jünger.
+          en: >-
+            In Homer, Aphrodite is daughter of Zeus and Dione; wounded, she flees to her
+            mother on Olympus. This version makes her a generation younger.
+    greek:
+      name: Aphrodite
+      nameOriginal: Ἀφροδίτη
+      domains: [love, beauty, desire, seafaring]
+      symbols:
+        de: [Muschel, Taube, Myrte, Rose, Gürtel]
+        en: [scallop shell, dove, myrtle, rose, girdle]
+      description:
+        de: >-
+          Göttin der Liebe, der Schönheit und des Verlangens. Ihr Gürtel macht jeden
+          verliebt, der ihn sieht - selbst Hera leiht ihn sich, um Zeus abzulenken. Sie
+          ist mit Hephaistos verheiratet und Ares zugetan; als Aphrodite Urania galt sie
+          zugleich als Göttin einer höheren, nicht sinnlichen Liebe.
+        en: >-
+          Goddess of love, beauty and desire. Her girdle makes anyone who sees it fall in
+          love - even Hera borrows it to distract Zeus. She is married to Hephaestus and
+          attached to Ares; as Aphrodite Urania she counted at the same time as goddess of
+          a higher, non-sensual love.
+      epithets:
+        - name: Urania
+          meaning: { de: die Himmlische, en: the heavenly one }
+        - name: Pandemos
+          meaning: { de: die dem ganzen Volk Gemeinsame, en: common to all the people }
+        - name: Anadyomene
+          meaning: { de: die aus dem Meer Auftauchende, en: she who rises from the sea }
+      sources:
+        - { source: homerische-hymnen, loc: '5' }
+    roman:
+      name: Venus
+      domains: [love, beauty, desire, fertility]
+      symbols:
+        de: [Muschel, Taube, Myrte, Apfel]
+        en: [scallop shell, dove, myrtle, apple]
+      description:
+        de: >-
+          Venus war ursprünglich eine Göttin der Gartenfruchtbarkeit und wuchs erst durch
+          die Gleichsetzung mit Aphrodite in ihre bekannte Rolle. Politisch war sie die
+          bedeutendste Göttin Roms überhaupt: als Mutter des Aeneas galt sie als Ahnfrau
+          des römischen Volkes und besonders der Familie Caesars, die sich Venus Genetrix
+          als Stammmutter zuschrieb.
+        en: >-
+          Venus was originally a goddess of garden fertility and grew into her familiar role
+          only through the equation with Aphrodite. Politically she was the most significant
+          goddess in Rome: as mother of Aeneas she counted as ancestress of the Roman people
+          and especially of Caesar's family, who claimed Venus Genetrix as their forebear.
+      epithets:
+        - name: Genetrix
+          meaning: { de: "die Gebärerin, Stammmutter", en: "the begetter, ancestress" }
+        - name: Victrix
+          meaning: { de: die Siegreiche, en: the victorious }
+      festivals: [Veneralia]
+      sources:
+        - { source: vergil-aeneis, loc: '1.223-296' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Aphrodite
+      wikipediaEn: https://en.wikipedia.org/wiki/Aphrodite
+
+  # --- Die Kinder des Zeus ---
+
+  - id: athena
+    category: olympian
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [zeus, metis]
+        mode: from-body-part
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '886-900' }
+          - { source: hesiod-theogonie, loc: '924-926' }
+        note:
+          de: >-
+            Zeus verschlingt die schwangere Metis; Athena kommt später in voller Rüstung
+            aus seinem Kopf hervor, den Hephaistos mit der Axt spaltet.
+          en: >-
+            Zeus swallows the pregnant Metis; Athena later comes forth in full armour from
+            his head, split open by Hephaestus with an axe.
+    greek:
+      name: Athena
+      nameOriginal: Ἀθηνᾶ
+      altNames: [Pallas Athene]
+      domains: [wisdom, crafts, weaving, battle-strategy, war]
+      symbols:
+        de: [Eule, Ölbaum, Aigis, Helm, Lanze]
+        en: [owl, olive tree, aegis, helmet, spear]
+      description:
+        de: >-
+          Göttin der überlegten Kriegführung, des Handwerks und der klugen Planung. Wo
+          Ares die blinde Wut des Gefechts verkörpert, steht sie für das Können, das
+          Schlachten entscheidet. Sie schenkt Athen den Ölbaum und gewinnt damit den
+          Wettstreit gegen Poseidon; die Stadt trägt seither ihren Namen. Sie bleibt
+          jungfräulich und ohne Nachkommen.
+        en: >-
+          Goddess of deliberate warfare, of craft and of shrewd planning. Where Ares embodies
+          the blind fury of battle, she stands for the skill that decides it. She gives Athens
+          the olive tree and thereby wins the contest against Poseidon; the city has borne her
+          name ever since. She remains a virgin and without offspring.
+      epithets:
+        - name: Parthenos
+          meaning: { de: die Jungfrau, en: the maiden }
+        - name: Promachos
+          meaning: { de: die Vorkämpferin, en: she who fights in front }
+        - name: Ergane
+          meaning: { de: die Werktätige, en: the worker }
+      sources:
+        - { source: apollodor-bibliotheke, loc: '3.14.1' }
+    roman:
+      name: Minerva
+      domains: [wisdom, crafts, weaving, war]
+      symbols:
+        de: [Eule, Helm, Lanze]
+        en: [owl, helmet, spear]
+      description:
+        de: >-
+          Minerva ist eine altitalische Göttin des Handwerks und der Künste, die erst
+          später kriegerische Züge Athenas übernahm. In Rom war sie Schutzherrin der
+          Handwerkerzünfte, der Ärzte und der Lehrer; ihr Fest Quinquatrus galt als
+          Schulferien. Mit Iuppiter und Iuno bildete sie die kapitolinische Trias.
+        en: >-
+          Minerva is an old Italic goddess of craft and the arts who only later took on
+          Athena's martial traits. In Rome she was patron of the craft guilds, of physicians
+          and of teachers; her festival Quinquatrus counted as a school holiday. With Jupiter
+          and Juno she formed the Capitoline Triad.
+      festivals: [Quinquatrus]
+      sources:
+        - { source: ovid-fasti, loc: '3.809-848' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Athene
+      wikipediaEn: https://en.wikipedia.org/wiki/Athena
+
+  - id: apollon
+    category: olympian
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [zeus, leto]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '918-920' }
+    greek:
+      name: Apollon
+      nameOriginal: Ἀπόλλων
+      domains: [prophecy, music, poetry, healing, plague, archery, light]
+      symbols:
+        de: [Leier, Bogen, Lorbeer, Dreifuß, Delfin]
+        en: [lyre, bow, laurel, tripod, dolphin]
+      description:
+        de: >-
+          Gott der Weissagung, der Musik und der Heilung - und zugleich derjenige, der mit
+          seinen Pfeilen die Pest schickt. Dieselbe Macht, die heilt, kann auch töten. In
+          Delphi sprach er durch die Pythia; über dem Eingang standen die Sprüche "Erkenne
+          dich selbst" und "Nichts im Übermaß". Erst spät wird er mit Helios gleichgesetzt.
+        en: >-
+          God of prophecy, music and healing - and at the same time the one who sends plague
+          with his arrows. The same power that heals can also kill. At Delphi he spoke through
+          the Pythia; over the entrance stood the maxims "know thyself" and "nothing in
+          excess". Only late is he equated with Helios.
+      epithets:
+        - name: Phoibos
+          meaning: { de: der Strahlende, en: the radiant one }
+        - name: Musagetes
+          meaning: { de: Führer der Musen, en: leader of the Muses }
+        - name: Smintheus
+          meaning: { de: "der Mäusegott, Abwehrer der Seuche", en: "the mouse god, averter of plague" }
+      sources:
+        - { source: homerische-hymnen, loc: '3' }
+    roman:
+      name: Apollo
+      domains: [prophecy, healing, music, light]
+      symbols:
+        de: [Leier, Bogen, Lorbeer]
+        en: [lyre, bow, laurel]
+      description:
+        de: >-
+          Apollo ist der einzige große griechische Gott, den die Römer unter seinem
+          eigenen Namen übernahmen - eine eigene altitalische Entsprechung gab es nicht.
+          Eingeführt wurde er 431 v. Chr. als Heilgott gegen eine Seuche. Augustus machte
+          ihn zu seinem Schutzgott und ließ ihm einen Tempel auf dem Palatin errichten.
+        en: >-
+          Apollo is the only major Greek god the Romans adopted under his own name - there
+          was no old Italic counterpart. He was introduced in 431 BC as a god of healing
+          against a plague. Augustus made him his patron and had a temple built for him on
+          the Palatine.
+      festivals: [Ludi Apollinares]
+      sources:
+        - { source: ovid-metamorphosen, loc: '1.438-567' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Apollon
+      wikipediaEn: https://en.wikipedia.org/wiki/Apollo
+
+  - id: artemis
+    category: olympian
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [zeus, leto]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '918-920' }
+    greek:
+      name: Artemis
+      nameOriginal: Ἄρτεμις
+      domains: [hunting, wilderness, archery, moon, childbirth]
+      symbols:
+        de: [Bogen, Hirschkuh, Mondsichel, Jagdhund]
+        en: [bow, hind, crescent moon, hunting hound]
+      description:
+        de: >-
+          Herrin der Jagd und der ungezähmten Natur, Beschützerin der jungen Tiere und
+          zugleich ihre Jägerin. Sie bleibt jungfräulich und duldet keine Verletzung ihrer
+          Abgeschiedenheit: Aktaion, der sie beim Bade sieht, wird in einen Hirsch
+          verwandelt und von den eigenen Hunden zerrissen. Als Geburtshelferin wird sie
+          angerufen, weil sie ihrer Mutter bei der Geburt Apollons half.
+        en: >-
+          Mistress of the hunt and of untamed nature, protectress of young animals and at
+          the same time their huntress. She remains a virgin and tolerates no violation of
+          her seclusion: Actaeon, who sees her bathing, is turned into a stag and torn apart
+          by his own hounds. She is invoked at births because she helped her mother deliver
+          Apollo.
+      cultNotes:
+        de: Ihr Tempel in Ephesos zählte zu den sieben Weltwundern; die dortige Göttin war allerdings kleinasiatischen Ursprungs.
+        en: Her temple at Ephesus was one of the seven wonders; the goddess worshipped there, however, was of Anatolian origin.
+      sources:
+        - { source: homerische-hymnen, loc: '27' }
+    roman:
+      name: Diana
+      domains: [hunting, wilderness, moon, childbirth]
+      symbols:
+        de: [Bogen, Hirschkuh, Mondsichel]
+        en: [bow, hind, crescent moon]
+      description:
+        de: >-
+          Diana war eine altitalische Göttin der Wälder und der Frauen, verehrt vor allem
+          am Hain von Nemi, wo ein entlaufener Sklave als Priester amtierte und seinen
+          Vorgänger im Zweikampf getötet haben musste. Diese eigenwilligen Züge behielt sie
+          auch nach der Verschmelzung mit Artemis.
+        en: >-
+          Diana was an old Italic goddess of woodlands and of women, worshipped above all at
+          the grove of Nemi, where a runaway slave served as priest and had to have killed
+          his predecessor in single combat. She kept these idiosyncratic traits even after
+          merging with Artemis.
+      epithets:
+        - name: Nemorensis
+          meaning: { de: die vom Hain, en: she of the grove }
+        - name: Trivia
+          meaning: { de: die an der Wegdreiung, en: she of the three ways }
+      sources:
+        - { source: ovid-fasti, loc: '3.263-275' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Artemis
+      wikipediaEn: https://en.wikipedia.org/wiki/Artemis
+
+  - id: ares
+    category: olympian
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [zeus, hera]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '921-923' }
+    greek:
+      name: Ares
+      nameOriginal: Ἄρης
+      domains: [war, slaughter, terror]
+      symbols:
+        de: [Speer, Helm, Hund, Geier]
+        en: [spear, helmet, dog, vulture]
+      description:
+        de: >-
+          Gott des Krieges in seiner rohesten Form: nicht der Feldherrnkunst, sondern des
+          Blutrauschs. Die Griechen verehrten ihn eher aus Furcht als aus Zuneigung; in
+          der Ilias schilt ihn sein eigener Vater als den verhasstesten aller Götter. Von
+          Athena wird er im Kampf regelmäßig übertroffen.
+        en: >-
+          God of war in its rawest form: not of generalship but of blood frenzy. The Greeks
+          revered him more out of fear than affection; in the Iliad his own father rebukes
+          him as the most hateful of all the gods. Athena regularly bests him in combat.
+      sources:
+        - { source: homer-ilias, loc: '5.888-898' }
+    roman:
+      name: Mars
+      domains: [war, agriculture, fertility]
+      symbols:
+        de: [Speer, Schild, Wolf, Specht]
+        en: [spear, shield, wolf, woodpecker]
+      description:
+        de: >-
+          Der wichtigste Unterschied im ganzen Stammbaum: Mars war in Rom nach Iuppiter
+          der angesehenste Gott, Vater von Romulus und Remus und damit Stammvater des
+          römischen Volkes. Ursprünglich schützte er auch Feld und Vieh. Nach ihm ist der
+          März benannt, der Monat, in dem die Feldzüge begannen.
+        en: >-
+          The single most important difference in this whole family tree: in Rome, Mars was
+          the most esteemed god after Jupiter, father of Romulus and Remus and thus forefather
+          of the Roman people. Originally he also protected field and livestock. The month of
+          March is named after him, the month in which campaigns began.
+      epithets:
+        - name: Gradivus
+          meaning: { de: der Voranschreitende, en: he who marches forth }
+        - name: Ultor
+          meaning: { de: der Rächer, en: the avenger }
+      festivals: [Feriae Marti, Armilustrium]
+      cultNotes:
+        de: >-
+          Die Gleichsetzung ist die schiefste unter den großen Göttern: der verachtete
+          Ares und der ehrwürdige Staatsgott Mars haben außer dem Kriegsbezug wenig gemein.
+        en: >-
+          The equation is the most skewed among the major gods: the despised Ares and the
+          venerable state god Mars have little in common beyond the reference to war.
+      sources:
+        - { source: ovid-fasti, loc: '3.1-98' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Ares
+      wikipediaEn: https://en.wikipedia.org/wiki/Ares
+
+  - id: hephaistos
+    category: olympian
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [hera]
+        mode: parthenogenetic
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '927-929' }
+        note:
+          de: >-
+            Bei Hesiod bringt Hera ihn aus Groll über Zeus allein hervor - als Antwort
+            darauf, dass dieser Athena ohne sie hervorgebracht hatte.
+          en: >-
+            In Hesiod, Hera brings him forth alone out of resentment against Zeus - in answer
+            to his having produced Athena without her.
+      - id: homer
+        parents: [zeus, hera]
+        mode: sexual
+        canonical: false
+        confidence: attested
+        sources:
+          - { source: homer-ilias, loc: '1.571-579' }
+        note:
+          de: Bei Homer ist er Sohn beider; Zeus schleudert ihn vom Olymp, wovon er hinkt.
+          en: In Homer he is son of both; Zeus hurls him from Olympus, which leaves him lame.
+    greek:
+      name: Hephaistos
+      nameOriginal: Ἥφαιστος
+      domains: [metalworking, fire, crafts]
+      symbols:
+        de: [Hammer, Amboss, Zange, Eselskappe]
+        en: [hammer, anvil, tongs, conical cap]
+      description:
+        de: >-
+          Der Schmied der Götter und der einzige Olympier mit einem körperlichen Gebrechen -
+          er hinkt, seit er vom Olymp gestürzt wurde. Aus seiner Werkstatt stammen die
+          Waffen des Achill, der Blitz des Zeus und Pandora. Seine Kunstfertigkeit macht ihn
+          unentbehrlich; über sein Hinken spotten die Götter dennoch.
+        en: >-
+          The smith of the gods and the only Olympian with a bodily impairment - he has
+          limped since being thrown from Olympus. From his workshop come the arms of Achilles,
+          the thunderbolt of Zeus and Pandora. His skill makes him indispensable; the gods
+          mock his limp all the same.
+      sources:
+        - { source: homer-ilias, loc: '18.368-617' }
+    roman:
+      name: Vulcanus
+      altNames: [Vulkan]
+      domains: [fire, metalworking]
+      symbols:
+        de: [Hammer, Amboss]
+        en: [hammer, anvil]
+      description:
+        de: >-
+          Vulcanus ist ein altrömischer Gott des zerstörenden Feuers, dem man vor allem
+          opferte, damit er Brände fernhalte. Sein Tempel lag deshalb außerhalb der
+          Stadtmauern. Die Werkstatt unter dem Ätna und die Kyklopen als Gehilfen sind
+          spätere, dichterische Ausgestaltung.
+        en: >-
+          Vulcan is an old Roman god of destructive fire, to whom offerings were made above
+          all so that he would keep fires away. His temple therefore lay outside the city
+          walls. The workshop beneath Etna and the Cyclopes as assistants are later poetic
+          elaboration.
+      festivals: [Vulcanalia]
+      sources:
+        - { source: vergil-aeneis, loc: '8.416-453' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hephaistos
+      wikipediaEn: https://en.wikipedia.org/wiki/Hephaestus
+
+  - id: hebe
+    category: olympian
+    tier: 5
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [zeus, hera]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '921-923' }
+    greek:
+      name: Hebe
+      nameOriginal: Ἥβη
+      domains: [youth]
+      symbols:
+        de: [Kanne, Schale]
+        en: [jug, cup]
+      description:
+        de: >-
+          Göttin der blühenden Jugend und Mundschenkin der Olympier, bis Ganymed ihre
+          Aufgabe übernimmt. Nach seiner Vergöttlichung wird sie dem in den Olymp
+          aufgenommenen Herakles zur Frau gegeben - die Versöhnung zwischen Hera und dem
+          Helden, den sie ein Leben lang verfolgt hatte.
+        en: >-
+          Goddess of blooming youth and cupbearer of the Olympians, until Ganymede takes over
+          her task. After his deification she is given as wife to Heracles on his reception
+          into Olympus - the reconciliation between Hera and the hero she had persecuted all
+          his life.
+      sources:
+        - { source: hesiod-theogonie, loc: '950-955' }
+    roman:
+      name: Iuventas
+      altNames: [Juventas]
+      domains: [youth]
+      description:
+        de: >-
+          Iuventas wachte über die jungen Männer beim Eintritt in das wehrfähige Alter.
+          Ihre Kapelle auf dem Kapitol war älter als der Iuppitertempel und durfte bei
+          dessen Bau nicht verlegt werden - was als Vorzeichen für Roms ewigen Bestand galt.
+        en: >-
+          Juventas watched over young men entering the age of military service. Her shrine on
+          the Capitol was older than the temple of Jupiter and could not be moved when it was
+          built - which counted as an omen of Rome's everlasting endurance.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hebe_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Hebe_(mythology)
+
+  - id: eileithyia
+    category: olympian
+    tier: 5
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [zeus, hera]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '921-923' }
+    greek:
+      name: Eileithyia
+      nameOriginal: Εἰλείθυια
+      domains: [childbirth]
+      symbols:
+        de: [Fackel]
+        en: [torch]
+      description:
+        de: >-
+          Göttin der Geburt, die den Wehen ihren Lauf gibt - oder sie aufhält. Auf Heras
+          Geheiß verzögert sie neun Tage lang die Niederkunft der Leto und die des
+          Herakles. Ihr Name ist bereits auf mykenischen Tontafeln belegt, sie gehört also
+          zu den ältesten nachweisbaren griechischen Gottheiten.
+        en: >-
+          Goddess of childbirth, who lets labour take its course - or holds it back. At Hera's
+          command she delays the delivery of Leto for nine days, and that of Heracles as well.
+          Her name is already attested on Mycenaean tablets, making her one of the oldest
+          demonstrable Greek deities.
+      sources:
+        - { source: homerische-hymnen, loc: '3.97-119' }
+    roman:
+      name: Lucina
+      domains: [childbirth]
+      description:
+        de: >-
+          Lucina, "die ans Licht Bringende", ist in Rom kein eigenständiges Wesen, sondern
+          ein Beiname der Iuno, gelegentlich auch der Diana. Das ist ein Musterfall dafür,
+          dass die Gleichsetzungen keine saubere Eins-zu-eins-Zuordnung sind.
+        en: >-
+          Lucina, "she who brings to light", is in Rome not an independent being but an
+          epithet of Juno, occasionally also of Diana. This is a model case of how the
+          equations are not a clean one-to-one mapping.
+    counterparts:
+      - figure: hera
+        relation: absorbed
+        note:
+          de: Die Zuständigkeit der Eileithyia ging in Rom in der Iuno Lucina auf.
+          en: Eileithyia's sphere was absorbed in Rome into Juno Lucina.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Eileithyia
+      wikipediaEn: https://en.wikipedia.org/wiki/Eileithyia

@@ -1,0 +1,1392 @@
+# yaml-language-server: $schema=../../schema/figures.schema.json
+#
+# Titanen und ihre Kinder.
+#
+# Zur Generationsebene: sie muss der Leitversion folgen, ein Kind steht immer
+# unter beiden Eltern. Deshalb sitzen Atlas und Prometheus eine Reihe tiefer als
+# Zeus - ihre Mutter Klymene ist eine Okeanide und damit selbst schon
+# Titanenkind. Das ist kein Fehler, sondern die Abstammung, wie Hesiod sie gibt.
+
+figures:
+  # --- Die zwoelf Titanen: Kinder von Gaia und Uranos ---
+
+  - id: okeanos
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Okeanos
+      nameOriginal: Ὠκεανός
+      domains: [ocean-stream, fresh-water, rivers]
+      symbols:
+        de: [Stierhörner, Krebsscheren]
+        en: [bull horns, crab claws]
+      description:
+        de: >-
+          Der Weltstrom, der die Erdscheibe als Ring umfließt, ältester der Titanen.
+          Anders als seine Brüder beteiligt er sich nicht am Sturz des Uranos und bleibt
+          später auch dem Krieg gegen Zeus fern. Mit Tethys zeugt er dreitausend Flüsse
+          und dreitausend Okeaniden.
+        en: >-
+          The world stream encircling the earth like a ring, eldest of the Titans. Unlike
+          his brothers he takes no part in the overthrow of Uranus and later stays out of
+          the war against Zeus as well. With Tethys he fathers three thousand rivers and
+          three thousand Oceanids.
+      sources:
+        - { source: hesiod-theogonie, loc: '337-370' }
+    roman:
+      name: Oceanus
+      domains: [ocean-stream, sea]
+      description:
+        de: >-
+          Bei den Römern verschiebt sich Oceanus vom Ringfluss zum Weltmeer jenseits der
+          Säulen des Herakles - eine geographische statt einer mythischen Größe. Einen
+          eigenen Kult besitzt er nicht.
+        en: >-
+          Among the Romans, Oceanus shifts from encircling river to the ocean beyond the
+          Pillars of Hercules - a geographical rather than a mythical entity. He has no
+          cult of his own.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Okeanos
+      wikipediaEn: https://en.wikipedia.org/wiki/Oceanus
+
+  - id: tethys
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Tethys
+      nameOriginal: Τηθύς
+      domains: [fresh-water, springs, rivers]
+      description:
+        de: >-
+          Titanin des fließenden Süßwassers und Gemahlin des Okeanos. Bei Homer gilt das
+          Paar als Ursprung aller Götter - eine ältere Kosmogonie, die neben Hesiod
+          weiterlebt. Sie zog Hera auf, während Zeus gegen Kronos kämpfte.
+        en: >-
+          Titaness of flowing fresh water and consort of Oceanus. In Homer the pair count
+          as the origin of all the gods - an older cosmogony living on beside Hesiod. She
+          raised Hera while Zeus fought against Cronus.
+      sources:
+        - { source: homer-ilias, loc: '14.201-204' }
+    roman:
+      name: Tethys
+      domains: [fresh-water, sea]
+      description:
+        de: >-
+          Die römischen Dichter verwenden den Namen meist bildlich für das Meer selbst.
+          Verwechslungen mit der Nereide Thetis, der Mutter des Achill, sind schon antik.
+        en: >-
+          Roman poets mostly use the name figuratively for the sea itself. Confusion with
+          the Nereid Thetis, mother of Achilles, is already ancient.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Tethys_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Tethys_(mythology)
+
+  - id: hyperion
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Hyperion
+      nameOriginal: Ὑπερίων
+      domains: [light, sun]
+      description:
+        de: >-
+          Titan des Himmelslichts, dessen Name "der darüber Gehende" bedeutet. Er selbst
+          bleibt blass; seine Bedeutung liegt in den Kindern, die er mit Theia zeugt:
+          Sonne, Mond und Morgenröte. Homer nennt Helios gelegentlich schlicht Hyperion.
+        en: >-
+          Titan of celestial light, whose name means "he who goes above". He himself
+          remains pale; his significance lies in the children he fathers with Theia: sun,
+          moon and dawn. Homer occasionally calls Helios simply Hyperion.
+    roman:
+      name: Hyperion
+      domains: [light, sun]
+      description:
+        de: >-
+          In der lateinischen Dichtung nur als gelehrter Name geführt, meist als
+          Umschreibung für die Sonne oder als Vatername des Sol.
+        en: >-
+          In Latin poetry carried only as a learned name, mostly as a periphrasis for the
+          sun or as the patronymic of Sol.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hyperion_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Hyperion_(Titan)
+
+  - id: theia
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Theia
+      nameOriginal: Θεία
+      altNames: [Euryphaessa]
+      domains: [light, stars]
+      description:
+        de: >-
+          Titanin des Glanzes, Mutter von Helios, Selene und Eos. Pindar nennt sie die
+          Göttin, der die Menschen den Wert des Goldes verdanken - sie verleiht dem Metall
+          seinen Schimmer.
+        en: >-
+          Titaness of radiance, mother of Helios, Selene and Eos. Pindar calls her the
+          goddess to whom men owe the worth of gold - she gives the metal its gleam.
+      sources:
+        - { source: pindar-oden, loc: 'Isthm. 5.1-3' }
+    roman:
+      name: Thia
+      domains: [light, stars]
+      description:
+        de: >-
+          Ohne eigene Bedeutung im römischen Kult; der Name erscheint allein in
+          genealogischen Aufzählungen nach griechischem Vorbild.
+        en: >-
+          Of no significance in Roman cult; the name appears only in genealogical lists
+          following Greek models.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Theia
+      wikipediaEn: https://en.wikipedia.org/wiki/Theia
+
+  - id: koios
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Koios
+      nameOriginal: Κοῖος
+      domains: [prophecy, sky]
+      description:
+        de: >-
+          Titan, dessen Name mit "fragen" oder "erkunden" zusammenhängt; man deutete ihn
+          als Macht des forschenden Verstandes und der himmlischen Achse. Mit seiner
+          Schwester Phoibe zeugt er Leto und Asteria - über sie führt die Linie zu
+          Apollon, Artemis und Hekate.
+        en: >-
+          Titan whose name is connected with "to ask" or "to inquire"; he was read as the
+          power of searching intellect and of the celestial axis. With his sister Phoebe
+          he fathers Leto and Asteria - through them the line leads to Apollo, Artemis and
+          Hecate.
+    roman:
+      name: Coeus
+      domains: [prophecy, sky]
+      description:
+        de: >-
+          Reiner Übertragungsname der lateinischen Dichtung, ohne Kult und ohne eigene
+          Erzählung.
+        en: >-
+          A purely transferred name in Latin poetry, without cult and without a story of
+          his own.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Koios
+      wikipediaEn: https://en.wikipedia.org/wiki/Coeus
+
+  - id: phoibe
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Phoibe
+      nameOriginal: Φοίβη
+      domains: [prophecy, moon]
+      description:
+        de: >-
+          Titanin des reinen Glanzes und, nach Aischylos, dritte Inhaberin des Orakels von
+          Delphi: von Gaia über Themis kam es an sie, und sie schenkte es ihrem Enkel
+          Apollon zur Geburt. Dessen Beiname Phoibos stammt von ihr.
+        en: >-
+          Titaness of pure radiance and, according to Aeschylus, third holder of the
+          oracle at Delphi: from Gaia by way of Themis it came to her, and she gave it to
+          her grandson Apollo at his birth. His epithet Phoebus comes from her.
+      sources:
+        - { source: aischylos-eumeniden, loc: '1-8' }
+    roman:
+      name: Phoebe
+      domains: [moon, prophecy]
+      description:
+        de: >-
+          Im Lateinischen wird Phoebe fast durchgehend zum Beinamen der Mondgöttin Luna
+          oder der Diana - die Titanin selbst tritt hinter dieser Verwendung zurück.
+        en: >-
+          In Latin, Phoebe becomes almost throughout an epithet of the moon goddess Luna
+          or of Diana - the Titaness herself recedes behind this usage.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Phoibe
+      wikipediaEn: https://en.wikipedia.org/wiki/Phoebe_(Titaness)
+
+  - id: krios
+    category: titan
+    tier: 3
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Krios
+      nameOriginal: Κρῖος
+      domains: [stars, sovereignty]
+      description:
+        de: >-
+          Der am wenigsten fassbare der zwölf Titanen; sein Name bedeutet "Widder", was
+          man mit dem Sternbild und dem Jahresbeginn verband. Erzählt wird von ihm nichts -
+          er erscheint ausschließlich als Vater von Astraios, Pallas und Perses.
+        en: >-
+          The least tangible of the twelve Titans; his name means "ram", which was
+          connected with the constellation and the start of the year. Nothing is told of
+          him - he appears solely as the father of Astraeus, Pallas and Perses.
+      sources:
+        - { source: hesiod-theogonie, loc: '375-377' }
+    roman:
+      name: Crius
+      domains: [stars]
+      description:
+        de: >-
+          Nur als Name in gelehrten Aufzählungen der Titanen überliefert.
+        en: >-
+          Transmitted only as a name in learned lists of the Titans.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Kreios
+      wikipediaEn: https://en.wikipedia.org/wiki/Crius
+
+  - id: iapetos
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Iapetos
+      nameOriginal: Ἰαπετός
+      domains: [crafts, might]
+      description:
+        de: >-
+          Titan, den die Griechen als Ahnherrn des Menschengeschlechts ansahen - über
+          seinen Sohn Prometheus, der die Menschen formt, und dessen Bruder Epimetheus,
+          der Pandora annimmt. Seine vier Söhne verkörpern zusammen die Überhebung des
+          Sterblichen: Atlas trägt, Menoitios trotzt, Prometheus überlistet, Epimetheus
+          begreift zu spät.
+        en: >-
+          Titan whom the Greeks regarded as forefather of the human race - through his son
+          Prometheus, who shapes mankind, and his brother Epimetheus, who accepts Pandora.
+          His four sons together embody mortal overreaching: Atlas bears, Menoetius defies,
+          Prometheus outwits, Epimetheus understands too late.
+      sources:
+        - { source: hesiod-theogonie, loc: '507-511' }
+    roman:
+      name: Iapetus
+      domains: [crafts]
+      description:
+        de: >-
+          Im Lateinischen vor allem als Vatername des Prometheus geführt; ein eigenes
+          Profil gewinnt er nicht.
+        en: >-
+          In Latin carried above all as the patronymic of Prometheus; he gains no profile
+          of his own.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Iapetos
+      wikipediaEn: https://en.wikipedia.org/wiki/Iapetus
+
+  - id: themis
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Themis
+      nameOriginal: Θέμις
+      domains: [order, law, justice, prophecy]
+      symbols:
+        de: [Waage, Füllhorn]
+        en: [scales, cornucopia]
+      description:
+        de: >-
+          Titanin der gesetzten Ordnung - nicht des geschriebenen Rechts, sondern dessen,
+          was sich gehört. Sie ist die zweite Gemahlin des Zeus und Mutter der Horen und
+          der Moiren; damit sitzt die Ordnung selbst an der Seite des Herrschers. In
+          Delphi hütete sie das Orakel vor Phoibe.
+        en: >-
+          Titaness of established order - not written law, but what is fitting. She is the
+          second consort of Zeus and mother of the Horae and the Moirai; thus order itself
+          sits at the ruler's side. At Delphi she kept the oracle before Phoebe.
+      sources:
+        - { source: hesiod-theogonie, loc: '901-906' }
+    roman:
+      name: Themis
+      domains: [order, justice, law]
+      description:
+        de: >-
+          Die Römer kannten Themis als Namen, ordneten ihren Zuständigkeitsbereich aber
+          der eigenen Iustitia zu. Bei Ovid ist sie die Orakelgöttin, die Deukalion und
+          Pyrrha nach der Sintflut Rat gibt.
+        en: >-
+          The Romans knew Themis as a name but assigned her sphere to their own Iustitia.
+          In Ovid she is the oracular goddess who counsels Deucalion and Pyrrha after the
+          flood.
+      sources:
+        - { source: ovid-metamorphosen, loc: '1.377-394' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Themis
+      wikipediaEn: https://en.wikipedia.org/wiki/Themis
+
+  - id: mnemosyne
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Mnemosyne
+      nameOriginal: Μνημοσύνη
+      domains: [memory, poetry]
+      description:
+        de: >-
+          Die Erinnerung als Göttin. Neun Nächte lag Zeus ihr bei, und sie gebar die neun
+          Musen - für eine Kultur ohne Bücher ist das eine folgerichtige Herkunft der
+          Dichtung: wer erzählt, erinnert.
+        en: >-
+          Memory as a goddess. Nine nights Zeus lay with her, and she bore the nine Muses -
+          for a culture without books, a consistent origin for poetry: to tell is to
+          remember.
+      sources:
+        - { source: hesiod-theogonie, loc: '53-62' }
+        - { source: hesiod-theogonie, loc: '915-917' }
+    roman:
+      name: Moneta
+      domains: [memory, poetry]
+      description:
+        de: >-
+          Die Römer setzten Mnemosyne mit Moneta gleich, dem Beinamen der Iuno, in deren
+          Tempel die Münzprägung lag - daher unser Wort "Münze". Als Mutter der Musen ist
+          Moneta ein gelehrter Rückgriff, nicht altrömischer Glaube.
+        en: >-
+          The Romans equated Mnemosyne with Moneta, an epithet of Juno in whose temple the
+          mint stood - hence our word "money". As mother of the Muses, Moneta is a learned
+          borrowing, not old Roman belief.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Mnemosyne
+      wikipediaEn: https://en.wikipedia.org/wiki/Mnemosyne
+
+  - id: kronos
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+        note:
+          de: Der jüngste der Titanen und der einzige, der sich gegen Uranos zu erheben wagt.
+          en: The youngest of the Titans and the only one who dares to rise against Uranus.
+    greek:
+      name: Kronos
+      nameOriginal: Κρόνος
+      domains: [harvest, sovereignty, time]
+      symbols:
+        de: [Sichel]
+        en: [sickle]
+      description:
+        de: >-
+          Der jüngste Titan, der seinen Vater Uranos mit der Sichel entmannt und die
+          Herrschaft übernimmt. Aus Furcht vor derselben Weissagung verschlingt er seine
+          eigenen Kinder, bis Rheia ihm statt Zeus einen Stein reicht. Zeus zwingt ihn,
+          die Geschwister wieder auszuspeien, und stürzt ihn.
+        en: >-
+          The youngest Titan, who castrates his father Uranus with the sickle and takes
+          power. Fearing the same prophecy, he swallows his own children until Rhea hands
+          him a stone in place of Zeus. Zeus forces him to disgorge the siblings and
+          overthrows him.
+      sources:
+        - { source: hesiod-theogonie, loc: '453-506' }
+    roman:
+      name: Saturnus
+      altNames: [Saturn]
+      domains: [agriculture, harvest, wealth]
+      symbols:
+        de: [Sichel, Winzermesser]
+        en: [sickle, pruning hook]
+      description:
+        de: >-
+          Saturn ist keine bloße Übersetzung, sondern ein alter italischer Gott des
+          Säens, der erst später mit Kronos verschmolz. Seine Herrschaft galt den Römern
+          als goldenes Zeitalter, und sein Fest, die Saturnalien im Dezember, kehrte für
+          ein paar Tage alle Ordnung um: Sklaven wurden bedient, Geschenke getauscht.
+        en: >-
+          Saturn is no mere translation but an old Italic god of sowing, only later merged
+          with Cronus. The Romans regarded his reign as a golden age, and his festival, the
+          Saturnalia in December, inverted all order for a few days: slaves were waited on,
+          gifts exchanged.
+      festivals: [Saturnalia]
+      cultNotes:
+        de: Im Saturntempel am Forum Romanum lag die Staatskasse, das Aerarium.
+        en: The state treasury, the aerarium, was kept in the Temple of Saturn on the Forum Romanum.
+      sources:
+        - { source: ovid-fasti, loc: '1.235-254' }
+        - { source: macrobius-saturnalia, loc: '1.7-10' }
+    counterparts:
+      - figure: chronos-protogonos
+        relation: conflated
+        note:
+          de: Die Gleichsetzung mit Chronos, der Zeit, ist eine antike Volksetymologie und sprachlich nicht haltbar.
+          en: The equation with Chronos, Time, is an ancient folk etymology and linguistically untenable.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Kronos
+      wikipediaEn: https://en.wikipedia.org/wiki/Cronus
+
+  - id: rheia
+    category: titan
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '133-138' }
+    greek:
+      name: Rheia
+      nameOriginal: Ῥεία
+      altNames: [Rhea]
+      domains: [fertility, family, sovereignty]
+      description:
+        de: >-
+          Titanin und Mutter der ersten sechs Olympier. Als Kronos ein Kind nach dem
+          anderen verschlingt, bringt sie Zeus heimlich auf Kreta zur Welt und legt dem
+          Vater einen gewickelten Stein in den Arm. Ohne diese eine List gäbe es keine
+          olympische Ordnung.
+        en: >-
+          Titaness and mother of the first six Olympians. As Cronus swallows one child
+          after another, she secretly bears Zeus on Crete and lays a swaddled stone in the
+          father's arms. Without this single ruse there would be no Olympian order.
+      sources:
+        - { source: hesiod-theogonie, loc: '453-491' }
+    roman:
+      name: Ops
+      altNames: [Opis]
+      domains: [fertility, harvest, wealth]
+      description:
+        de: >-
+          Ops ist eine altrömische Göttin des Erntesegens und des Vorrats, Gemahlin des
+          Saturn. Ihr Name steckt in "opulent". In der Kaiserzeit verschwimmt sie
+          zusätzlich mit der aus Kleinasien übernommenen Magna Mater Cybele.
+        en: >-
+          Ops is an old Roman goddess of harvest blessing and stores, consort of Saturn.
+          Her name survives in "opulent". In the imperial period she additionally blurs
+          into the Magna Mater Cybele brought from Asia Minor.
+      festivals: [Opiconsivia, Opalia]
+      sources:
+        - { source: varro-de-lingua-latina, loc: '5.64' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Rhea_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Rhea_(mythology)
+
+  # --- Weitere Kinder von Gaia und Uranos ---
+
+  - id: kyklopen
+    category: monster
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '139-146' }
+    greek:
+      name: Kyklopen
+      nameOriginal: Κύκλωπες
+      altNames: [Brontes, Steropes, Arges]
+      domains: [metalworking, thunder, lightning]
+      description:
+        de: >-
+          Drei einäugige Schmiede - Brontes (Donner), Steropes (Blitzschein) und Arges
+          (Heller). Uranos hielt sie gefangen; Zeus befreite sie, und zum Dank schmiedeten
+          sie ihm den Blitz, Poseidon den Dreizack und Hades die Tarnkappe. Sie sind nicht
+          zu verwechseln mit dem menschenfressenden Polyphem der Odyssee.
+        en: >-
+          Three one-eyed smiths - Brontes (thunder), Steropes (lightning flash) and Arges
+          (bright one). Uranus kept them imprisoned; Zeus freed them, and in thanks they
+          forged him the thunderbolt, Poseidon the trident and Hades the cap of darkness.
+          They are not to be confused with the man-eating Polyphemus of the Odyssey.
+      sources:
+        - { source: apollodor-bibliotheke, loc: '1.2.1' }
+    roman:
+      name: Cyclopes
+      domains: [metalworking, fire]
+      description:
+        de: >-
+          Bei Vergil arbeiten die Kyklopen in der Werkstatt des Vulcanus unter dem Ätna -
+          aus den Urschmieden werden Gesellen eines Gottes.
+        en: >-
+          In Virgil the Cyclopes work in Vulcan's forge beneath Etna - the primordial
+          smiths become a god's journeymen.
+      sources:
+        - { source: vergil-aeneis, loc: '8.416-453' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Kyklopen
+      wikipediaEn: https://en.wikipedia.org/wiki/Cyclopes
+
+  - id: hekatoncheiren
+    category: monster
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, uranos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '147-153' }
+    greek:
+      name: Hekatoncheiren
+      nameOriginal: Ἑκατόγχειρες
+      altNames: [Kottos, Briareos, Gyges]
+      domains: [might, force]
+      description:
+        de: >-
+          Drei Brüder mit je hundert Armen und fünfzig Köpfen, die stärksten Geschöpfe
+          überhaupt. Zeus holt sie aus der Tiefe herauf, und ihr Steinhagel entscheidet
+          den zehnjährigen Krieg gegen die Titanen. Danach bewachen sie das Tor des
+          Tartaros.
+        en: >-
+          Three brothers with a hundred arms and fifty heads each, the strongest creatures
+          of all. Zeus brings them up from the depths, and their hail of stones decides the
+          ten-year war against the Titans. Afterwards they guard the gate of Tartarus.
+      sources:
+        - { source: hesiod-theogonie, loc: '617-720' }
+    roman:
+      name: Centimani
+      domains: [might, force]
+      description:
+        de: >-
+          Die lateinische Bezeichnung übersetzt den griechischen Namen wörtlich als
+          "Hundertarmige"; eigene Erzählungen bilden sich nicht heraus.
+        en: >-
+          The Latin term translates the Greek name literally as "hundred-handed"; no
+          stories of their own develop.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hekatoncheiren
+      wikipediaEn: https://en.wikipedia.org/wiki/Hecatoncheires
+
+  # --- Zweite Titanengeneration ---
+
+  - id: helios
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [hyperion, theia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '371-374' }
+    greek:
+      name: Helios
+      nameOriginal: Ἥλιος
+      domains: [sun, light]
+      symbols:
+        de: [Strahlenkranz, Sonnenwagen, Viergespann]
+        en: [radiate crown, sun chariot, four-horse team]
+      description:
+        de: >-
+          Die Sonne selbst, die täglich mit dem Viergespann über den Himmel fährt und
+          nachts im goldenen Becher über den Okeanos zurückkehrt. Weil er alles sieht,
+          wird er als Zeuge bei Eiden angerufen; er ist es, der Demeter den Raub der
+          Persephone verrät und Hephaistos den Ehebruch der Aphrodite.
+        en: >-
+          The sun itself, driving daily across the sky with a four-horse team and returning
+          by night over Oceanus in a golden cup. Because he sees everything he is invoked
+          as witness to oaths; it is he who tells Demeter of Persephone's abduction and
+          Hephaestus of Aphrodite's adultery.
+      sources:
+        - { source: homerische-hymnen, loc: '31' }
+      cultNotes:
+        de: Auf Rhodos war er Hauptgott; der Koloss stellte ihn dar.
+        en: On Rhodes he was the chief god; the Colossus represented him.
+    roman:
+      name: Sol
+      domains: [sun, light]
+      description:
+        de: >-
+          Rom kannte einen alten, schlichten Sol-Kult, der unter Kaiser Aurelian 274 n.
+          Chr. als Sol Invictus zum Reichskult aufstieg. Sein Festtag am 25. Dezember
+          wurde später christlich überformt.
+        en: >-
+          Rome knew an old, plain cult of Sol, which under the emperor Aurelian in AD 274
+          rose as Sol Invictus to become an imperial cult. Its feast day on 25 December was
+          later overlaid by Christian usage.
+      festivals: [Dies Natalis Solis Invicti]
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Helios
+      wikipediaEn: https://en.wikipedia.org/wiki/Helios
+
+  - id: selene
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [hyperion, theia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '371-374' }
+    greek:
+      name: Selene
+      nameOriginal: Σελήνη
+      domains: [moon, night]
+      symbols:
+        de: [Mondsichel, Fackel, Zweigespann]
+        en: [crescent moon, torch, two-horse team]
+      description:
+        de: >-
+          Der Mond als Göttin, die nachts mit einem Zweigespann über den Himmel zieht. Am
+          bekanntesten ist ihre Liebe zu dem Hirten Endymion, den Zeus auf ihre Bitte in
+          ewigen Schlaf versetzt, damit er nicht altert.
+        en: >-
+          The moon as a goddess, crossing the sky by night with a two-horse team. Best
+          known is her love for the shepherd Endymion, whom Zeus at her request puts into
+          eternal sleep so that he may not age.
+      sources:
+        - { source: homerische-hymnen, loc: '32' }
+    roman:
+      name: Luna
+      domains: [moon, night]
+      description:
+        de: >-
+          Luna besaß in Rom einen eigenen Tempel auf dem Aventin und wurde zusammen mit
+          Sol verehrt. In der Dichtung verschmilzt sie zunehmend mit Diana.
+        en: >-
+          Luna had a temple of her own on the Aventine in Rome and was worshipped together
+          with Sol. In poetry she increasingly merges with Diana.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Selene
+      wikipediaEn: https://en.wikipedia.org/wiki/Selene
+
+  - id: eos
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [hyperion, theia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '371-374' }
+    greek:
+      name: Eos
+      nameOriginal: Ἠώς
+      domains: [dawn]
+      symbols:
+        de: [Safrangewand, Flügel]
+        en: [saffron robe, wings]
+      description:
+        de: >-
+          Die Morgenröte, bei Homer stets "rosenfingrig". Sie entführt sterbliche
+          Jünglinge, unter ihnen Tithonos, für den sie Unsterblichkeit erbittet - aber
+          vergisst, ewige Jugend mitzuerbitten, sodass er endlos altert. Mit Astraios
+          zeugt sie die Winde und die Gestirne.
+        en: >-
+          The dawn, in Homer always "rosy-fingered". She carries off mortal youths, among
+          them Tithonus, for whom she begs immortality - but forgets to ask for eternal
+          youth as well, so that he ages endlessly. With Astraeus she bears the winds and
+          the stars.
+      sources:
+        - { source: homerische-hymnen, loc: '5.218-238' }
+    roman:
+      name: Aurora
+      domains: [dawn]
+      description:
+        de: >-
+          Aurora ist die lateinische Morgenröte, poetisch reich ausgestaltet, aber ohne
+          eigenen Staatskult. Ovid gibt ihr die Trauer um ihren im Trojanischen Krieg
+          gefallenen Sohn Memnon: der Morgentau gilt als ihre Tränen.
+        en: >-
+          Aurora is the Latin dawn, richly developed poetically but without a state cult of
+          her own. Ovid gives her grief for her son Memnon, fallen in the Trojan War: the
+          morning dew counts as her tears.
+      sources:
+        - { source: ovid-metamorphosen, loc: '13.576-622' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Eos
+      wikipediaEn: https://en.wikipedia.org/wiki/Eos
+
+  - id: leto
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [koios, phoibe]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '404-410' }
+    greek:
+      name: Leto
+      nameOriginal: Λητώ
+      domains: [childbirth, family]
+      description:
+        de: >-
+          Mutter von Apollon und Artemis. Von Heras Zorn verfolgt, findet sie nirgends
+          einen Ort zur Niederkunft, bis die schwimmende Insel Delos sie aufnimmt; neun
+          Tage dauert die Geburt, weil Hera die Geburtsgöttin Eileithyia zurückhält.
+        en: >-
+          Mother of Apollo and Artemis. Pursued by Hera's wrath she finds nowhere to give
+          birth until the floating island of Delos receives her; the birth lasts nine days
+          because Hera holds back Eileithyia, goddess of childbirth.
+      sources:
+        - { source: homerische-hymnen, loc: '3.25-126' }
+    roman:
+      name: Latona
+      domains: [childbirth, family]
+      description:
+        de: >-
+          Latona wurde in Rom gemeinsam mit ihren Kindern verehrt. Ovid erzählt, wie sie
+          lykische Bauern, die ihr das Trinken aus einem Teich verwehren, in Frösche
+          verwandelt.
+        en: >-
+          Latona was worshipped in Rome together with her children. Ovid tells how she
+          turns Lycian peasants who deny her a drink from a pond into frogs.
+      sources:
+        - { source: ovid-metamorphosen, loc: '6.317-381' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Leto
+      wikipediaEn: https://en.wikipedia.org/wiki/Leto
+
+  - id: asteria
+    category: titan
+    tier: 4
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [koios, phoibe]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '404-410' }
+    greek:
+      name: Asteria
+      nameOriginal: Ἀστερία
+      domains: [stars, prophecy, dreams]
+      description:
+        de: >-
+          Titanin der Sternbilder und der nächtlichen Weissagung, Schwester der Leto. Um
+          den Nachstellungen des Zeus zu entkommen, verwandelt sie sich in eine Wachtel
+          und stürzt sich ins Meer - daraus wird die Insel Delos, auf der ihre Schwester
+          später Apollon und Artemis gebiert.
+        en: >-
+          Titaness of the constellations and of nocturnal prophecy, sister of Leto. To
+          escape the advances of Zeus she turns into a quail and plunges into the sea -
+          from which arises the island of Delos, where her sister later bears Apollo and
+          Artemis.
+      sources:
+        - { source: apollodor-bibliotheke, loc: '1.4.1' }
+    roman:
+      name: Asteria
+      domains: [stars, prophecy]
+      description:
+        de: >-
+          Im Lateinischen nur als gelehrter Name überliefert, meist im Zusammenhang mit
+          der Entstehung von Delos.
+        en: >-
+          In Latin transmitted only as a learned name, mostly in connection with the origin
+          of Delos.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Asteria_(Titanin)
+      wikipediaEn: https://en.wikipedia.org/wiki/Asteria_(Titaness)
+
+  - id: astraios
+    category: titan
+    tier: 4
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [krios, eurybia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '375-377' }
+    greek:
+      name: Astraios
+      nameOriginal: Ἀστραῖος
+      domains: [stars, winds]
+      description:
+        de: >-
+          Titan des gestirnten Nachthimmels. Mit Eos, der Morgenröte, zeugt er die Winde
+          Boreas, Notos, Euros und Zephyros sowie die Wandelsterne - eine
+          folgerichtige Verbindung: die Sterne verblassen, wenn die Morgenröte kommt.
+        en: >-
+          Titan of the starry night sky. With Eos, the dawn, he fathers the winds Boreas,
+          Notus, Eurus and Zephyrus as well as the wandering stars - a fitting union: the
+          stars fade when dawn arrives.
+      sources:
+        - { source: hesiod-theogonie, loc: '378-382' }
+    roman:
+      name: Astraeus
+      domains: [stars, winds]
+      description:
+        de: >-
+          Nur als Name überliefert; die römische Dichtung nennt ihn fast ausschließlich
+          als Vater der Winde.
+        en: >-
+          Transmitted only as a name; Roman poetry mentions him almost exclusively as
+          father of the winds.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Astraios
+      wikipediaEn: https://en.wikipedia.org/wiki/Astraeus
+
+  - id: pallas-titan
+    category: titan
+    tier: 4
+    confidence: obscure
+    parentage:
+      - id: hesiod
+        parents: [krios, eurybia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '375-377' }
+    greek:
+      name: Pallas
+      nameOriginal: Πάλλας
+      domains: [war, battle-strategy]
+      description:
+        de: >-
+          Titan des Kampfes, mit Styx Vater von Nike, Kratos, Bia und Zelos. Er ist streng
+          zu unterscheiden von Pallas Athene und von dem Giganten gleichen Namens -
+          drei verschiedene Gestalten, die die Überlieferung oft vermengt.
+        en: >-
+          Titan of battle, with Styx the father of Nike, Kratos, Bia and Zelus. He is to be
+          strictly distinguished from Pallas Athena and from the giant of the same name -
+          three different figures the tradition often conflates.
+      sources:
+        - { source: hesiod-theogonie, loc: '383-385' }
+    roman:
+      name: Pallas
+      domains: [war]
+      description:
+        de: >-
+          Im Lateinischen führt der Name fast unweigerlich zu Verwechslungen mit Minerva,
+          deren griechischer Beiname Pallas lautet.
+        en: >-
+          In Latin the name leads almost inevitably to confusion with Minerva, whose Greek
+          epithet is Pallas.
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Pallas_(Titan)
+
+  - id: perses-titan
+    category: titan
+    tier: 4
+    confidence: obscure
+    parentage:
+      - id: hesiod
+        parents: [krios, eurybia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '375-377' }
+    greek:
+      name: Perses
+      nameOriginal: Πέρσης
+      domains: [magic, might]
+      description:
+        de: >-
+          Titan, dessen Name mit "zerstören" zusammenhängt. Bekannt ist er allein als
+          Vater der Hekate, die Zeus als einzige Titanentochter ihre Ehren behalten lässt.
+          Nicht zu verwechseln mit Perses, dem Sohn des Perseus.
+        en: >-
+          Titan whose name is connected with "to destroy". He is known solely as the father
+          of Hecate, the one Titan daughter whom Zeus allows to keep her honours. Not to be
+          confused with Perses, son of Perseus.
+      sources:
+        - { source: hesiod-theogonie, loc: '409-411' }
+    roman:
+      name: Perses
+      domains: [magic]
+      description:
+        de: >-
+          Im Lateinischen nur als Vatername der Hekate geführt.
+        en: >-
+          In Latin carried only as the patronymic of Hecate.
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Perses_(Titan)
+
+  # --- Okeaniden, soweit sie im Stammbaum weiterwirken ---
+
+  - id: metis
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [okeanos, tethys]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '349-361' }
+          - { source: hesiod-theogonie, loc: '886-890' }
+    greek:
+      name: Metis
+      nameOriginal: Μῆτις
+      domains: [wisdom, cunning]
+      description:
+        de: >-
+          Okeanide der klugen Berechnung, erste Gemahlin des Zeus. Sie gab ihm das Mittel,
+          mit dem Kronos die verschlungenen Kinder ausspie. Als geweissagt wird, ihr Sohn
+          werde den Vater stürzen, verschlingt Zeus sie selbst - Athena kommt danach aus
+          seinem Kopf zur Welt. Die List wird so Teil des Herrschers.
+        en: >-
+          Oceanid of shrewd calculation, first consort of Zeus. She gave him the means by
+          which Cronus disgorged the swallowed children. When it is foretold that her son
+          would overthrow the father, Zeus swallows her instead - Athena is then born from
+          his head. Cunning thus becomes part of the ruler himself.
+      sources:
+        - { source: hesiod-theogonie, loc: '886-900' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Metis_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Metis_(mythology)
+
+  - id: klymene
+    category: titan
+    tier: 4
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [okeanos, tethys]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '349-351' }
+    greek:
+      name: Klymene
+      nameOriginal: Κλυμένη
+      domains: [fresh-water]
+      description:
+        de: >-
+          Okeanide und Gemahlin des Iapetos, Mutter von Atlas, Menoitios, Prometheus und
+          Epimetheus. Apollodor nennt an ihrer Stelle die Okeanide Asia - eine der vielen
+          Stellen, an denen die Quellen die Mutter austauschen.
+        en: >-
+          Oceanid and consort of Iapetus, mother of Atlas, Menoetius, Prometheus and
+          Epimetheus. Apollodorus names the Oceanid Asia in her place - one of the many
+          points at which the sources swap the mother.
+      sources:
+        - { source: hesiod-theogonie, loc: '507-511' }
+    roman:
+      name: Clymene
+      domains: [fresh-water]
+      description:
+        de: >-
+          Bei Ovid ist Clymene die Mutter des Phaethon von Sol; ob es sich um dieselbe
+          Gestalt handelt, ist in der Überlieferung nicht entschieden.
+        en: >-
+          In Ovid, Clymene is the mother of Phaethon by Sol; whether this is the same
+          figure is not settled in the tradition.
+      sources:
+        - { source: ovid-metamorphosen, loc: '1.750-2.400' }
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Clymene_(mythology)
+
+  - id: styx
+    category: titan
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [okeanos, tethys]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '361' }
+    greek:
+      name: Styx
+      nameOriginal: Στύξ
+      domains: [underworld, oaths, rivers]
+      description:
+        de: >-
+          Älteste der Okeaniden und Fluss der Unterwelt. Sie stellt sich als Erste auf
+          Zeus' Seite und bringt ihre Kinder Nike, Kratos, Bia und Zelos mit; dafür macht
+          Zeus ihr Wasser zum Zeugen des höchsten Eides. Wer bei der Styx falsch schwört,
+          liegt neun Jahre atemlos.
+        en: >-
+          Eldest of the Oceanids and river of the underworld. She is the first to side with
+          Zeus, bringing her children Nike, Kratos, Bia and Zelus; in return Zeus makes her
+          water the witness of the highest oath. Whoever swears falsely by the Styx lies
+          breathless for nine years.
+      sources:
+        - { source: hesiod-theogonie, loc: '383-403' }
+        - { source: hesiod-theogonie, loc: '775-806' }
+    roman:
+      name: Styx
+      domains: [underworld, oaths, rivers]
+      description:
+        de: >-
+          In der lateinischen Dichtung fast nur noch Ortsname des Unterweltflusses; der
+          Eid bei der Styx bleibt aber auch bei Vergil und Ovid der unverbrüchlichste.
+        en: >-
+          In Latin poetry almost only the place name of the underworld river; but the oath
+          by the Styx remains the most inviolable in Virgil and Ovid too.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Styx_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Styx
+
+  - id: dione
+    category: titan
+    tier: 4
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [okeanos, tethys]
+        mode: sexual
+        canonical: true
+        confidence: common
+        sources:
+          - { source: hesiod-theogonie, loc: '353' }
+        note:
+          de: Hesiod führt sie unter den Okeaniden; Apollodor zählt sie zu den Titaninnen.
+          en: Hesiod lists her among the Oceanids; Apollodorus counts her among the Titanesses.
+    greek:
+      name: Dione
+      nameOriginal: Διώνη
+      domains: [fresh-water, love]
+      description:
+        de: >-
+          Ihr Name ist die weibliche Form zu Zeus - sie ist gleichsam "die Göttin"
+          schlechthin. In der ältesten Schicht, die Homer bewahrt, ist sie die Mutter der
+          Aphrodite; im Orakel von Dodona stand sie neben Zeus als dessen Gemahlin, wo
+          sonst Hera steht.
+        en: >-
+          Her name is the feminine form of Zeus - she is, as it were, "the goddess" plain
+          and simple. In the oldest layer, preserved by Homer, she is the mother of
+          Aphrodite; at the oracle of Dodona she stood beside Zeus as his consort, where
+          Hera stands elsewhere.
+      sources:
+        - { source: homer-ilias, loc: '5.370-417' }
+    roman:
+      name: Dione
+      domains: [love]
+      description:
+        de: >-
+          Die lateinischen Dichter gebrauchen Dione meist als Umschreibung für Venus
+          selbst, seltener für deren Mutter.
+        en: >-
+          Latin poets mostly use Dione as a periphrasis for Venus herself, less often for
+          her mother.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Dione_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Dione_(Titaness)
+
+  # --- Kinder des Iapetos ---
+
+  - id: atlas
+    category: titan
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [iapetos, klymene]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '507-511' }
+      - id: apollodor
+        parents: [iapetos, asia]
+        mode: sexual
+        canonical: false
+        confidence: common
+        sources:
+          - { source: apollodor-bibliotheke, loc: '1.2.3' }
+        note:
+          de: Apollodor nennt die Okeanide Asia als Mutter statt Klymene.
+          en: Apollodorus names the Oceanid Asia as mother instead of Clymene.
+    greek:
+      name: Atlas
+      nameOriginal: Ἄτλας
+      domains: [might, stars, seafaring]
+      symbols:
+        de: [Himmelsgewölbe]
+        en: [vault of heaven]
+      description:
+        de: >-
+          Zur Strafe für seinen Anteil am Titanenkrieg muss er am Westrand der Welt das
+          Himmelsgewölbe tragen - nicht die Erdkugel, wie die spätere Bildkunst nahelegt.
+          Er ist Vater der Plejaden, der Hyaden und der Hesperiden. Von ihm haben Gebirge
+          und Ozean ihren Namen.
+        en: >-
+          As punishment for his part in the war of the Titans he must hold up the vault of
+          heaven at the western edge of the world - not the globe, as later art suggests.
+          He is father of the Pleiades, the Hyades and the Hesperides. Mountain range and
+          ocean are named after him.
+      sources:
+        - { source: hesiod-theogonie, loc: '517-520' }
+    roman:
+      name: Atlas
+      domains: [might, stars]
+      description:
+        de: >-
+          Ovid erzählt, wie Perseus den unwirtlichen König Atlas mit dem Haupt der Medusa
+          in das Gebirge verwandelt, das seinen Namen trägt - aus der Strafe des Titanen
+          wird eine Verwandlungsgeschichte.
+        en: >-
+          Ovid tells how Perseus turns the inhospitable king Atlas into the mountain range
+          bearing his name using Medusa's head - the Titan's punishment becomes a tale of
+          metamorphosis.
+      sources:
+        - { source: ovid-metamorphosen, loc: '4.627-662' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Atlas_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Atlas_(mythology)
+
+  - id: prometheus
+    category: titan
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [iapetos, klymene]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '507-511' }
+      - id: apollodor
+        parents: [iapetos, asia]
+        mode: sexual
+        canonical: false
+        confidence: common
+        sources:
+          - { source: apollodor-bibliotheke, loc: '1.2.3' }
+    greek:
+      name: Prometheus
+      nameOriginal: Προμηθεύς
+      domains: [cunning, fire, crafts]
+      symbols:
+        de: [Feuerstab, Fesseln, Adler]
+        en: [fennel stalk, chains, eagle]
+      description:
+        de: >-
+          Der "Vorausdenkende", Wohltäter der Menschen gegen den Willen des Zeus. Beim
+          Opfer in Mekone übervorteilt er ihn zugunsten der Sterblichen, dann stiehlt er
+          das Feuer im hohlen Rohr. Zur Strafe wird er an den Kaukasus geschmiedet, wo
+          ein Adler täglich seine nachwachsende Leber frisst, bis Herakles ihn befreit.
+        en: >-
+          The "forethinker", benefactor of mankind against the will of Zeus. At the
+          sacrifice at Mecone he cheats him in favour of mortals, then steals fire in a
+          hollow stalk. As punishment he is chained to the Caucasus, where an eagle daily
+          eats his regrowing liver, until Heracles frees him.
+      sources:
+        - { source: hesiod-theogonie, loc: '521-616' }
+        - { source: hesiod-erga, loc: '42-105' }
+    roman:
+      name: Prometheus
+      domains: [cunning, fire, crafts]
+      description:
+        de: >-
+          Bei Ovid tritt der Feuerraub zurück; dort formt Prometheus den Menschen aus Erde
+          und Regenwasser nach dem Bild der Götter. Diese Fassung hat das spätere
+          Verständnis des Mythos am stärksten geprägt.
+        en: >-
+          In Ovid the theft of fire recedes; there Prometheus shapes man from earth and
+          rainwater in the image of the gods. This version shaped later understanding of
+          the myth most strongly.
+      sources:
+        - { source: ovid-metamorphosen, loc: '1.76-88' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Prometheus
+      wikipediaEn: https://en.wikipedia.org/wiki/Prometheus
+
+  - id: epimetheus
+    category: titan
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [iapetos, klymene]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '507-511' }
+    greek:
+      name: Epimetheus
+      nameOriginal: Ἐπιμηθεύς
+      domains: [crafts]
+      description:
+        de: >-
+          Der "Nachherdenkende", Gegenbild seines Bruders. Gegen dessen ausdrückliche
+          Warnung nimmt er Pandora als Geschenk der Götter an; sie öffnet das Gefäß, und
+          alle Übel fahren über die Menschen. Nur die Hoffnung bleibt unter dem Rand
+          zurück.
+        en: >-
+          The "afterthinker", his brother's opposite. Against Prometheus' express warning he
+          accepts Pandora as a gift from the gods; she opens the jar and all evils pour out
+          over mankind. Only hope remains behind under the rim.
+      sources:
+        - { source: hesiod-erga, loc: '83-105' }
+    roman:
+      name: Epimetheus
+      domains: [crafts]
+      description:
+        de: >-
+          Im Lateinischen nur als Name des unbedachten Bruders geführt, ohne eigene
+          Erzählung.
+        en: >-
+          In Latin carried only as the name of the imprudent brother, without a story of
+          his own.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Epimetheus_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Epimetheus_(mythology)
+
+  - id: menoitios
+    category: titan
+    tier: 5
+    confidence: obscure
+    parentage:
+      - id: hesiod
+        parents: [iapetos, klymene]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '507-511' }
+    greek:
+      name: Menoitios
+      nameOriginal: Μενοίτιος
+      domains: [force, might]
+      description:
+        de: >-
+          Der vierte Iapetos-Sohn, Verkörperung der maßlosen Vermessenheit. Zeus
+          schleudert ihn wegen seiner Anmaßung mit dem Blitz in den Erebos - eine
+          Randnotiz von zwei Versen, mehr ist über ihn nicht bekannt.
+        en: >-
+          The fourth son of Iapetus, embodiment of unmeasured presumption. Zeus hurls him
+          into Erebus with the thunderbolt for his arrogance - a marginal note of two
+          lines; nothing more is known of him.
+      sources:
+        - { source: hesiod-theogonie, loc: '514-516' }
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Menoetius
+
+  - id: asia
+    category: titan
+    tier: 4
+    confidence: obscure
+    parentage:
+      - id: hesiod
+        parents: [okeanos, tethys]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '359' }
+    greek:
+      name: Asia
+      nameOriginal: Ἀσία
+      domains: [fresh-water]
+      description:
+        de: >-
+          Okeanide, die bei Apollodor an Klymenes Stelle als Gemahlin des Iapetos steht.
+          Nach ihr soll der Erdteil benannt sein - ein Beispiel dafür, wie kleine
+          Randgottheiten als Namensgeberinnen für Landschaften herhalten mussten.
+        en: >-
+          Oceanid who in Apollodorus stands in Clymene's place as consort of Iapetus. The
+          continent is said to be named after her - an example of how minor deities were
+          pressed into service as eponyms for regions.
+      sources:
+        - { source: apollodor-bibliotheke, loc: '1.2.3' }
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Asia_(mythology)

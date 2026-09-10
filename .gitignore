@@ -1,0 +1,14 @@
+node_modules/
+dist/
+
+# Erzeugte Daten. Werden bei jedem Build aus data/*.yaml neu abgeleitet.
+# Nicht eingecheckt, weil eine einzelne neue Figur das Layout umsortiert und
+# sonst bei jedem Commit unbrauchbare Aenderungslisten entstuenden.
+public/data/
+
+*.local
+.DS_Store
+Thumbs.db
+
+# Lokale Berechtigungen von Claude Code, rechnergebunden.
+.claude/settings.local.json

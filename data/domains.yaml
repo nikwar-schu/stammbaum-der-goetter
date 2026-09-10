@@ -1,0 +1,127 @@
+# yaml-language-server: $schema=../schema/domains.schema.json
+#
+# Kontrolliertes Vokabular der Zustaendigkeiten.
+# Jede Figur verweist nur auf Schluessel aus dieser Liste; das Pruefskript weist
+# alles andere zurueck. So bleiben Filter und Suche ueber 600 Eintraege hinweg
+# einheitlich, statt an "Meer", "Meere" und "See" zu zerfallen.
+
+domains:
+  # Weltgefuege
+  void: { de: Leere, en: Void }
+  earth: { de: Erde, en: Earth }
+  sky: { de: Himmel, en: Sky }
+  upper-air: { de: Äther, en: Upper Air }
+  mist: { de: Nebel, en: Mist }
+  sea: { de: Meer, en: Sea }
+  ocean-stream: { de: Weltstrom, en: Ocean Stream }
+  fresh-water: { de: Süßwasser, en: Fresh Water }
+  rivers: { de: Flüsse, en: Rivers }
+  springs: { de: Quellen, en: Springs }
+  mountains: { de: Gebirge, en: Mountains }
+  islands: { de: Inseln, en: Islands }
+  underworld: { de: Unterwelt, en: Underworld }
+  abyss: { de: Abgrund, en: Abyss }
+
+  # Zeit, Licht und Dunkel
+  time: { de: Zeit, en: Time }
+  night: { de: Nacht, en: Night }
+  day: { de: Tag, en: Day }
+  darkness: { de: Finsternis, en: Darkness }
+  light: { de: Licht, en: Light }
+  dawn: { de: Morgenröte, en: Dawn }
+  sun: { de: Sonne, en: Sun }
+  moon: { de: Mond, en: Moon }
+  stars: { de: Gestirne, en: Stars }
+
+  # Herrschaft und Ordnung
+  sovereignty: { de: Herrschaft, en: Sovereignty }
+  kingship: { de: Königtum, en: Kingship }
+  order: { de: Ordnung, en: Order }
+  justice: { de: Gerechtigkeit, en: Justice }
+  law: { de: Recht, en: Law }
+  oaths: { de: Eide, en: Oaths }
+  fate: { de: Schicksal, en: Fate }
+  necessity: { de: Notwendigkeit, en: Necessity }
+  retribution: { de: Vergeltung, en: Retribution }
+
+  # Leben, Zeugung, Haus
+  procreation: { de: Zeugung, en: Procreation }
+  love: { de: Liebe, en: Love }
+  desire: { de: Verlangen, en: Desire }
+  beauty: { de: Schönheit, en: Beauty }
+  marriage: { de: Ehe, en: Marriage }
+  childbirth: { de: Geburt, en: Childbirth }
+  fertility: { de: Fruchtbarkeit, en: Fertility }
+  hearth: { de: Herdfeuer, en: Hearth }
+  home: { de: Haus, en: Home }
+  family: { de: Familie, en: Family }
+  youth: { de: Jugend, en: Youth }
+
+  # Krieg und Kraft
+  war: { de: Krieg, en: War }
+  battle-strategy: { de: Kriegskunst, en: Battle Strategy }
+  slaughter: { de: Gemetzel, en: Slaughter }
+  terror: { de: Schrecken, en: Terror }
+  fear: { de: Furcht, en: Fear }
+  strife: { de: Zwietracht, en: Strife }
+  victory: { de: Sieg, en: Victory }
+  force: { de: Gewalt, en: Force }
+  might: { de: Stärke, en: Might }
+  rivalry: { de: Wetteifer, en: Rivalry }
+
+  # Kuenste und Wissen
+  wisdom: { de: Weisheit, en: Wisdom }
+  cunning: { de: List, en: Cunning }
+  crafts: { de: Handwerk, en: Crafts }
+  weaving: { de: Weberei, en: Weaving }
+  metalworking: { de: Schmiedekunst, en: Metalworking }
+  fire: { de: Feuer, en: Fire }
+  music: { de: Musik, en: Music }
+  poetry: { de: Dichtung, en: Poetry }
+  memory: { de: Erinnerung, en: Memory }
+  prophecy: { de: Weissagung, en: Prophecy }
+  healing: { de: Heilkunst, en: Healing }
+  plague: { de: Seuche, en: Plague }
+
+  # Natur und Wirtschaft
+  hunting: { de: Jagd, en: Hunting }
+  wilderness: { de: Wildnis, en: Wilderness }
+  archery: { de: Bogenschießen, en: Archery }
+  flocks: { de: Herden, en: Flocks }
+  shepherds: { de: Hirten, en: Shepherds }
+  agriculture: { de: Ackerbau, en: Agriculture }
+  grain: { de: Getreide, en: Grain }
+  harvest: { de: Ernte, en: Harvest }
+  vegetation: { de: Pflanzenwuchs, en: Vegetation }
+  wine: { de: Wein, en: Wine }
+  ecstasy: { de: Rausch, en: Ecstasy }
+  theatre: { de: Theater, en: Theatre }
+  horses: { de: Pferde, en: Horses }
+  earthquakes: { de: Erdbeben, en: Earthquakes }
+  storms: { de: Sturm, en: Storms }
+  winds: { de: Winde, en: Winds }
+  thunder: { de: Donner, en: Thunder }
+  lightning: { de: Blitz, en: Lightning }
+  rainbow: { de: Regenbogen, en: Rainbow }
+
+  # Handel, Weg und Grenze
+  trade: { de: Handel, en: Trade }
+  messengers: { de: Botschaft, en: Messengers }
+  travel: { de: Reise, en: Travel }
+  thieves: { de: Diebe, en: Thieves }
+  boundaries: { de: Grenzen, en: Boundaries }
+  doorways: { de: Türen, en: Doorways }
+  beginnings: { de: Anfänge, en: Beginnings }
+  seafaring: { de: Seefahrt, en: Seafaring }
+  wealth: { de: Reichtum, en: Wealth }
+  fortune: { de: Glücksfall, en: Fortune }
+
+  # Tod und Schlaf
+  death: { de: Tod, en: Death }
+  sleep: { de: Schlaf, en: Sleep }
+  dreams: { de: Träume, en: Dreams }
+  old-age: { de: Alter, en: Old Age }
+  magic: { de: Zauberei, en: Magic }
+  witchcraft: { de: Hexenkunst, en: Witchcraft }
+  crossroads: { de: Wegkreuzung, en: Crossroads }
+  ghosts: { de: Totengeister, en: Ghosts }

@@ -1,0 +1,661 @@
+# yaml-language-server: $schema=../../schema/figures.schema.json
+#
+# Urgottheiten - der Anfang von allem.
+#
+# Leitversion ist Hesiods Theogonie. Abweichende Kosmogonien (Ovid, orphische
+# Überlieferung) stehen als Varianten daneben und beeinflussen das Layout nicht.
+# Wichtig: Chronos (die Zeit) und Kronos (der Titan) sind zwei verschiedene
+# Gestalten und werden seit der Antike verwechselt - daher getrennte Kennungen.
+
+figures:
+  - id: chaos
+    category: protogenos
+    tier: 0
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '116' }
+        note:
+          de: Bei Hesiod entsteht Chaos als Erstes von allem, ohne dass ein Erzeuger genannt wird.
+          en: In Hesiod, Chaos comes into being first of all, with no begetter named.
+    greek:
+      name: Chaos
+      nameOriginal: Χάος
+      domains: [void, abyss]
+      description:
+        de: >-
+          Der klaffende Urzustand, aus dem alles Weitere hervorgeht. Chaos meint bei
+          Hesiod keine Unordnung, sondern eine gähnende Leere - das Wort gehört zu
+          griechisch "chainein", gähnen. Aus ihm gehen Erebos und Nyx hervor.
+        en: >-
+          The gaping first state from which everything else proceeds. In Hesiod, Chaos
+          does not mean disorder but a yawning void - the word belongs to Greek
+          "chainein", to gape. From it came Erebus and Nyx.
+    roman:
+      name: Chaos
+      domains: [void, abyss]
+      description:
+        de: >-
+          Ovid übernimmt den Namen, deutet ihn aber um: bei ihm ist Chaos die
+          ungeschiedene, rohe Masse aller Stoffe, aus der ein Gott die Welt sortiert.
+          Aus der Leere der Griechen wird so ein Urgemenge.
+        en: >-
+          Ovid keeps the name but reinterprets it: for him Chaos is the undivided, raw
+          mass of all matter, out of which a god sorts the world. The Greek void thus
+          becomes a primordial mixture.
+      sources:
+        - { source: ovid-metamorphosen, loc: '1.5-31' }
+    counterparts:
+      - figure: gaia
+        relation: disputed
+        note:
+          de: Ob Gaia aus Chaos hervorgeht oder unabhängig neben ihm entsteht, ist schon in der Antike strittig.
+          en: Whether Gaia proceeds from Chaos or arises independently beside it was already disputed in antiquity.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Chaos_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Chaos_(cosmogony)
+
+  - id: gaia
+    category: protogenos
+    tier: 1
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '116-118' }
+        note:
+          de: Hesiod nennt keinen Erzeuger; Gaia entsteht nach Chaos, nicht aus ihm.
+          en: Hesiod names no begetter; Gaia comes to be after Chaos, not out of it.
+      - id: ovid
+        parents: [chaos]
+        mode: emerged
+        canonical: false
+        confidence: common
+        sources:
+          - { source: ovid-metamorphosen, loc: '1.5-31' }
+        note:
+          de: In der römischen Deutung scheidet sich die Erde aus der Urmasse Chaos aus.
+          en: In the Roman reading, the earth separates out of the primordial mass Chaos.
+    greek:
+      name: Gaia
+      nameOriginal: Γαῖα
+      altNames: [Ge]
+      domains: [earth, fertility, prophecy]
+      symbols:
+        de: [Füllhorn, Getreide]
+        en: [cornucopia, grain]
+      description:
+        de: >-
+          Die Erde selbst, Stammmutter fast des gesamten Stammbaums. Aus sich allein
+          bringt sie Uranos, die Gebirge und das Meer hervor, mit Uranos dann die
+          Titanen. Sie ist es auch, die Kronos zum Sturz seines Vaters anstiftet und
+          später Zeus vor Verbündeten warnt - eine handelnde, nicht nur tragende Macht.
+        en: >-
+          The earth itself, ancestress of almost the entire family tree. Out of herself
+          alone she brings forth Uranus, the mountains and the sea, then the Titans with
+          Uranus. It is she who incites Cronus to overthrow his father and later warns
+          Zeus - an acting power, not merely a bearing one.
+      cultNotes:
+        de: In Delphi galt das Orakel ursprünglich als ihres, bevor es an Apollon überging.
+        en: At Delphi the oracle was originally held to be hers, before it passed to Apollo.
+    roman:
+      name: Terra
+      altNames: [Tellus, Terra Mater]
+      domains: [earth, fertility, agriculture]
+      description:
+        de: >-
+          Die römische Erdgöttin ist weniger Urahnin als Gottheit des bestellten Bodens.
+          Tellus erhielt bei der Aussaat und im Totenkult eigene Opfer; ihr Fest, die
+          Fordicidia im April, galt dem Gedeihen der Saat.
+        en: >-
+          The Roman earth goddess is less an ancestress than a deity of the worked soil.
+          Tellus received her own offerings at sowing and in funerary rites; her festival,
+          the Fordicidia in April, served the thriving of the crop.
+      festivals: [Fordicidia]
+      sources:
+        - { source: ovid-fasti, loc: '4.629-672' }
+        - { source: varro-de-lingua-latina, loc: '5.64' }
+    counterparts:
+      - figure: chaos
+        relation: disputed
+        note:
+          de: Ob Gaia aus Chaos hervorgeht oder unabhängig neben ihm entsteht, ist schon in der Antike strittig.
+          en: Whether Gaia proceeds from Chaos or arises independently beside it was already disputed in antiquity.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Gaia
+      wikipediaEn: https://en.wikipedia.org/wiki/Gaia
+
+  - id: tartaros
+    category: protogenos
+    tier: 1
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '119' }
+    greek:
+      name: Tartaros
+      nameOriginal: Τάρταρος
+      domains: [underworld, abyss]
+      description:
+        de: >-
+          Zugleich Ort und Gottheit: der Abgrund unter der Unterwelt, so tief unter der
+          Erde wie der Himmel über ihr. Dorthin verbannt Zeus die besiegten Titanen.
+          Mit Gaia zeugt Tartaros das letzte Ungeheuer, das die Götterherrschaft
+          herausfordert - Typhon.
+        en: >-
+          At once place and deity: the abyss beneath the underworld, as far below the
+          earth as the sky is above it. There Zeus banishes the defeated Titans. With
+          Gaia, Tartarus fathers the last monster to challenge divine rule - Typhon.
+    roman:
+      name: Tartarus
+      domains: [underworld, abyss]
+      description:
+        de: >-
+          Bei Vergil wird Tartarus zum Strafort der Unterwelt, umschlossen von einer
+          dreifachen Mauer und dem Feuerstrom Phlegethon - deutlich stärker als
+          Gerichtsort ausgemalt als im Griechischen.
+        en: >-
+          In Virgil, Tartarus becomes the place of punishment in the underworld, ringed
+          by a triple wall and the fiery river Phlegethon - painted far more as a place
+          of judgement than in the Greek tradition.
+      sources:
+        - { source: vergil-aeneis, loc: '6.548-627' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Tartaros
+      wikipediaEn: https://en.wikipedia.org/wiki/Tartarus
+
+  - id: eros-protogonos
+    category: protogenos
+    tier: 1
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '120-122' }
+    greek:
+      name: Eros
+      nameOriginal: Ἔρως
+      altNames: [Protogonos]
+      domains: [love, desire, procreation]
+      description:
+        de: >-
+          Der ursprüngliche Eros ist kein geflügelter Knabe, sondern eine kosmische
+          Kraft: der Trieb, der überhaupt erst dafür sorgt, dass sich etwas verbindet
+          und Neues entsteht. Er ist nicht mit dem jüngeren Eros zu verwechseln, dem
+          Sohn der Aphrodite, der erst später auftritt.
+        en: >-
+          The original Eros is not a winged boy but a cosmic force: the drive that first
+          makes anything join and anything new come to be. He is not to be confused with
+          the younger Eros, son of Aphrodite, who appears only later.
+    counterparts:
+      - figure: phanes
+        relation: conflated
+        note:
+          de: Die orphische Überlieferung setzt den Ureros mit Phanes gleich, dem Erstgeborenen aus dem Weltei.
+          en: The Orphic tradition identifies the primordial Eros with Phanes, the firstborn from the cosmic egg.
+        sources:
+          - { source: orphische-fragmente }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Eros_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Eros
+
+  - id: erebos
+    category: protogenos
+    tier: 1
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [chaos]
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '123' }
+    greek:
+      name: Erebos
+      nameOriginal: Ἔρεβος
+      domains: [darkness, underworld]
+      description:
+        de: >-
+          Die Finsternis der Tiefe, Gegenstück zum Licht des Aither. Mit seiner
+          Schwester Nyx zeugt er ausgerechnet Aither und Hemera - aus der Dunkelheit
+          geht das Licht hervor.
+        en: >-
+          The darkness of the depths, counterpart to the light of Aether. With his sister
+          Nyx he fathers, of all things, Aether and Hemera - out of darkness comes light.
+    roman:
+      name: Erebus
+      domains: [darkness, underworld]
+      description:
+        de: >-
+          Bei den römischen Dichtern meist Ortsname für den Schattenbereich der
+          Unterwelt, den die Toten durchqueren; als handelnde Gottheit tritt Erebus
+          kaum auf.
+        en: >-
+          In Roman poets mostly a place name for the shadowed region of the underworld
+          that the dead pass through; Erebus scarcely appears as an acting deity.
+      sources:
+        - { source: vergil-aeneis, loc: '6.247' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Erebos
+      wikipediaEn: https://en.wikipedia.org/wiki/Erebus
+
+  - id: nyx
+    category: protogenos
+    tier: 1
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [chaos]
+        mode: emerged
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '123' }
+    greek:
+      name: Nyx
+      nameOriginal: Νύξ
+      domains: [night, darkness]
+      symbols:
+        de: [dunkler Schleier, Sternenmantel]
+        en: [dark veil, starry mantle]
+      description:
+        de: >-
+          Die Nacht, eine der ältesten und gefürchtetsten Mächte. Aus sich allein bringt
+          sie eine ganze Schar düsterer Kinder hervor - Tod, Schlaf, Traum, Alter,
+          Zwietracht und die Schicksalsgöttinnen. Selbst Zeus scheut nach Homer davor
+          zurück, ihr zu missfallen.
+        en: >-
+          Night, one of the oldest and most feared powers. Out of herself alone she
+          brings forth a whole host of grim children - death, sleep, dreams, old age,
+          strife and the Fates. Even Zeus, according to Homer, shrinks from displeasing her.
+      sources:
+        - { source: homer-ilias, loc: '14.256-261' }
+    roman:
+      name: Nox
+      domains: [night, darkness]
+      description:
+        de: >-
+          Die römische Nacht bleibt weitgehend dichterische Gestalt ohne eigenen Kult.
+          Vergil lässt ihr in der Unterwelt Opfer darbringen, gemeinsam mit der Erde.
+        en: >-
+          The Roman Night remains largely a poetic figure without a cult of her own.
+          Virgil has offerings made to her in the underworld, together with Earth.
+      sources:
+        - { source: vergil-aeneis, loc: '6.250' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Nyx
+      wikipediaEn: https://en.wikipedia.org/wiki/Nyx
+
+  - id: aither
+    category: protogenos
+    tier: 2
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [erebos, nyx]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '124-125' }
+    greek:
+      name: Aither
+      nameOriginal: Αἰθήρ
+      domains: [upper-air, light]
+      description:
+        de: >-
+          Die obere, reine Luft, die die Götter atmen - klar geschieden von der trüben
+          Luft am Boden. Aither ist das helle Gegenstück zu Erebos und gilt manchen als
+          der Stoff, aus dem die Gestirne bestehen.
+        en: >-
+          The upper, pure air the gods breathe - clearly distinct from the murky air at
+          ground level. Aether is the bright counterpart to Erebus, and to some the
+          substance the stars are made of.
+    roman:
+      name: Aether
+      domains: [upper-air, light]
+      description:
+        de: >-
+          Bei Cicero und in der römischen Naturphilosophie weniger Gottheit als
+          Weltstoff: der feurige Himmelsäther, aus dem die Gestirne gebildet sind.
+        en: >-
+          In Cicero and Roman natural philosophy less a deity than a world-substance:
+          the fiery celestial aether from which the heavenly bodies are formed.
+      sources:
+        - { source: cicero-de-natura-deorum, loc: '2.39-41' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Aither
+      wikipediaEn: https://en.wikipedia.org/wiki/Aether_(mythology)
+
+  - id: hemera
+    category: protogenos
+    tier: 2
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [erebos, nyx]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '124-125' }
+    greek:
+      name: Hemera
+      nameOriginal: Ἡμέρα
+      domains: [day, light]
+      description:
+        de: >-
+          Der Tag als Göttin. Hesiod lässt Nyx und Hemera einander an der Schwelle des
+          Hauses ablösen: nie sind beide zugleich darin - ein Bild für den Wechsel von
+          Tag und Nacht.
+        en: >-
+          Day as a goddess. Hesiod has Nyx and Hemera relieve one another at the
+          threshold of their house: never are both inside at once - an image for the
+          alternation of day and night.
+      sources:
+        - { source: hesiod-theogonie, loc: '748-757' }
+    roman:
+      name: Dies
+      domains: [day, light]
+      description:
+        de: >-
+          Die römische Entsprechung bleibt blass und tritt fast nur in Aufzählungen
+          kosmischer Mächte auf, ohne eigenen Kult.
+        en: >-
+          The Roman counterpart remains pale and appears almost only in lists of cosmic
+          powers, without a cult of her own.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hemera
+      wikipediaEn: https://en.wikipedia.org/wiki/Hemera
+
+  - id: uranos
+    category: protogenos
+    tier: 2
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia]
+        mode: parthenogenetic
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '126-128' }
+        note:
+          de: Gaia bringt ihn aus sich allein hervor, damit er sie ganz umschließe.
+          en: Gaia brings him forth out of herself alone, so that he might cover her entirely.
+    greek:
+      name: Uranos
+      nameOriginal: Οὐρανός
+      domains: [sky, sovereignty]
+      description:
+        de: >-
+          Der Himmel und erster Herrscher der Welt. Weil er seine Kinder in Gaias Leib
+          zurückstößt, stiftet sie Kronos zum Aufstand an: mit einer Sichel entmannt der
+          Sohn den Vater. Aus dem Blut entstehen Erinyen, Giganten und Meliai, aus dem
+          Meeresschaum um das Glied Aphrodite.
+        en: >-
+          The sky and first ruler of the world. Because he pushes his children back into
+          Gaia's body, she incites Cronus to revolt: with a sickle the son castrates the
+          father. From the blood spring the Erinyes, Giants and Meliae, from the sea foam
+          around the severed member, Aphrodite.
+      sources:
+        - { source: hesiod-theogonie, loc: '154-206' }
+    roman:
+      name: Caelus
+      domains: [sky, sovereignty]
+      description:
+        de: >-
+          Der römische Himmelsgott ist im Wesentlichen eine gelehrte Übertragung des
+          griechischen Uranos. Er hat keinen nennenswerten eigenen Kult, erscheint aber
+          in der Bildkunst als Rahmenfigur des Weltgebäudes.
+        en: >-
+          The Roman sky god is essentially a learned rendering of the Greek Uranus. He
+          has no cult of note of his own, but appears in art as a framing figure of the
+          cosmos.
+      sources:
+        - { source: cicero-de-natura-deorum, loc: '3.44' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Uranos
+      wikipediaEn: https://en.wikipedia.org/wiki/Uranus_(mythology)
+
+  - id: ourea
+    category: protogenos
+    tier: 2
+    confidence: obscure
+    parentage:
+      - id: hesiod
+        parents: [gaia]
+        mode: parthenogenetic
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '129-130' }
+    greek:
+      name: Ourea
+      nameOriginal: Οὔρεα
+      domains: [mountains]
+      description:
+        de: >-
+          Die Gebirge als Gruppe von Gottheiten, von Gaia aus sich allein hervorgebracht.
+          Sie treten nie handelnd auf und tragen keine Einzelnamen - ein Musterfall jener
+          Randgottheiten, die nur eine einzige Textstelle nennt.
+        en: >-
+          The mountains as a group of deities, brought forth by Gaia out of herself alone.
+          They never act and bear no individual names - a model case of those marginal
+          deities named in a single passage only.
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Ourea
+
+  - id: pontos
+    category: protogenos
+    tier: 2
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia]
+        mode: parthenogenetic
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '131-132' }
+    greek:
+      name: Pontos
+      nameOriginal: Πόντος
+      domains: [sea]
+      description:
+        de: >-
+          Das offene Meer als Urgottheit, älter als Poseidon. Mit Gaia zeugt er die erste
+          Meeresgeneration: Nereus, Thaumas, Phorkys, Keto und Eurybia - aus ihnen geht
+          fast das gesamte Meervolk hervor.
+        en: >-
+          The open sea as a primordial deity, older than Poseidon. With Gaia he fathers
+          the first sea generation: Nereus, Thaumas, Phorcys, Ceto and Eurybia - from
+          whom nearly all sea folk descend.
+      sources:
+        - { source: hesiod-theogonie, loc: '233-239' }
+    roman:
+      name: Pontus
+      domains: [sea]
+      description:
+        de: >-
+          Die römischen Dichter übernehmen den Namen als Bezeichnung des Meeres, ohne
+          dass ein eigener Kult entsteht. Die Gleichsetzung bleibt gelehrt.
+        en: >-
+          Roman poets adopt the name as a designation of the sea, without any cult of its
+          own arising. The equation remains a learned one.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Pontos
+      wikipediaEn: https://en.wikipedia.org/wiki/Pontus_(mythology)
+
+  - id: thalassa
+    category: protogenos
+    tier: 3
+    confidence: obscure
+    parentage:
+      - id: hyginus
+        parents: [aither, hemera]
+        mode: sexual
+        canonical: true
+        confidence: obscure
+        sources:
+          - { source: hygin-fabulae, loc: 'praef.' }
+        note:
+          de: Nur in späten Genealogien belegt; Hesiod kennt sie nicht.
+          en: Attested only in late genealogies; Hesiod does not know her.
+    greek:
+      name: Thalassa
+      nameOriginal: Θάλασσα
+      domains: [sea]
+      description:
+        de: >-
+          Die weibliche Verkörperung der Meeresfläche, unterschieden vom männlichen
+          Pontos. Sie ist kaum mythisch ausgestaltet und erscheint vor allem in
+          Mosaiken als Brustbild mit Krebsscheren im Haar.
+        en: >-
+          The female embodiment of the sea's surface, distinguished from the male Pontus.
+          She is barely developed mythically and appears mainly in mosaics as a bust with
+          crab claws in her hair.
+    refs:
+      wikipediaEn: https://en.wikipedia.org/wiki/Thalassa_(mythology)
+
+  - id: chronos-protogonos
+    category: protogenos
+    tier: 0
+    confidence: obscure
+    parentage:
+      - id: orphisch
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: obscure
+        sources:
+          - { source: orphische-fragmente }
+    greek:
+      name: Chronos
+      nameOriginal: Χρόνος
+      domains: [time]
+      description:
+        de: >-
+          Die Zeit als Urgottheit der orphischen Kosmogonie, oft als geflügelte Schlange
+          vorgestellt. Gemeinsam mit Ananke umschlingt er das Weltall und formt das
+          Weltei, aus dem Phanes hervorgeht. Nicht zu verwechseln mit dem Titanen Kronos -
+          die Ähnlichkeit der Namen hat schon antike Autoren zu Gleichsetzungen verleitet.
+        en: >-
+          Time as a primordial deity of the Orphic cosmogony, often imagined as a winged
+          serpent. Together with Ananke he coils around the cosmos and forms the world
+          egg from which Phanes emerges. Not to be confused with the Titan Cronus - the
+          similarity of the names already misled ancient authors into equating them.
+    counterparts:
+      - figure: kronos
+        relation: conflated
+        note:
+          de: Antike Deutungen setzen den Titanen Kronos mit der Zeit gleich; sprachlich ist das nicht haltbar.
+          en: Ancient interpretations equate the Titan Cronus with Time; linguistically this does not hold.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Chronos
+      wikipediaEn: https://en.wikipedia.org/wiki/Chronos
+
+  - id: ananke
+    category: protogenos
+    tier: 0
+    confidence: common
+    parentage:
+      - id: orphisch
+        parents: []
+        mode: emerged
+        canonical: true
+        confidence: obscure
+        sources:
+          - { source: orphische-fragmente }
+    greek:
+      name: Ananke
+      nameOriginal: Ἀνάγκη
+      domains: [necessity, fate]
+      symbols:
+        de: [Spindel]
+        en: [spindle]
+      description:
+        de: >-
+          Die unabwendbare Notwendigkeit, jene Macht, der auch die Götter nichts
+          entgegensetzen können. Bei Platon hält sie die Spindel, um die sich die
+          Himmelskreise drehen, und die Moiren sind ihre Töchter.
+        en: >-
+          Inescapable necessity, the power against which even the gods can do nothing.
+          In Plato she holds the spindle around which the celestial circles turn, and
+          the Fates are her daughters.
+    roman:
+      name: Necessitas
+      domains: [necessity, fate]
+      description:
+        de: >-
+          Bei Horaz erscheint Necessitas mit ehernen Nägeln und Klammern als
+          unerbittliche Begleiterin der Fortuna - ein Bild dafür, dass sich am einmal
+          Festgemachten nichts mehr ändern lässt.
+        en: >-
+          In Horace, Necessitas appears with bronze nails and clamps as the implacable
+          companion of Fortuna - an image of how nothing once fastened can be changed.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Ananke_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Ananke
+
+  - id: phanes
+    category: protogenos
+    tier: 1
+    confidence: obscure
+    parentage:
+      - id: orphisch
+        parents: [chronos-protogonos, ananke]
+        mode: emerged
+        canonical: true
+        confidence: obscure
+        sources:
+          - { source: orphische-fragmente }
+        note:
+          de: Phanes entsteht nicht durch Zeugung, sondern schlüpft aus dem Weltei, das Chronos und Ananke geformt haben.
+          en: Phanes arises not by begetting but hatches from the world egg formed by Chronos and Ananke.
+    greek:
+      name: Phanes
+      nameOriginal: Φάνης
+      altNames: [Protogonos, Erikepaios]
+      domains: [light, procreation, beginnings]
+      description:
+        de: >-
+          Der Erstgeborene der orphischen Lehre, der aus dem silbernen Weltei
+          hervorbricht: ein zwittriges, goldgeflügeltes Wesen, das alles Licht in sich
+          trägt. Sein Name bedeutet "der Erscheinende". Die orphische Überlieferung
+          setzt ihn mit dem Urgott Eros gleich.
+        en: >-
+          The firstborn of Orphic doctrine, breaking out of the silver world egg: a
+          hermaphroditic, golden-winged being carrying all light within. His name means
+          "the one who appears". The Orphic tradition identifies him with the primordial
+          god Eros.
+    counterparts:
+      - figure: eros-protogonos
+        relation: conflated
+        note:
+          de: Die orphische Überlieferung setzt Phanes mit dem Urgott Eros gleich.
+          en: The Orphic tradition identifies Phanes with the primordial god Eros.
+        sources:
+          - { source: orphische-fragmente }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Phanes
+      wikipediaEn: https://en.wikipedia.org/wiki/Phanes

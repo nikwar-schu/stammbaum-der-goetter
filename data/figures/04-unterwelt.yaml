@@ -1,0 +1,147 @@
+# yaml-language-server: $schema=../../schema/figures.schema.json
+#
+# Gottheiten der Unterwelt.
+#
+# Hades und Persephone stehen hier und nicht bei den Olympiern, weil sich die
+# Dateien nach Sachgruppen richten. Die Kinder der Nyx - Thanatos, Hypnos, die
+# Moiren, die Erinyen und die uebrigen - folgen in einer spaeteren Etappe.
+
+figures:
+  - id: hades
+    category: chthonic
+    tier: 4
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [kronos, rheia]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '453-458' }
+    greek:
+      name: Hades
+      nameOriginal: Ἅιδης
+      altNames: [Aidoneus, Plouton]
+      domains: [underworld, death, wealth]
+      symbols:
+        de: [Tarnkappe, Zepter, Zypresse, Kerberos]
+        en: [cap of invisibility, sceptre, cypress, Cerberus]
+      description:
+        de: >-
+          Herr der Unterwelt, der bei der Aufteilung der Welt das Los des Totenreiches
+          zieht. Er ist kein Gott des Sterbens - das ist Thanatos -, sondern der Verwalter
+          der Toten, streng, aber nicht bösartig. Die Griechen nannten seinen Namen ungern
+          und wichen auf Plouton aus, "der Reiche": weil aller Reichtum aus der Erde kommt.
+          Von den Kyklopen erhielt er die Tarnkappe, die unsichtbar macht.
+        en: >-
+          Lord of the underworld, who draws the lot of the realm of the dead in the division
+          of the world. He is not a god of dying - that is Thanatos - but the administrator
+          of the dead, stern but not malicious. The Greeks were reluctant to say his name and
+          used Plouton instead, "the rich one": because all wealth comes out of the earth.
+          From the Cyclopes he received the cap that makes its wearer invisible.
+      epithets:
+        - name: Plouton
+          meaning: { de: der Reiche, en: the rich one }
+        - name: Klymenos
+          meaning: { de: "der Berühmte, verhüllende Anrede", en: "the renowned, a veiled form of address" }
+      cultNotes:
+        de: Ihm wurden schwarze Tiere geopfert, und der Opfernde wandte dabei das Gesicht ab.
+        en: Black animals were sacrificed to him, and the one sacrificing turned his face away.
+      sources:
+        - { source: homer-ilias, loc: '15.185-193' }
+    roman:
+      name: Pluto
+      altNames: [Dis Pater, Orcus]
+      domains: [underworld, death, wealth]
+      symbols:
+        de: [Zepter, Füllhorn]
+        en: [sceptre, cornucopia]
+      description:
+        de: >-
+          Die Römer kannten mehrere Herren der Unterwelt nebeneinander: Dis Pater, wörtlich
+          "reicher Vater", ist die genaue Übersetzung von Plouton; Orcus war ein älterer,
+          finsterer Todesdämon, der eher die Strafe verkörperte. Beide flossen mit dem
+          griechischen Hades zu Pluto zusammen.
+        en: >-
+          The Romans knew several lords of the underworld side by side: Dis Pater, literally
+          "rich father", is the exact translation of Plouton; Orcus was an older, grimmer
+          death demon embodying punishment. Both flowed together with the Greek Hades into
+          Pluto.
+      sources:
+        - { source: ovid-metamorphosen, loc: '5.341-424' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Hades
+      wikipediaEn: https://en.wikipedia.org/wiki/Hades
+
+  - id: persephone
+    category: chthonic
+    tier: 5
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [zeus, demeter]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '912-914' }
+    unions:
+      - with: [hades]
+        type: abduction
+        sources:
+          - { source: homerische-hymnen, loc: '2.1-90' }
+        note:
+          de: >-
+            Die Verbindung bleibt kinderlos und beginnt als Raub - mit Wissen des Zeus,
+            der die Tochter dem Bruder zugesagt hatte, ohne Demeter zu fragen.
+          en: >-
+            The union remains childless and begins as an abduction - with the knowledge of
+            Zeus, who had promised the daughter to his brother without asking Demeter.
+    greek:
+      name: Persephone
+      nameOriginal: Περσεφόνη
+      altNames: [Kore]
+      domains: [underworld, vegetation, death]
+      symbols:
+        de: [Granatapfel, Fackel, Ährenkranz]
+        en: [pomegranate, torch, wreath of grain]
+      description:
+        de: >-
+          Als Kore, "das Mädchen", pflückt sie Blumen, als Hades sie in die Tiefe reißt.
+          Weil sie unten sechs Granatapfelkerne isst, bleibt sie für immer an das Totenreich
+          gebunden und kehrt nur einen Teil des Jahres zur Mutter zurück. Als Königin der
+          Unterwelt tritt sie streng und unerbittlich auf - dieselbe Gestalt in zwei
+          entgegengesetzten Rollen.
+        en: >-
+          As Kore, "the maiden", she is picking flowers when Hades drags her into the depths.
+          Because she eats six pomegranate seeds below, she is bound to the realm of the dead
+          for ever and returns to her mother only part of the year. As queen of the underworld
+          she appears stern and implacable - the same figure in two opposed roles.
+      cultNotes:
+        de: Mit Demeter stand sie im Mittelpunkt der Mysterien von Eleusis, die den Eingeweihten ein besseres Los nach dem Tod versprachen.
+        en: With Demeter she stood at the centre of the Eleusinian Mysteries, which promised initiates a better lot after death.
+      sources:
+        - { source: homerische-hymnen, loc: '2' }
+    roman:
+      name: Proserpina
+      domains: [underworld, vegetation]
+      symbols:
+        de: [Granatapfel, Fackel]
+        en: [pomegranate, torch]
+      description:
+        de: >-
+          Proserpina übernimmt den Mythos nahezu unverändert; Ovid verlegt den Raub an den
+          See von Enna auf Sizilien und macht daraus eine der bekanntesten Szenen der
+          lateinischen Dichtung. Ihr Name wurde volksetymologisch mit "proserpere",
+          hervorkriechen, verbunden - dem Aufgehen der Saat.
+        en: >-
+          Proserpina takes over the myth almost unchanged; Ovid moves the abduction to the lake
+          at Enna in Sicily and makes it one of the best-known scenes in Latin poetry. Her name
+          was popularly linked with "proserpere", to creep forth - the sprouting of the seed.
+      sources:
+        - { source: ovid-metamorphosen, loc: '5.385-571' }
+        - { source: ovid-fasti, loc: '4.417-620' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Persephone
+      wikipediaEn: https://en.wikipedia.org/wiki/Persephone

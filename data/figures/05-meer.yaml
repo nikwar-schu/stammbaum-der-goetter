@@ -1,0 +1,202 @@
+# yaml-language-server: $schema=../../schema/figures.schema.json
+#
+# Meergottheiten.
+#
+# Erste Stufe: die fuenf Kinder von Gaia und Pontos, aus denen fast das gesamte
+# Meervolk hervorgeht. Nereiden, Okeaniden und die uebrigen Meerwesen folgen in
+# einer spaeteren Etappe.
+
+figures:
+  - id: nereus
+    category: sea
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, pontos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '233-236' }
+    greek:
+      name: Nereus
+      nameOriginal: Νηρεύς
+      altNames: [Halios Geron]
+      domains: [sea, prophecy]
+      symbols:
+        de: [Fischschwanz, Dreizack]
+        en: [fish tail, trident]
+      description:
+        de: >-
+          Der "Meergreis", ältester Sohn des Pontos und Verkörperung des freundlichen,
+          fischreichen Meeres. Hesiod hebt ihn als wahrhaftig und milde hervor - er lügt
+          nicht. Wie andere Meergottheiten kann er die Gestalt wechseln; Herakles muss ihn
+          festhalten, bis er den Weg zu den Hesperiden verrät. Mit Doris zeugt er die
+          fünfzig Nereiden.
+        en: >-
+          The "old man of the sea", eldest son of Pontus and embodiment of the kindly,
+          fish-rich sea. Hesiod singles him out as truthful and gentle - he does not lie.
+          Like other sea deities he can change shape; Heracles must hold him fast until he
+          reveals the way to the Hesperides. With Doris he fathers the fifty Nereids.
+      sources:
+        - { source: hesiod-theogonie, loc: '233-264' }
+    roman:
+      name: Nereus
+      domains: [sea, prophecy]
+      description:
+        de: >-
+          Die lateinische Dichtung übernimmt ihn als Namen für das Meer und als Vater der
+          Thetis; ein eigener Kult entsteht nicht.
+        en: >-
+          Latin poetry adopts him as a name for the sea and as father of Thetis; no cult of
+          his own arises.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Nereus
+      wikipediaEn: https://en.wikipedia.org/wiki/Nereus
+
+  - id: thaumas
+    category: sea
+    tier: 3
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [gaia, pontos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '233-237' }
+    greek:
+      name: Thaumas
+      nameOriginal: Θαύμας
+      domains: [sea, rainbow]
+      description:
+        de: >-
+          Meergott, dessen Name "Wunder" bedeutet und die staunenswerten Erscheinungen
+          über dem Wasser meint. Mit der Okeanide Elektra zeugt er Iris, den Regenbogen,
+          und die Harpyien - Windsbraut und Wolkenbogen als Geschwister.
+        en: >-
+          Sea god whose name means "wonder" and denotes the marvellous appearances above
+          the water. With the Oceanid Electra he fathers Iris, the rainbow, and the Harpies -
+          storm gust and cloud arc as siblings.
+      sources:
+        - { source: hesiod-theogonie, loc: '265-269' }
+    roman:
+      name: Thaumas
+      domains: [sea]
+      description:
+        de: >-
+          Im Lateinischen nur als Vatername der Iris geführt, die bei Vergil und Ovid als
+          Botin der Iuno auftritt.
+        en: >-
+          In Latin carried only as the patronymic of Iris, who appears in Virgil and Ovid
+          as messenger of Juno.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Thaumas
+      wikipediaEn: https://en.wikipedia.org/wiki/Thaumas
+
+  - id: phorkys
+    category: sea
+    tier: 3
+    confidence: attested
+    parentage:
+      - id: hesiod
+        parents: [gaia, pontos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '233-238' }
+    greek:
+      name: Phorkys
+      nameOriginal: Φόρκυς
+      domains: [sea]
+      description:
+        de: >-
+          Gott der verborgenen Schrecken des Meeres. Mit seiner Schwester Keto zeugt er die
+          Graien, die Gorgonen und weitere Ungeheuer - während Nereus das milde Meer
+          verkörpert, steht dieses Paar für alles, was darin lauert.
+        en: >-
+          God of the hidden terrors of the sea. With his sister Ceto he fathers the Graeae,
+          the Gorgons and further monsters - while Nereus embodies the gentle sea, this pair
+          stands for everything that lurks within it.
+      sources:
+        - { source: hesiod-theogonie, loc: '270-336' }
+    roman:
+      name: Phorcus
+      domains: [sea]
+      description:
+        de: >-
+          Vergil und Ovid nennen Phorcus als Meergott im Gefolge des Neptunus; die
+          Ungeheuerzeugung tritt zurück.
+        en: >-
+          Virgil and Ovid name Phorcus as a sea god in Neptune's retinue; the begetting of
+          monsters recedes.
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Phorkys
+      wikipediaEn: https://en.wikipedia.org/wiki/Phorcys
+
+  - id: keto
+    category: sea
+    tier: 3
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [gaia, pontos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '233-239' }
+    greek:
+      name: Keto
+      nameOriginal: Κητώ
+      domains: [sea]
+      description:
+        de: >-
+          Göttin der Meeresungeheuer; ihr Name bezeichnet den großen Meerfisch oder Wal.
+          Mit ihrem Bruder Phorkys ist sie Mutter der Graien und der Gorgonen, unter ihnen
+          Medusa. Im Wort "Ketos" steckt bis heute die zoologische Bezeichnung der Wale.
+        en: >-
+          Goddess of sea monsters; her name denotes the great sea fish or whale. With her
+          brother Phorcys she is mother of the Graeae and the Gorgons, among them Medusa.
+          The word "ketos" survives to this day in the zoological term for whales.
+      sources:
+        - { source: hesiod-theogonie, loc: '270-283' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Keto_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Ceto
+
+  - id: eurybia
+    category: sea
+    tier: 3
+    confidence: common
+    parentage:
+      - id: hesiod
+        parents: [gaia, pontos]
+        mode: sexual
+        canonical: true
+        confidence: attested
+        sources:
+          - { source: hesiod-theogonie, loc: '239' }
+    greek:
+      name: Eurybia
+      nameOriginal: Εὐρυβία
+      domains: [sea, might, stars]
+      description:
+        de: >-
+          Meergöttin der Herrschaft über die Wogen; Hesiod schreibt ihr ein Herz aus Stahl
+          zu. Mit dem Titanen Krios verbindet sie das Meergeschlecht mit den Titanen und
+          wird Mutter von Astraios, Pallas und Perses - über sie führt die Linie zu den
+          Winden, zu Nike und zu Hekate.
+        en: >-
+          Sea goddess of mastery over the waves; Hesiod attributes to her a heart of steel.
+          Through the Titan Crius she links the sea lineage with the Titans and becomes
+          mother of Astraeus, Pallas and Perses - through her the line leads to the winds,
+          to Nike and to Hecate.
+      sources:
+        - { source: hesiod-theogonie, loc: '375-377' }
+    refs:
+      wikipediaDe: https://de.wikipedia.org/wiki/Eurybia_(Mythologie)
+      wikipediaEn: https://en.wikipedia.org/wiki/Eurybia_(mythology)

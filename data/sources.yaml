@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=../schema/sources.schema.json
+#
+# Die zitierten antiken Werke. Jede Abstammungsangabe im Stammbaum verweist auf
+# einen Schluessel aus dieser Liste, damit im Infofenster nachvollziehbar bleibt,
+# wer was ueberliefert - gerade dort, wo die Quellen einander widersprechen.
+
+sources:
+  hesiod-theogonie:
+    author: { de: Hesiod, en: Hesiod }
+    work: { de: Theogonie, en: Theogony }
+    date: { de: um 700 v. Chr., en: c. 700 BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0130
+
+  hesiod-erga:
+    author: { de: Hesiod, en: Hesiod }
+    work: { de: Werke und Tage, en: Works and Days }
+    date: { de: um 700 v. Chr., en: c. 700 BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0132
+
+  homer-ilias:
+    author: { de: Homer, en: Homer }
+    work: { de: Ilias, en: Iliad }
+    date: { de: 8. Jh. v. Chr., en: 8th c. BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0134
+
+  homer-odyssee:
+    author: { de: Homer, en: Homer }
+    work: { de: Odyssee, en: Odyssey }
+    date: { de: 8. Jh. v. Chr., en: 8th c. BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0136
+
+  homerische-hymnen:
+    author: { de: unbekannt, en: anonymous }
+    work: { de: Homerische Hymnen, en: Homeric Hymns }
+    date: { de: 7.-5. Jh. v. Chr., en: 7th-5th c. BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0138
+
+  apollodor-bibliotheke:
+    author: { de: Pseudo-Apollodor, en: Pseudo-Apollodorus }
+    work: { de: Bibliotheke, en: Bibliotheca }
+    date: { de: 1.-2. Jh. n. Chr., en: 1st-2nd c. AD }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0022
+
+  ovid-metamorphosen:
+    author: { de: Ovid, en: Ovid }
+    work: { de: Metamorphosen, en: Metamorphoses }
+    date: { de: um 8 n. Chr., en: c. AD 8 }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0028
+
+  ovid-fasti:
+    author: { de: Ovid, en: Ovid }
+    work: { de: Fasti, en: Fasti }
+    date: { de: um 8 n. Chr., en: c. AD 8 }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0547
+
+  vergil-aeneis:
+    author: { de: Vergil, en: Virgil }
+    work: { de: Aeneis, en: Aeneid }
+    date: { de: 29-19 v. Chr., en: 29-19 BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.02.0055
+
+  hygin-fabulae:
+    author: { de: Hyginus, en: Hyginus }
+    work: { de: Fabulae, en: Fabulae }
+    date: { de: 1.-2. Jh. n. Chr., en: 1st-2nd c. AD }
+    url: https://topostext.org/work/206
+
+  pausanias-periegesis:
+    author: { de: Pausanias, en: Pausanias }
+    work: { de: Beschreibung Griechenlands, en: Description of Greece }
+    date: { de: 2. Jh. n. Chr., en: 2nd c. AD }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0159
+
+  orphische-hymnen:
+    author: { de: unbekannt, en: anonymous }
+    work: { de: Orphische Hymnen, en: Orphic Hymns }
+    date: { de: 2.-3. Jh. n. Chr., en: 2nd-3rd c. AD }
+
+  orphische-fragmente:
+    author: { de: unbekannt, en: anonymous }
+    work: { de: Orphische Fragmente, en: Orphic Fragments }
+    date: { de: 6. Jh. v. Chr. und später, en: 6th c. BC onward }
+
+  cicero-de-natura-deorum:
+    author: { de: Cicero, en: Cicero }
+    work: { de: Über das Wesen der Götter, en: On the Nature of the Gods }
+    date: { de: 45 v. Chr., en: 45 BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:2007.01.0038
+
+  diodor-bibliotheke:
+    author: { de: Diodor, en: Diodorus Siculus }
+    work: { de: Historische Bibliothek, en: Library of History }
+    date: { de: 1. Jh. v. Chr., en: 1st c. BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0084
+
+  aischylos-eumeniden:
+    author: { de: Aischylos, en: Aeschylus }
+    work: { de: Eumeniden, en: Eumenides }
+    date: { de: 458 v. Chr., en: 458 BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0005
+
+  pindar-oden:
+    author: { de: Pindar, en: Pindar }
+    work: { de: Oden, en: Odes }
+    date: { de: 5. Jh. v. Chr., en: 5th c. BC }
+    url: https://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0161
+
+  varro-de-lingua-latina:
+    author: { de: Varro, en: Varro }
+    work: { de: Über die lateinische Sprache, en: On the Latin Language }
+    date: { de: um 45 v. Chr., en: c. 45 BC }
+
+  macrobius-saturnalia:
+    author: { de: Macrobius, en: Macrobius }
+    work: { de: Saturnalia, en: Saturnalia }
+    date: { de: um 430 n. Chr., en: c. AD 430 }

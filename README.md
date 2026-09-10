@@ -46,6 +46,7 @@ Die Anwendung läuft dann unter der Adresse, die Vite ausgibt.
 | `npm run gen:schema` | JSON-Schema für den Editor aus dem Zod-Schema erzeugen |
 
 | `npm run check:links` | zeigt im Text genannte Gottheiten ohne Verweis |
+| `npm run check:refs` | prüft, ob die verlinkten Wikipedia-Artikel erreichbar sind |
 
 Beim Start ist die Filterleiste ausgefahren, alle Sachgruppen sind eingeschaltet und alle
 Generationen sichtbar; über die Leiste lässt sich beides einschränken, über den Schalter
@@ -164,6 +165,12 @@ Das ist die Voraussetzung dafür, dass beim Umschalten zwischen den Sichten nich
 verrutscht: Schalter regeln ausschließlich Sichtbarkeit, nie Positionen. Die erzeugten
 Dateien unter `public/data/` sind bewusst nicht eingecheckt — eine einzelne neue Figur
 sortiert das Bild um.
+
+## Was noch offen ist
+
+Der Stand und die nächsten Schritte stehen in [TODO.md](TODO.md) - von den
+Punkten, die vor einer breiteren Weitergabe zu klären sind (Impressum, Lizenz,
+Favicon), bis zum Ausbau des Bestands auf 400 bis 600 Figuren.
 
 ## Quellen
 

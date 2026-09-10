@@ -10,6 +10,8 @@
   "scripts": {
     "gen:schema": "node scripts/gen-schema.ts",
     "validate": "node scripts/validate.ts",
+    "check:links": "node scripts/check-links.ts",
+    "check:refs": "node scripts/check-refs.ts",
     "build:data": "node scripts/build-data.ts",
     "build:layout": "node scripts/build-layout.ts",
     "prepare:data": "npm run gen:schema && npm run validate && npm run build:data && npm run build:layout",
@@ -17,8 +19,7 @@
     "prebuild": "npm run prepare:data && tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "check:links": "node scripts/check-links.ts"
+    "test": "vitest run"
   },
   "dependencies": {
     "cytoscape": "^3.34.3",
